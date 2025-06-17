@@ -6,49 +6,58 @@
   <title>The Great Change UK</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #222;
-    }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; color: #222; }
     header {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #003366;
     }
-    header h1 {
-      font-size: 2.5rem;
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background-color: #005fa3;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
-    header p {
+    .hero p {
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
     .cta-button {
-      background-color: #0077cc;
-      color: white;
+      background-color: white;
+      color: #005fa3;
       padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
       text-decoration: none;
-      font-size: 1rem;
+      border-radius: 5px;
+      font-weight: bold;
     }
     section {
       padding: 40px 20px;
       text-align: center;
     }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 20px;
-    }
-    .stat {
-      text-align: center;
+    .mission {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding-top: 20px;
     }
     footer {
       background: #001F3F;
@@ -67,30 +76,27 @@
 <body>
 
 <header>
+  <img src="images/logo.png" alt="The Great Change UK Logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="login.html">Log In</a>
+    <a href="legal.html">Legal Page</a>
+    <a href="winners.html">Winners</a>
+  </nav>
+</header>
+
+<section class="hero">
   <h1>Win Big. Give Back. Be The Change.</h1>
   <p>Every £10 subscription supports a charity of your choice — and gives you a chance to win life-changing prizes.</p>
   <a href="#join" class="cta-button">Join Now</a>
-</header>
+</section>
 
 <section>
-  <h2>How It Works</h2>
-  <div class="stats">
-    <div class="stat">
-      <h3>23,459</h3>
-      <p>Subscribe For £10/Month</p>
-    </div>
-    <div class="stat">
-      <h3>£11,729</h3>
-      <p>Support A Charity</p>
-    </div>
-    <div class="stat">
-      <h3>£11,729</h3>
-      <p>Donated to Charity</p>
-    </div>
+  <div class="mission">
+    <p><strong>The Great Change UK’s goal is to make a millionaire every single day — we’re not going to stop until we get there.</strong></p>
   </div>
-  <p style="margin-top: 30px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-    49% of your subscription goes to the prize pot. 49% goes directly to the charity you choose. 2% covers operational costs.
-  </p>
 </section>
 
 <footer>
