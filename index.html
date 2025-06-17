@@ -27,22 +27,45 @@
     }
     .hero {
       background: url('images/hero.jpg') center/cover no-repeat;
-      height: 300px;
+      height: 360px;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
     }
     .hero h1, .hero h2, .hero h3 {
-      margin: 5px;
+      margin: 4px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+    .cta-button {
+      margin-top: 10px;
+      background-color: #ffffff;
+      color: #003366;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
     }
     .stats {
       display: flex;
-      justify-content: space-between;
-      max-width: 800px;
+      justify-content: space-around;
+      max-width: 600px;
       margin: 20px auto 10px;
       font-weight: bold;
       font-size: 1.1rem;
@@ -81,6 +104,7 @@
     <h1>Win Big.</h1>
     <h2>Give back.</h2>
     <h3>Be Part Of The Great Change.</h3>
+    <a class="cta-button" href="#">Subscribe Now</a>
   </section>
   <div class="stats">
     <span>💰 £68.60</span>
