@@ -1,41 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>The Great Change UK</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .hero {
+            background-image: url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .cta-button {
+            background-color: #0074D9;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+        .split-info {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 50px;
+        }
+        .split-box {
+            border: 2px solid #0074D9;
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        section {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="The Great Change Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="how-it-works.html">How It Works</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="login.html">Subscribe / Log In</a></li>
-                <li><a href="legal.html">Legal</a></li>
-                <li><a href="winners.html">Winners</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>Win Big.<br>Give Back.<br>Be Part Of The Great Change.</h1>
-            <a class="cta" href="login.html">Subscribe Now</a>
-        </section>
-        <section class="stats">
-            <div>💰 £0</div>
-            <div>👥 0 Subscribers</div>
-            <p>The more we grow the bigger the prize. Join our community to have a chance to win. At the same time supporting a cause you believe in.</p>
-            <p><strong>Each subscription is split:</strong><br>45% into prize pot<br>45% into chosen charity<br>10% for operation costs.</p>
-        </section>
-    </main>
-    <footer>
-        <a href="terms.html">Terms & Conditions</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="responsible.html">Responsible Gambling</a>
-        <p>© 2025 The Great Change UK</p>
-    </footer>
+
+<header>
+    <img src="images/logo.png" alt="The Great Change Logo">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Log In</a>
+        <a href="legal.html">Legal</a>
+        <a href="winners.html">Winners</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>The Great Change UK</h1>
+        <h2>"Our goal is to make a millionaire every single day."</h2>
+        <p>Join today and help change lives — including your own.</p>
+        <a href="login.html"><button class="cta-button">Subscribe Now</button></a>
+    </section>
+
+    <section>
+        <h2>Live Stats</h2>
+        <p>💰 Prize Pot: <strong>£0</strong></p>
+        <p>👥 Subscribers: <strong>0</strong></p>
+    </section>
+
+    <section class="split-info">
+        <div class="split-box"><strong>45%</strong><br>Prize Pot</div>
+        <div class="split-box"><strong>45%</strong><br>Your Charity</div>
+        <div class="split-box"><strong>10%</strong><br>Operations</div>
+    </section>
+
+    <section style="background:#f9f9f9;">
+        <h2>Our Big Goal</h2>
+        <p>We want to make <strong>one millionaire every single day</strong>.</p>
+        <p>To do that, we need <strong>6.67 million subscribers</strong> each paying £10/month.</p>
+        <p>Join us on this journey — together, we can make it happen!</p>
+    </section>
+</main>
+
+<footer>
+    <a href="legal.html">Legal</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="responsible.html">Responsible Gambling</a><br>
+    © 2025 The Great Change UK
+</footer>
+
 </body>
 </html>

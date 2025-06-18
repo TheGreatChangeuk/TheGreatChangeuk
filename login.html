@@ -1,1 +1,184 @@
-<h1>Subscribe / Log In</h1><p>Login or create an account to get started.</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe / Log In</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        form {
+            max-width: 500px;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0074D9;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/logo.png" alt="The Great Change Logo">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Log In</a>
+        <a href="legal.html">Legal</a>
+        <a href="winners.html">Winners</a>
+    </nav>
+</header>
+
+<main>
+    <h1 style="text-align:center;">Subscribe to Win & Give Back</h1>
+    <p style="text-align:center;">Join for just £10/month. Help charities. Win life-changing prizes.</p>
+    <form action="#" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="charity">Choose Your Charity:</label>
+<select id="charity" name="charity" required>
+  <option value="British Red Cross">British Red Cross</option>
+  <option value="Cancer Research UK">Cancer Research UK</option>
+  <option value="Macmillan Cancer Support">Macmillan Cancer Support</option>
+  <option value="Oxfam">Oxfam</option>
+  <option value="British Heart Foundation">British Heart Foundation</option>
+  <option value="RSPCA">RSPCA</option>
+  <option value="Mind">Mind</option>
+  <option value="Save the Children">Save the Children</option>
+  <option value="Marie Curie">Marie Curie</option>
+  <option value="The Trussell Trust">The Trussell Trust</option>
+  <option value="NSPCC">NSPCC</option>
+  <option value="Age UK">Age UK</option>
+  <option value="Shelter">Shelter</option>
+  <option value="Barnardo’s">Barnardo’s</option>
+  <option value="WaterAid">WaterAid</option>
+  <option value="Guide Dogs">Guide Dogs</option>
+  <option value="Samaritans">Samaritans</option>
+  <option value="Great Ormond Street Hospital">Great Ormond Street Hospital</option>
+  <option value="Alzheimer’s Society">Alzheimer’s Society</option>
+  <option value="WWF-UK">WWF-UK</option>
+  <option value="The Prince’s Trust">The Prince’s Trust</option>
+  <option value="National Trust">National Trust</option>
+  <option value="RNLI">RNLI</option>
+  <option value="The Children’s Society">The Children’s Society</option>
+  <option value="Scope">Scope</option>
+  <option value="The Salvation Army">The Salvation Army</option>
+  <option value="Dogs Trust">Dogs Trust</option>
+  <option value="Action for Children">Action for Children</option>
+  <option value="UNICEF UK">UNICEF UK</option>
+  <option value="Blue Cross">Blue Cross</option>
+  <option value="Diabetes UK">Diabetes UK</option>
+  <option value="Leukaemia Care">Leukaemia Care</option>
+  <option value="Asthma + Lung UK">Asthma + Lung UK</option>
+  <option value="Prostate Cancer UK">Prostate Cancer UK</option>
+  <option value="Plan International UK">Plan International UK</option>
+  <option value="Royal British Legion">Royal British Legion</option>
+  <option value="Anthony Nolan">Anthony Nolan</option>
+  <option value="Terrence Higgins Trust">Terrence Higgins Trust</option>
+  <option value="Versus Arthritis">Versus Arthritis</option>
+  <option value="Epilepsy Society">Epilepsy Society</option>
+  <option value="MS Society">MS Society</option>
+  <option value="Parkinson’s UK">Parkinson’s UK</option>
+  <option value="Hearing Dogs for Deaf People">Hearing Dogs for Deaf People</option>
+  <option value="Breast Cancer Now">Breast Cancer Now</option>
+  <option value="Sense">Sense</option>
+  <option value="Stroke Association">Stroke Association</option>
+  <option value="Teach First">Teach First</option>
+  <option value="Hope for Justice">Hope for Justice</option>
+  <option value="YoungMinds">YoungMinds</option>
+  <option value="PDSA">PDSA</option>
+  <option value="National Autistic Society">National Autistic Society</option>
+  <option value="ZSL (Zoological Society of London)">ZSL (Zoological Society of London)</option>
+  <option value="Battersea Dogs & Cats Home">Battersea Dogs & Cats Home</option>
+  <option value="CAFOD">CAFOD</option>
+  <option value="Macular Society">Macular Society</option>
+  <option value="St John Ambulance">St John Ambulance</option>
+  <option value="Muscular Dystrophy UK">Muscular Dystrophy UK</option>
+  <option value="Teenage Cancer Trust">Teenage Cancer Trust</option>
+  <option value="Crisis">Crisis</option>
+  <option value="Cystic Fibrosis Trust">Cystic Fibrosis Trust</option>
+  <option value="Cats Protection">Cats Protection</option>
+  <option value="FareShare">FareShare</option>
+  <option value="Royal Marsden Cancer Charity">Royal Marsden Cancer Charity</option>
+  <option value="GOSH Children’s Charity">GOSH Children’s Charity</option>
+  <option value="Orchid Cancer Appeal">Orchid Cancer Appeal</option>
+  <option value="The Wildlife Trusts">The Wildlife Trusts</option>
+  <option value="Helen & Douglas House">Helen & Douglas House</option>
+  <option value="Rainforest Trust UK">Rainforest Trust UK</option>
+  <option value="The Brain Tumour Charity">The Brain Tumour Charity</option>
+  <option value="Royal Society for Blind Children">Royal Society for Blind Children</option>
+  <option value="WWF">WWF</option>
+  <option value="Born Free Foundation">Born Free Foundation</option>
+  <option value="The Big Issue Foundation">The Big Issue Foundation</option>
+  <option value="Guide Dogs for the Blind">Guide Dogs for the Blind</option>
+  <option value="Help for Heroes">Help for Heroes</option>
+  <option value="International Animal Rescue">International Animal Rescue</option>
+  <option value="Livability">Livability</option>
+  <option value="ShelterBox">ShelterBox</option>
+  <option value="RNIB">RNIB</option>
+  <option value="Mercy Ships UK">Mercy Ships UK</option>
+  <option value="The Donkey Sanctuary">The Donkey Sanctuary</option>
+  <option value="MindOut">MindOut</option>
+  <option value="Street League">Street League</option>
+  <option value="The Ocean Cleanup">The Ocean Cleanup</option>
+  <option value="Freedom from Torture">Freedom from Torture</option>
+  <option value="Amnesty International UK">Amnesty International UK</option>
+  <option value="Refuge">Refuge</option>
+  <option value="Comic Relief">Comic Relief</option>
+  <option value="Red Nose Day">Red Nose Day</option>
+  <option value="Sport Relief">Sport Relief</option>
+  <option value="British Liver Trust">British Liver Trust</option>
+  <option value="Kidney Research UK">Kidney Research UK</option>
+  <option value="Royal Voluntary Service">Royal Voluntary Service</option>
+  <option value="World Vision UK">World Vision UK</option>
+  <option value="The Fostering Network">The Fostering Network</option>
+  <option value="Bowel Cancer UK">Bowel Cancer UK</option>
+  <option value="Canine Partners">Canine Partners</option>
+  <option value="Papyrus UK">Papyrus UK</option>
+  <option value="The Hunger Project">The Hunger Project</option>
+  <option value="People's Dispensary for Sick Animals">People's Dispensary for Sick Animals</option>
+  <option value="The Conservation Volunteers">The Conservation Volunteers</option>
+  <option value="The Brooke">The Brooke</option>
+  <option value="Compassion in World Farming">Compassion in World Farming</option>
+  <option value="The Royal Parks">The Royal Parks</option>
+</select>
+
+        <button type="submit">Subscribe with GoCardless</button>
+    </form>
+</main>
+
+<footer>
+    <a href="legal.html">Legal</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="responsible.html">Responsible Gambling</a><br>
+    © 2025 The Great Change UK
+</footer>
+
+</body>
+</html>

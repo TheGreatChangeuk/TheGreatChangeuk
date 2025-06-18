@@ -1,51 +1,31 @@
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 header {
-    background-color: #003366;
-    color: white;
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #001f3f;
+    padding: 10px;
 }
-.logo {
-    height: 40px;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1em;
+header img {
+    height: 50px;
+    float: left;
+    margin-left: 10px;
 }
 nav a {
     color: white;
-    text-decoration: none;
-}
-.hero {
-    background: url('../images/hero.jpg') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 4em 1em;
-}
-.cta {
-    background-color: #4CAF50;
-    padding: 1em 2em;
-    color: white;
+    margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
 }
-.stats {
-    padding: 2em;
-    background-color: white;
-    text-align: center;
+main {
+    padding: 20px;
 }
 footer {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 1em;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    background: #f0f0f0;
 }
