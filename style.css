@@ -1,91 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Great Change UK</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="The Great Change UK Logo" /></a>
+      <nav>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="winners.html">Winners</a></li>
+          <li><a href="donation-transparency.html">Transparency</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+  <section class="hero" style="background-image: url('images/hero.jpg');">
+    <div class=.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* subtle dark overlay */
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+  max-width: 800px;
+  margin: auto;
 }
-header {
-    background: #002c5f;
-    color: white;
-    padding: 1em;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.logo {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.hamburger {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none;
-}
-#menu-toggle {
-    display: none;
-}
-.menu {
-    display: flex;
-    gap: 1em;
-}
-.menu a {
-    color: white;
-    text-decoration: none;
-}
-@media (max-width: 768px) {
-    .menu {
-        display: none;
-        flex-direction: column;
-        background: #002c5f;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-    }
-    #menu-toggle:checked + .hamburger + .menu {
-        display: flex;
-    }
-    .hamburger {
-        display: block;
-    }
-}
-.hero {
-    background: url('images/hero.jpg') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 5em 1em;
-}
-.overlay {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2em;
-}
-.btn {
-    background: #00aaff;
-    color: white;
-    padding: 1em 2em;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 1em;
-}
-.stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 2em;
-    background: #f0f0f0;
-}
-.split {
-    display: flex;
-    justify-content: space-around;
-    padding: 2em;
-}
-footer {
-    text-align: center;
-    padding: 1em;
-    background: #002c5f;
-    color: white;
-}
-footer a {
-    color: white;
-    margin: 0 0.5em;
-}
+      <h1>Our Mission</h1>
+      <p>The Great Change UK’s goal is to make a millionaire every single day — we’re not going to stop until we get there.</p>
+      <div class="stats">
+        <div><strong>Subscribers:</strong> <span id="subscribers">0</span></div>
+        <div><strong>Prize Pot:</strong> £<span id="prize-pot">0.00</span></div>
+      </div>
+      <a href="#subscribe" class="cta">Subscribe Now</a>
+    </div>
+  </section>
+
+  <section class="split-info">
+    <h2>Where Your Subscription Goes</h2>
+    <div class="split-boxes">
+      <div><strong>60%</strong><p>Goes to the prize pot</p></div>
+      <div><strong>30%</strong><p>Donated to your chosen charity</p></div>
+      <div><strong>10%</strong><p>Used for operations & fees</p></div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="subscribe-section">
+    <h2>Subscribe Now</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select>
+        <option disabled selected>Choose a charity</option>
+        <option>British Red Cross</option>
+        <option>Cancer Research UK</option>
+        <!-- You’ll add top 100 UK charities with logos later -->
+      </select>
+      <button type="submit">Submit & Pay</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Great Change UK. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy</a> |
+        <a href="#">Terms</a> |
+        <a href="#">Responsible Gambling</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
