@@ -1,55 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>The Great Change UK</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Great Change UK</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <div class="hero">
-  <img src="images/hero.png" alt="TheGreatChangeuk Logo" style="height: 40px;">
-</div>
-
-        <input type="checkbox" id="menu-toggle"/>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="The Great Change UK Logo" /></a>
+      <nav>
+        <input type="checkbox" id="menu-toggle" />
         <label for="menu-toggle" class="hamburger">&#9776;</label>
-        <nav class="menu">
-            <a href="#">Subscribe</a>
-            <a href="#">Home</a>
-            <a href="#">How It Works</a>
-            <a href="#">Contact</a>
-            <a href="#">Winners</a>
-            <a href="#">Donations</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="winners.html">Winners</a></li>
+          <li><a href="donation-transparency.html">Transparency</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section class="logo" style="background-image: url('images/logo.jpg'); background-size: cover; background-position: center;">
+  <section class="hero" style="background-image: url('images/hero.jpg');">
+    <div class="overlay">
+      <h1>Our Mission</h1>
+      <p>The Great Change UK’s goal is to make a millionaire every single day — we’re not going to stop until we get there.</p>
+      <div class="stats">
+        <div><strong>Subscribers:</strong> <span id="subscribers">0</span></div>
+        <div><strong>Prize Pot:</strong> £<span id="prize-pot">0.00</span></div>
+      </div>
+      <a href="#subscribe" class="cta">Subscribe Now</a>
+    </div>
+  </section>
 
-        <div class="overlay">
-            <h1>The Great Change UK’s goal is to make a millionaire every single day — we’re not going to stop until we get there.
-                To achieve this we need 5.2 million subscribers. Join now to be part of The Great Change. .</h1>
-            <a href="#" class="btn">Subscribe Now</a>
-        </div>
-    </section>
+  <section class="split-info">
+    <h2>Where Your Subscription Goes</h2>
+    <div class="split-boxes">
+      <div><strong>60%</strong><p>Goes to the prize pot</p></div>
+      <div><strong>30%</strong><p>Donated to your chosen charity</p></div>
+      <div><strong>10%</strong><p>Used for operations & fees</p></div>
+    </div>
+  </section>
 
-    <section class="stats">
-        <div class="stat">Subscribers: 30</div>
-        <div class="stat">Next Prize: £100</div>
-    </section>
+  <section id="subscribe" class="subscribe-section">
+    <h2>Subscribe Now</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select>
+        <option disabled selected>Choose a charity</option>
+        <option>British Red Cross</option>
+        <option>Cancer Research UK</option>
+        <!-- You’ll add top 100 UK charities with logos later -->
+      </select>
+      <button type="submit">Submit & Pay</button>
+    </form>
+  </section>
 
-    <section class="split">
-        <div> 60% Prize Pot</div>
-        <div> 30% Charity</div>
-        <div> 10% Operations</div>
-    </section>
-
-    <footer>
-        <p>© thegreatchangeuk, 2025</p>
-        <a href="#">Terms & Conditions</a> |
-        <a href="#">Privacy Policy</a> |
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Great Change UK. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy</a> |
+        <a href="#">Terms</a> |
         <a href="#">Responsible Gambling</a>
-    </footer>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
