@@ -121,24 +121,59 @@
 <section class="section">
 <h1>Subscribe Now</h1>
 <form>
-<input placeholder="Full Name" required="" type="text"/>
-<input placeholder="Email Address" required="" type="email"/>
-<input placeholder="Phone Number" required="" type="tel"/>
-<input placeholder="Postcode (UK Only)" required="" type="text"/>
-<select required="">
-<option value="">Select Your Charity</option>
-<option value="Macmillan">Macmillan</option>
-<option value="Cancer Research UK">Cancer Research UK</option>
-<option value="NSPCC">NSPCC</option>
-<option value="Mind">Mind</option>
-<option value="Save the Children">Save the Children</option>
-<!-- Add more as needed -->
-</select>
-<div class="checkboxes">
-<label><input required="" type="checkbox"/> I confirm I am over 18 and a UK resident.</label>
-<label><input required="" type="checkbox"/> I agree to the <a href="legal.html" target="_blank">Terms &amp; Conditions and Privacy Policy</a>.</label>
-</div>
-<a href="https://pay.gocardless.com/https://pay.gocardless.com/BRT0003ZY14XW6W" target="_blank" id="join-now-button">
+<!-- Subscriber Form -->
+<form id="subscriber-form" name="subscriber-form">
+  <label for="name">Full Name:</label><br>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="email">Email Address:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="phone">Phone Number:</label><br>
+  <input type="tel" id="phone" name="phone" required><br><br>
+
+  <label for="postcode">Postcode:</label><br>
+  <input type="text" id="postcode" name="postcode" required><br><br>
+
+  <label for="charity">Chosen Charity:</label><br>
+  <input type="text" id="charity" name="charity" required><br><br>
+
+  <input type="checkbox" id="over18" name="over18" required>
+  <label for="over18">I confirm I am over 18 and a UK resident</label><br><br>
+
+  <input type="checkbox" id="terms" name="terms" required>
+  <label for="terms">I accept the <a href="/legal.html" target="_blank">Terms & Conditions</a> and <a href="/legal.html#privacy" target="_blank">Privacy Policy</a></label><br><br>
+
+  <button type="submit">Subscribe Now</button>
+</form>
+
+<script>
+  document.getElementById('subscriber-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      postcode: document.getElementById('postcode').value,
+      charity: document.getElementById('charity').value,
+      over18: document.getElementById('over18').checked ? 'Yes' : 'No',
+      terms: document.getElementById('terms').checked ? 'Yes' : 'No'
+    };
+
+    fetch('https://hooks.zapier.com/hooks/catch/123456/abcdef/', { // Replace this with your actual Zapier webhook URL
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(() => {
+      window.location.href = "https://pay.gocardless.com/BRT0003ZY14XW6W"; // Your live GoCardless link
+    }).catch((err) => {
+      alert("There was an error submitting your form. Please try again.");
+      console.error(err);
+    });
+  });
+</script>
+
   <button type="button">Join Now</button>
 </a>
 </form>
