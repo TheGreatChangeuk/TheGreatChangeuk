@@ -154,12 +154,12 @@
       terms: document.getElementById('terms').checked ? 'Yes' : 'No'
     };
 
-    fetch('https://hooks.zapier.com/hooks/catch/123456/abcdef/', { // Replace this with your actual Zapier webhook URL
+    fetch('https://hooks.zapier.com/hooks/catch/123456/abcdef/', { https://hooks.zapier.com/hooks/catch/23936763/uushsoq/
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(() => {
-      window.location.href = "https://pay.gocardless.com/BRT0003ZY14XW6W"; // Your live GoCardless link
+      window.location.href = "https://pay.gocardless.com/BRT0003ZY14XW6W"; // https://pay.gocardless.com/BRT0003ZY14XW6W
     }).catch((err) => {
       alert("There was an error submitting your form. Please try again.");
       console.error(err);
