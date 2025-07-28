@@ -120,52 +120,7 @@
 </header>
 <section class="section">
 <h1>Subscribe Now</h1>
-<form>
-<!-- Subscriber Form -->
-<form id="subscriber-form" name="subscriber-form">
-  <label for="name">Full Name:</label><br>
-  <input type="text" id="name" name="name" required><br><br>
-  <label for="email">Email Address:</label><br>
-  <input type="email" id="email" name="email" required><br><br>
-  <label for="phone">Phone Number:</label><br>
-  <input type="tel" id="phone" name="phone" required><br><br>
-  <label for="postcode">Postcode:</label><br>
-  <input type="text" id="postcode" name="postcode" required><br><br>
-  <label for="charity">Chosen Charity:</label><br>
-  <input type="text" id="charity" name="charity" required><br><br>
-  <input type="checkbox" id="over18" name="over18" required>
-  <label for="over18">I confirm I am over 18 and a UK resident</label><br><br>
-  <input type="checkbox" id="terms" name="terms" required>
-  <label for="terms">I accept the <a href="/legal.html" target="_blank">Terms & Conditions</a> and <a href="/legal.html#privacy" target="_blank">Privacy Policy</a></label><br><br>
-  <button type="submit">Subscribe Now</button>
-</form>
 
-<script>
-  document.getElementById('subscriber-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const data = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      postcode: document.getElementById('postcode').value,
-      charity: document.getElementById('charity').value,
-      over18: document.getElementById('over18').checked ? 'Yes' : 'No',
-      terms: document.getElementById('terms').checked ? 'Yes' : 'No'
-    };
-
-    fetch('https://hooks.zapier.com/hooks/catch/23936763/uushsoq/', { 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(() => {
-      window.location.href = "https://pay.gocardless.com/BRT0003ZY14XW6W"; // 
-    }).catch((err) => {
-      alert("There was an error submitting your form. Please try again.");
-      console.error(err);
-    });
-  });
-</script>
 
   <button type="button">Join Now</button>
 </a>
@@ -174,25 +129,6 @@
 <footer>
     © 2025 The Great Change UK ltd. All rights reserved. | <a href="legal.html" style="color:white;">Legal</a>
 </footer>
-    <!-- Cookie Notice Banner -->
-<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #f5f5f5; color: #000; padding: 15px; font-size: 14px; z-index: 9999; box-shadow: 0 -2px 6px rgba(0,0,0,0.1); text-align: center;">
-    <span>
-        This website uses cookies to ensure you get the best experience. By using this site, you agree to our use of cookies.
-        <a href="/legal.html#cookies" style="color: #007bff; text-decoration: underline;">Learn more</a>.
-    </span>
-    <button onclick="acceptCookies()" style="margin-left: 15px; padding: 8px 14px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Got it</button>
-</div>
-
-<script>
-  function acceptCookies() {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
-  }
-
-  window.onload = function() {
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
   }
 </body>
 </html>
