@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ | The Great Change UK</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Small accordion helpers (works with your existing styles) */
+    .faq { max-width: 900px; margin: 0 auto; }
+    .faq-item { border:1px solid rgba(255,255,255,.10); border-radius:12px; margin:10px 0; background:rgba(255,255,255,.04); }
+    .faq-q { width:100%; text-align:left; padding:16px 18px; background:transparent; border:0; color:var(--text); font-weight:700; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+    .faq-a { padding:0 18px 16px; display:none; color:var(--muted); }
+    .faq-item.open .faq-a { display:block; }
+    .chev { transition: transform .2s ease; }
+    .faq-item.open .chev { transform: rotate(90deg); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="navbar-inner container">
+      <a href="/" class="logo"><img src="images/logo.png" alt="The Great Change UK"></a>
+      <nav class="nav-links">
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/subscribe.html" class="cta">Subscribe</a>
+        <a href="/winners.html">Winners</a>
+        <a href="/donation-transparency.html">Transparency</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/legal.html">Legal</a>
+        <a href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FAQ -->
+  <section class="section container faq">
+    <h1>Frequently Asked Questions</h1>
+    <p class="small">Did we miss something? Email <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a> and we’ll help.</p>
+
+    <div class="faq-item">
+      <button class="faq-q">Who can subscribe?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>Subscribers must be <strong>18+ and UK residents</strong>. Only one account per person. We may verify identity and age.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How does the £10 split work?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>Each month: <strong>£6</strong> goes to the weekly prize pot, <strong>£3</strong> is donated to the charity you choose, and <strong>£1</strong> covers operations and payment fees.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">When are draws held?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We run a <strong>weekly draw</strong> on <strong>[Day]</strong> at <strong>[Time]</strong>. Entries close at <strong>[cut-off]</strong>. Winners are chosen at random from active, paid subscribers.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How are winners selected?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We compile eligible subscribers for the week and use a random selection method. An audit log is kept for transparency. We may verify the winner’s age/ID before paying the prize.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Are prize amounts guaranteed?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>No. The prize pot is <strong>variable</strong> and depends on total subscriptions that period. We publish recent wins on the <a href="/winners.html">Winners</a> page.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do I cancel my subscription?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>You can cancel anytime before your next billing date via your payment confirmation email or by contacting us at <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a>. After cancellation, you’ll remain eligible for any draws already covered by your paid period.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Can I change my chosen charity later?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>Yes. Changes take effect for the <strong>next monthly disbursement</strong>. If a charity becomes ineligible, we’ll ask you to choose another or we’ll allocate to a similar eligible charity.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What stops people entering multiple times?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We allow one account per person. Our system flags duplicate behaviour and we may request ID. Duplicate or fraudulent accounts may be closed and entries voided per our Terms.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How and when do you donate to charities?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We donate <strong>monthly</strong>, allocating 30% of subscription income to each subscriber’s selected charity. We publish totals and proof on our <a href="/donation-transparency.html">Donation Transparency</a> page.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What payment method do you use?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>Payments are handled securely by our provider (e.g. <strong>Stripe</strong>). We don’t store full card details on our servers.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">I’ve been selected as a winner — what next?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We’ll email you. You may be asked to verify your age and identity. Once verified, we pay the prize by UK bank transfer. If we can’t verify or reach you within <strong>30 days</strong>, the prize may be forfeited as per our Terms.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Is this a licensed lottery?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>We operate as a <strong>Small Society Lottery</strong> registered with <strong>[Your Local Council]</strong>, Registration No: <strong>[XXXX]</strong>. We apply at least <strong>20%</strong> of proceeds to our purposes (our model is 30%).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do you handle my data and cookies?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>See our <a href="/legal.html">Privacy Policy & Cookie Policy</a>. Essential cookies always run; analytics cookies only load if you opt in via the cookie banner.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do I complain or raise an issue?<span class="chev">›</span></button>
+      <div class="faq-a">
+        <p>Email <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a>. If unresolved and it concerns lottery operation, you can escalate to your local council licensing team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="grid cols-3">
+      <div>
+        <strong>The Great Change UK Ltd</strong><br>
+        Company No: <span id="coNo">[YOUR REAL NUMBER]</span><br>
+        Registered office: <span id="coAddr">[YOUR ADDRESS]</span><br>
+        Contact: <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a>
+      </div>
+      <div class="small">
+        <strong>Lottery Disclosure</strong><br>
+        Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.<br>
+        At least 20% of proceeds applied to the purposes of the society. Our model: <strong>30% charity / 60% prize pot / 10% operations</strong>.<br>
+        Registered with [Your Local Council] as a <em>Small Society Lottery</em> — Registration No: [XXXX].
+      </div>
+      <div class="small">
+        Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
+        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookieBar" class="cookie-bar container" role="dialog" aria-live="polite">
+    <div>We use cookies to run the site. Turn on <strong>analytics cookies</strong> if you’re happy to help us improve.</div>
+    <div class="actions">
+      <button class="btn ghost" id="rejectAnalytics">Reject analytics</button>
+      <button class="btn" id="manageCookies">Manage choices</button>
+      <button class="btn primary" id="acceptAnalytics">Accept analytics</button>
+    </div>
+  </div>
+
+  <script>
+    // footer year
+    document.getElementById('y').textContent=new Date().getFullYear();
+    // cookie banner prefs
+    const KEY='gc_cookie_pref_v1';
+    const bar=document.getElementById('cookieBar');
+    const pref=localStorage.getItem(KEY);
+    if(!pref) bar.style.display='flex';
+    document.getElementById('acceptAnalytics').onclick=()=>{localStorage.setItem(KEY,'analytics'); bar.remove();};
+    document.getElementById('rejectAnalytics').onclick=()=>{localStorage.setItem(KEY,'essential'); bar.remove();};
+    document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
+    if(pref==='analytics'){ /* load analytics script here */ }
+
+    // simple accordion
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
