@@ -3,65 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Great Change UK — Win Big. Give Back.</title>
+  <title>The Great Change UK — Give to Charity. Win Weekly.</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* --- Page-specific upgrades to keep the blue look --- */
+    /* Keep your site’s blue look, punchier hero */
+    .navbar{ background:linear-gradient(90deg,#003366,#0b5ed7); border-bottom:1px solid rgba(255,255,255,.08); }
+    .logo{ color:#fff; font-weight:800; text-decoration:none; letter-spacing:.3px; }
 
-    /* Blue navbar strip */
-    .navbar{
-      background: linear-gradient(90deg,#003366,#0b5ed7);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    /* Text logo (no image required) */
-    .logo{
-      font-weight: 800;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing:.3px;
-    }
-
-    /* Hero = full-width blue gradient band */
     .hero--blue{
-      background: linear-gradient(135deg,#0b5ed7,#0078ff);
-      padding: 72px 0 56px;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      text-align: center;
+      background:linear-gradient(135deg,#0b5ed7,#0078ff);
+      padding:84px 0 56px; text-align:center;
+      border-bottom:1px solid rgba(255,255,255,.12);
     }
-    .hero--blue h1{font-size:44px;margin-bottom:12px}
-    .hero--blue p{color:#e6f0ff; max-width:760px;margin:0 auto 22px}
-    .hero--blue .cta-btn{box-shadow:0 8px 24px rgba(0,0,0,.25)}
+    .hero--blue h1{ font-size:48px; line-height:1.1; margin:0 0 14px; }
+    .hero--blue p{ color:#e6f0ff; max-width:820px; margin:0 auto 22px; font-size:18px; }
+    .hero--blue .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .stat-pill{ display:inline-block; padding:6px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.24); color:#eaf2ff; margin:6px 6px 0; }
 
-    /* Three-up features on dark card background so blue theme carries through */
-    .feature-card{
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.10);
-    }
+    .feature-card{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); }
+    .feature-card h3{ margin-top:0 }
 
-    /* Hamburger (always-on) */
-    .hamburger{font-size:28px;background:none;border:none;color:#fff;cursor:pointer;margin-left:auto}
-    .nav-links{
-      display:none; position:absolute; right:20px; top:60px;
-      background:#0d1b2a; padding:18px; border-radius:12px;
-      box-shadow: var(--shadow); flex-direction:column; gap:14px; z-index:1200
-    }
-    .nav-links a{color:#fff}
-    .nav-links .cta{background:var(--brand);color:#051422;border-radius:10px;padding:8px 12px}
-    .nav-links.show{display:flex}
-    .navbar-inner{position:relative}
-    .nav-backdrop{position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1100}
-    .nav-backdrop[hidden]{display:none}
+    /* Always-on hamburger */
+    .hamburger{ font-size:28px; background:none; border:none; color:#fff; cursor:pointer; margin-left:auto; }
+    .nav-links{ display:none; position:absolute; right:20px; top:60px; background:#0d1b2a; padding:18px; border-radius:12px; box-shadow:var(--shadow); flex-direction:column; gap:14px; z-index:1200 }
+    .nav-links a{ color:#fff }
+    .nav-links .cta{ background:var(--brand); color:#051422; border-radius:10px; padding:8px 12px }
+    .nav-links.show{ display:flex }
+    .navbar-inner{ position:relative }
+    .nav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1100 }
+    .nav-backdrop[hidden]{ display:none }
   </style>
 </head>
 <body>
 
-  <!-- Header: blue bar + text logo + hamburger -->
+  <!-- Header -->
   <header class="navbar">
     <div class="navbar-inner container">
       <a href="index.html" class="logo" aria-label="The Great Change UK">The Great Change UK</a>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-
       <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
         <a href="how-it-works.html">How It Works</a>
         <a href="subscribe.html" class="cta">Subscribe</a>
@@ -75,47 +56,53 @@
     <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
-  <!-- Hero on blue -->
+  <!-- HERO: clear promise -->
   <section class="hero hero--blue">
     <div class="container">
       <span class="badge">Give Monthly • Win Weekly</span>
-      <h1>Win Big. Give Back. Be The Change.</h1>
-      <p>Subscribe for £10/month. <strong>60%</strong> fuels the weekly prize pot, <strong>30%</strong> goes to the charity you choose, and <strong>10%</strong> keeps the lights on.</p>
-      <a class="cta-btn" href="subscribe.html">Join Now</a>
-      <p class="small" style="margin-top:8px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
+      <h1>Give to a charity you believe in — and get entered into a weekly draw.</h1>
+      <p>Join for £10/month. <strong>30%</strong> of every subscription goes to charity. <strong>60%</strong> builds the weekly prize pot. <strong>10%</strong> runs the platform.</p>
+      <div class="cta-row">
+        <a class="cta-btn" href="subscribe.html">Join Now for £10</a>
+        <a class="btn" href="how-it-works.html">How it works</a>
+      </div>
+      <div>
+        <span class="stat-pill">Transparent by design</span>
+        <span class="stat-pill">Secure checkout</span>
+        <span class="stat-pill">Cancel anytime</span>
+      </div>
+      <p class="small" style="margin-top:10px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
     </div>
   </section>
 
-  <!-- Quick 3-step summary -->
+  <!-- Three quick benefits -->
   <section class="section container grid cols-3">
     <div class="card feature-card">
-      <h3>1) Subscribe</h3>
-      <p>Set up a secure £10/month subscription. Cancel anytime.</p>
+      <h3>Real impact</h3>
+      <p>Your monthly support funds causes you care about. We publish proof of donations.</p>
+      <a class="btn" href="donation-transparency.html">See transparency</a>
     </div>
     <div class="card feature-card">
-      <h3>2) Choose Charity</h3>
-      <p><strong>30%</strong> of every subscription is donated to your chosen charity.</p>
+      <h3>Weekly prizes</h3>
+      <p>60% fuels the pot. One eligible subscriber wins each week, chosen at random.</p>
+      <a class="btn" href="winners.html">See winners</a>
     </div>
     <div class="card feature-card">
-      <h3>3) Win Weekly</h3>
-      <p><strong>60%</strong> builds the prize pot. We draw a winner each week at random.</p>
+      <h3>Simple & fair</h3>
+      <p>Clear rules on eligibility, draw timings and verification.</p>
+      <a class="btn" href="how-it-works.html">Learn more</a>
     </div>
   </section>
 
-  <!-- Trust / links on dark cards so the blue theme continues -->
-  <section class="section container grid cols-2">
+  <!-- Social proof / reassurance -->
+  <section class="section container">
     <div class="card feature-card">
-      <h2>How It Works</h2>
-      <p>We keep it simple and transparent from top to bottom, including eligibility, draw timings, and verification.</p>
-      <a class="cta-btn" href="how-it-works.html">See the Full Process</a>
-    </div>
-    <div class="card feature-card">
-      <h2>Transparency & Winners</h2>
-      <p>We publish donations and winners. See where funds go and who’s won.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn" href="donation-transparency.html">Donation Transparency</a>
-        <a class="btn" href="winners.html">Latest Winners</a>
-      </div>
+      <h2>Why people join</h2>
+      <ul>
+        <li>It’s an easy way to support a charity they already believe in.</li>
+        <li>A weekly draw adds excitement — with transparent, published results.</li>
+        <li>No lock‑in: cancel anytime in a couple of clicks.</li>
+      </ul>
     </div>
   </section>
 
@@ -140,12 +127,10 @@
       </div>
       <div class="small">
         <strong>Lottery Disclosure</strong><br>
-        18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
-        Draws weekly. Prize values vary with the prize pot and are not guaranteed.
+        Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
+        Prize values vary with the prize pot and are not guaranteed.
       </div>
-      <div class="small">
-        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
-      </div>
+      <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
     </div>
   </footer>
 
@@ -159,9 +144,9 @@
     </div>
   </div>
 
-  <!-- Footer year + cookies + hamburger -->
+  <!-- Scripts: year, cookies, hamburger -->
   <script>
-    // year
+    // footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // cookies
@@ -186,6 +171,7 @@
   </script>
 </body>
 </html>
+
 
 
 
