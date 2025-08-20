@@ -8,20 +8,25 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="navbar">
-    <div class="navbar-inner container">
-      <a href="/" class="logo"><img src="images/logo.png" alt="The Great Change UK"></a>
-      <nav class="nav-links">
-        <a href="/how-it-works.html">How It Works</a>
-        <a href="/subscribe.html" class="cta">Subscribe</a>
-        <a href="/winners.html">Winners</a>
-        <a href="/donation-transparency.html">Transparency</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/legal.html">Legal</a>
-        <a href="/faq.html">FAQ</a>
-      </nav>
-    </div>
-  </header>
+<header class="navbar">
+  <div class="navbar-inner container">
+    <a href="index.html" class="logo" aria-label="The Great Change UK">The Great Change UK</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+    <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="subscribe.html" class="cta">Subscribe</a>
+      <a href="winners.html">Winners</a>
+      <a href="donation-transparency.html">Transparency</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+</header>
+
 
   <!-- Subscribe Form -->
   <section class="section container">
