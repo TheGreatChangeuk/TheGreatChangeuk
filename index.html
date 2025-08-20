@@ -5,28 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Great Change UK — Give to Charity. Win Weekly.</title>
   <link rel="stylesheet" href="style.css" />
+
   <style>
-    /* Keep your site’s blue look, punchier hero */
-    .navbar{ background:linear-gradient(90deg,#003366,#0b5ed7); border-bottom:1px solid rgba(255,255,255,.08); }
+    /* --- Keep it consistent with your other pages --- */
+
+    /* Blue navbar strip + text logo */
+    .navbar{ background:linear-gradient(90deg,#002147,#003366); border-bottom:1px solid rgba(255,255,255,.08); }
     .logo{ color:#fff; font-weight:800; text-decoration:none; letter-spacing:.3px; }
 
+    /* HERO: same deep-blue gradient as rest, strong headline */
     .hero--blue{
-      background:linear-gradient(135deg,#0b5ed7,#0078ff);
+      background:linear-gradient(135deg,#002147,#003366);
       padding:84px 0 56px; text-align:center;
       border-bottom:1px solid rgba(255,255,255,.12);
     }
     .hero--blue h1{ font-size:48px; line-height:1.1; margin:0 0 14px; }
     .hero--blue p{ color:#e6f0ff; max-width:820px; margin:0 auto 22px; font-size:18px; }
     .hero--blue .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-    .stat-pill{ display:inline-block; padding:6px 12px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.24); color:#eaf2ff; margin:6px 6px 0; }
 
+    /* Feature cards keep the dark theme */
     .feature-card{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); }
     .feature-card h3{ margin-top:0 }
 
-    /* Always-on hamburger */
+    /* Buttons keep your blue brand (same as other pages) */
+    .cta-btn{ background:var(--brand); color:#051422; }
+    .btn{ border:1px solid rgba(255,255,255,.25); }
+
+    /* Always-on hamburger to match the site */
     .hamburger{ font-size:28px; background:none; border:none; color:#fff; cursor:pointer; margin-left:auto; }
-    .nav-links{ display:none; position:absolute; right:20px; top:60px; background:#0d1b2a; padding:18px; border-radius:12px; box-shadow:var(--shadow); flex-direction:column; gap:14px; z-index:1200 }
+    .nav-links{
+      display:none; position:absolute; right:20px; top:60px; background:#0d1b2a;
+      padding:18px; border-radius:12px; box-shadow:var(--shadow);
+      flex-direction:column; gap:14px; z-index:1200
+    }
     .nav-links a{ color:#fff }
     .nav-links .cta{ background:var(--brand); color:#051422; border-radius:10px; padding:8px 12px }
     .nav-links.show{ display:flex }
@@ -56,7 +67,7 @@
     <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
-  <!-- HERO: clear promise -->
+  <!-- HERO -->
   <section class="hero hero--blue">
     <div class="container">
       <span class="badge">Give Monthly • Win Weekly</span>
@@ -66,16 +77,13 @@
         <a class="cta-btn" href="subscribe.html">Join Now for £10</a>
         <a class="btn" href="how-it-works.html">How it works</a>
       </div>
-      <div>
-        <span class="stat-pill">Transparent by design</span>
-        <span class="stat-pill">Secure checkout</span>
-        <span class="stat-pill">Cancel anytime</span>
-      </div>
-      <p class="small" style="margin-top:10px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
+      <p class="small" style="margin-top:10px">
+        18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).
+      </p>
     </div>
   </section>
 
-  <!-- Three quick benefits -->
+  <!-- 3 quick benefits -->
   <section class="section container grid cols-3">
     <div class="card feature-card">
       <h3>Real impact</h3>
@@ -99,14 +107,14 @@
     <div class="card feature-card">
       <h2>Why people join</h2>
       <ul>
-        <li>It’s an easy way to support a charity they already believe in.</li>
-        <li>A weekly draw adds excitement — with transparent, published results.</li>
-        <li>No lock‑in: cancel anytime in a couple of clicks.</li>
+        <li>Support the charities they already believe in — with transparency.</li>
+        <li>Weekly draw adds excitement, with published winners.</li>
+        <li>Cancel anytime — no lock‑in.</li>
       </ul>
     </div>
   </section>
 
-  <!-- Compliance strip -->
+  <!-- Compliance -->
   <section class="section container">
     <div class="card feature-card">
       <h2>Responsible Play & Registration</h2>
@@ -171,6 +179,7 @@
   </script>
 </body>
 </html>
+
 
 
 
