@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Great Change UK</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === Light theme overrides (this page only) === */
+    :root{
+      --dark:#0d1b2a;
+      --brand:#3ea6ff;
+      --text-dark:#0d1b2a;
+      --muted-dark:#5d6a78;
+      --card:#f7f9fc;
+    }
+    body{ background:#ffffff; color:var(--text-dark); }
+    .navbar{ background:var(--dark) !important; border-bottom:1px solid rgba(255,255,255,.08); }
+    .hero{ padding:80px 0 40px; text-align:center; }
+    .hero h1{ color:var(--text-dark); }
+    .hero p{ color:var(--muted-dark); }
+    .badge{ color:var(--text-dark); border-color:#e3e8ef; background:#ffffff; }
+    .card{ background:var(--card); border-color:#e6edf5; }
+    footer{ color:#5d6a78; border-top:1px solid #e6edf5; }
+    /* White logo sizing */
+    .logo svg{ display:block; height:40px; width:auto }
+    /* Always-on hamburger menu */
+    .hamburger{font-size:28px;background:none;border:none;color:#ffffff;cursor:pointer;margin-left:auto}
+    .nav-links{display:none;position:absolute;right:20px;top:60px;background:#0d1b2a;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);flex-direction:column;gap:14px;z-index:1200}
+    .nav-links a{color:#fff}
+    .nav-links a.cta{background:var(--brand);color:#051422;border-radius:10px;padding:8px 12px}
+    .nav-links.show{display:flex}
+    .navbar-inner{position:relative}
+    .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1100}
+    .nav-backdrop[hidden]{display:none}
+  </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header: dark solid + inline full-white logo + hamburger -->
   <header class="navbar">
     <div class="navbar-inner container">
-      <a href="/" class="logo"><img src="images/logo.png" alt="The Great Change UK"></a>
-      <nav class="nav-links">
+      <a href="/" class="logo" aria-label="The Great Change UK">
+        <!-- Inline SVG Logo: full white -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" aria-hidden="true">
+          <!-- GC monogram (both strokes white) -->
+          <g transform="translate(8,15)">
+            <path d="M95,150c-47,0-85-38-85-85S48,-20,95,-20 175,18,175,65"
+                  fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+            <path d="M140,135c-28,0-50-22-50-50s22-50,50-50c12,0,23,3,33,10"
+                  fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+          </g>
+          <!-- Wordmark (all white) -->
+          <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#ffffff">
+            <text x="240" y="60" font-size="44">THE</text>
+            <text x="240" y="110" font-size="44">GREAT</text>
+            <text x="240" y="160" font-size="44">CHANGE</text>
+            <text x="530" y="160" font-size="44">UK</text>
+          </g>
+        </svg>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+      <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
         <a href="/how-it-works.html">How It Works</a>
         <a href="/subscribe.html" class="cta">Subscribe</a>
         <a href="/winners.html">Winners</a>
@@ -21,6 +71,7 @@
         <a href="/faq.html">FAQ</a>
       </nav>
     </div>
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
   <!-- Hero -->
@@ -31,11 +82,18 @@
     <a href="/subscribe.html" class="cta-btn">Join Now</a>
   </section>
 
-  <!-- How it works summary -->
+  <!-- 3-up summary -->
   <section class="section container grid cols-3">
     <div class="card"><h3>1) Subscribe</h3><p>£10/month via secure checkout.</p></div>
     <div class="card"><h3>2) Choose Charity</h3><p>30% of your fee is donated to your chosen charity.</p></div>
-    <div class="card"><h3>3) Weekly Draw</h3><p>Every week, one subscriber wins the prize pot (random draw).</p></div>
+    <div class="card"><h3>3) Weekly Draw</h3><p>Each week one subscriber wins the prize pot (random draw).</p></div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="section container">
+    <div class="card">
+      <p class="small">18+ UK residents only. Winners selected at random from active subscribers. Prize values vary with the prize pot and are not guaranteed. We publish donations monthly on our <a href="/donation-transparency.html">Transparency</a> page.</p>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -45,13 +103,13 @@
         <strong>The Great Change UK Ltd</strong><br>
         Company No: <span id="coNo">[YOUR REAL NUMBER]</span><br>
         Registered office: <span id="coAddr">[YOUR ADDRESS]</span><br>
-        Contact: <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a>
+        Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
       </div>
       <div class="small">
         <strong>Lottery Disclosure</strong><br>
         Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.<br>
         At least 20% of proceeds applied to the purposes of the society. Our model: <strong>30% charity / 60% prize pot / 10% operations</strong>.<br>
-        Registered with [Your Local Council] as a <em>Small Society Lottery</em> — Registration No: [XXXX].
+        Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].
       </div>
       <div class="small">
         Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
@@ -60,7 +118,7 @@
     </div>
   </footer>
 
-  <!-- Cookie banner -->
+  <!-- Cookie banner (unchanged) -->
   <div id="cookieBar" class="cookie-bar container" role="dialog" aria-live="polite">
     <div>We use cookies to run the site. Turn on <strong>analytics cookies</strong> if you’re happy to help us improve.</div>
     <div class="actions">
@@ -70,17 +128,32 @@
     </div>
   </div>
 
+  <!-- JS: footer year, cookie prefs, hamburger toggle -->
   <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
-    const KEY='gc_cookie_pref_v1';
-    const bar=document.getElementById('cookieBar');
-    const pref=localStorage.getItem(KEY);
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Cookie prefs
+    const KEY='gc_cookie_pref_v1', bar=document.getElementById('cookieBar'), pref=localStorage.getItem(KEY);
     if(!pref) bar.style.display='flex';
     document.getElementById('acceptAnalytics').onclick=()=>{localStorage.setItem(KEY,'analytics'); bar.remove();};
     document.getElementById('rejectAnalytics').onclick=()=>{localStorage.setItem(KEY,'essential'); bar.remove();};
     document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
-    if(pref==='analytics'){ /* load analytics script here */ }
+    if(pref==='analytics'){ /* load analytics here */ }
+
+    // Hamburger menu
+    (function(){
+      const btn = document.getElementById('hamburger');
+      const menu = document.getElementById('navMenu');
+      const backdrop = document.getElementById('navBackdrop');
+      function openMenu(){ menu.classList.add('show'); backdrop.hidden=false; btn.setAttribute('aria-expanded','true'); }
+      function closeMenu(){ menu.classList.remove('show'); backdrop.hidden=true; btn.setAttribute('aria-expanded','false'); }
+      btn.addEventListener('click', ()=> menu.classList.contains('show') ? closeMenu() : openMenu());
+      backdrop.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+    })();
   </script>
 </body>
 </html>
+
 
