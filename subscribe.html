@@ -117,6 +117,34 @@
     document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
     if(pref==='analytics'){ /* load analytics script here */ }
   </script>
+  <script>
+(function(){
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('navMenu');
+  const backdrop = document.querySelector('.nav-backdrop');
+  if(!btn || !menu || !backdrop) return;
+
+  function open(){
+    menu.classList.add('show');
+    backdrop.hidden = false;
+    btn.setAttribute('aria-expanded','true');
+  }
+  function close(){
+    menu.classList.remove('show');
+    backdrop.hidden = true;
+    btn.setAttribute('aria-expanded','false');
+  }
+
+  btn.addEventListener('click', ()=> 
+    menu.classList.contains('show') ? close() : open()
+  );
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape') close();
+  });
+})();
+</script>
+
 </body>
 </html>
 
