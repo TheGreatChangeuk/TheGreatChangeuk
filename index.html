@@ -164,6 +164,11 @@
       backdrop.addEventListener('click',close);
       document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
     })();
-  </script>
+  <script>
+  // Inline Base64 data URL for the logo (40px tall)
+  document.getElementById('siteLogo').src =
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAoCAYAAABEG6GjAAABbUlEQVR4nO3ZwQ2CMBSF4dcwsQ1soUzvlgUuSZBygTixUnNQw8fpLeMCEf88fH9yHsIfLQAAAAAAAAAAAAB4zU9FxXOehVhZrqxryrlPO7sn5y6ZvA+GXz7fR+r0Yq18SMLm8ItJ12TuPb/K90VkqLfnx3nYPk8cuSPY6wqxqsqi6LyLwvLXrj+Ej8Z8EIXe1/AoJ+TTotWs7dUDrB6Zt/o62N/hUnwtGZXKJ9DbHLdeLOmpVOY5w0iI2ucwuxx1/qb37m21cIj58tbjY+HhN0hfPbOTdjcTf91+PgRt/Y1Tw+cJ9++FYAAAAAAAAAAAAAQJivxPvov2lePT0eYdfW5LgAAAAASUVORK5CYII=";
+</script>
+
 </body>
 </html>
