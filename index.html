@@ -4,137 +4,179 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Great Change UK — Subscribe & Support Charity</title>
+
+  <!-- Optional: keep your global stylesheet if you have it -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* HERO styling */
-    .hero--blue {
-      background: linear-gradient(135deg,#000d1a,#001a33,#002147);
-      padding: 70px 20px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,.12);
+    /* ===== Minimal local styles to ensure it looks great even without style.css ===== */
+    :root{
+      --navy-1:#000d1a;
+      --navy-2:#001a33;
+      --navy-3:#002147;
+      --brand:#3ed6ff;
+      --text:#eaf2ff;
+      --white:#fff;
+      --muted:rgba(255,255,255,.65);
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+      --shadow:0 10px 30px rgba(0,0,0,.18);
+      --container:1100px;
     }
-    .hero--blue h1 {
-      font-size: clamp(26px, 6vw, 44px);
-      line-height: 1.2;
-      margin: 0 0 16px;
+
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      color:var(--text);
+      background:#0b1220;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .hero--blue p {
-      color:#e6f0ff;
-      max-width: 720px;
-      margin: 0 auto 22px;
-      font-size: clamp(16px, 4vw, 18px);
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 16px}
+    .section{padding:42px 0}
+
+    /* ===== Header / Navbar ===== */
+    .navbar{
+      background: linear-gradient(90deg, var(--navy-3), #003366);
+      border-bottom:1px solid var(--border);
     }
-    .cta-row {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
+    .navbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .logo img{height:40px;display:block}
+
+    .hamburger{
+      font-size:28px;background:none;border:none;color:var(--white);
+      cursor:pointer;line-height:1; padding:6px 10px; border-radius:6px;
     }
-    .cta-btn, .btn {
-      display:inline-block;
-      padding:12px 20px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
+    .nav-links{
+      display:none;position:absolute;right:16px;top:60px;background:#0d1b2a;
+      padding:16px;border-radius:12px;box-shadow:var(--shadow);
+      flex-direction:column;gap:12px;z-index:1200;
     }
-    .cta-btn {
-      background:#3ed6ff; color:#051422;
+    .nav-links a{color:#fff;text-decoration:none}
+    .nav-links .cta{background:var(--brand);color:#051422;padding:8px 12px;border-radius:10px}
+    .nav-links.show{display:flex}
+    .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100}
+    .nav-backdrop[hidden]{display:none}
+
+    /* ===== Hero ===== */
+    .hero--blue{
+      background: linear-gradient(135deg,var(--navy-1),var(--navy-2),var(--navy-3));
+      padding:72px 20px 64px; text-align:center; border-bottom:1px solid var(--border);
     }
-    .btn {
-      border:1px solid rgba(255,255,255,.6);
-      color:#fff;
+    .badge{
+      display:inline-block;font-size:12px;color:var(--muted);border:1px solid var(--border);
+      padding:4px 8px;border-radius:999px;margin-bottom:14px;
     }
-    .logo img { height:40px; }
-    .navbar { padding:10px 16px; }
+    .hero--blue h1{
+      font-size:clamp(26px,6.2vw,44px);line-height:1.2;margin:0 0 14px;color:#fff;
+    }
+    .hero--blue p{max-width:740px;margin:0 auto 22px;color:#dfeaff;font-size:clamp(16px,4vw,18px)}
+
+    .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+    .cta-btn,.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none}
+    .cta-btn{background:var(--brand);color:#051422}
+    .btn{border:1px solid rgba(255,255,255,.6);color:#fff}
+
+    /* ===== Cards / Grid ===== */
+    .grid{display:grid;gap:16px}
+    @media(min-width:800px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px;
+      box-shadow:var(--shadow)
+    }
+    .card h3{margin:4px 0 8px;color:#fff}
+    .card p{margin:0 0 10px;color:#dfeaff}
+
+    /* ===== Footer ===== */
+    footer{padding:28px 0;color:var(--muted)}
+    footer .grid{gap:24px}
+    footer a{color:#bfe6ff}
+
+    /* Buttons focus */
+    .cta-btn:focus-visible,.btn:focus-visible,.hamburger:focus-visible{outline:2px solid #9ed0ff;outline-offset:2px;border-radius:8px}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ===== Header ===== -->
   <header class="navbar">
-   <div class="navbar-inner container" style="display:flex;align-items:center;justify-content:space-between;">
-  <a href="index.html" class="logo" aria-label="The Great Change UK">
-    <img id="siteLogo" alt="The Great Change UK Logo" style="height:40px;">
-  </a>
+    <div class="navbar-inner container">
+      <!-- Inline logo (Base64) -->
+      <a href="index.html" class="logo" aria-label="The Great Change UK">
+        <img alt="The Great Change UK Logo"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAoCAYAAABEG6GjAAABbUlEQVR4nO3ZwQ2CMBSF4dcwsQ1soUzvlgUuSZBygTixUnNQw8fpLeMCEf88fH9yHsIfLQAAAAAAAAAAAAB4zU9FxXOehVhZrqxryrlPO7sn5y6ZvA+GXz7fR+r0Yq18SMLm8ItJ12TuPb/K90VkqLfnx3nYPk8cuSPY6wqxqsqi6LyLwvLXrj+Ej8Z8EIXe1/AoJ+TTotWs7dUDrB6Zt/o62N/hUnwtGZXKJ9DbHLdeLOmpVOY5w0iI2ucwuxx1/qb37m21cIj58tbjY+HhN0hfPbOTdjcTf91+PgRt/Y1Tw+cJ9++FYAAAAAAAAAAAAAQJivxPvov2lePT0eYdfW5LgAAAAASUVORK5CYII=" />
+      </a>
 
-  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-  <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
-    <a href="how-it-works.html">How It Works</a>
-    <a href="subscribe.html" class="cta">Subscribe</a>
-    <a href="winners.html">Winners</a>
-    <a href="donation-transparency.html">Transparency</a>
-    <a href="contact.html">Contact</a>
-    <a href="legal.html">Legal</a>
-    <a href="faq.html">FAQ</a>
-  </nav>
-</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+      <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="subscribe.html" class="cta">Subscribe</a>
+        <a href="winners.html">Winners</a>
+        <a href="donation-transparency.html">Transparency</a>
+        <a href="contact.html">Contact</a>
+        <a href="legal.html">Legal</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
     <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero--blue">
     <div class="container">
       <span class="badge">Give Monthly • Win Weekly</span>
       <h1>Subscribe for weekly draws — and donate to a charity of your choice.</h1>
-      <p>£10/month. <strong>60%</strong> grows the weekly prize pot, 
-         <strong>20%</strong> goes to your chosen charity, 
-         <strong>20%</strong> runs the platform (including payment fees).</p>
+      <p>£10/month. <strong>60%</strong> grows the weekly prize pot, <strong>20%</strong> goes to your chosen charity, <strong>20%</strong> runs the platform (including payment fees).</p>
       <div class="cta-row">
         <a class="cta-btn" href="subscribe.html">Join Now for £10</a>
         <a class="btn" href="how-it-works.html">How it works</a>
       </div>
       <p class="small" style="margin-top:10px">
-        18+ UK residents only. Play responsibly — 
-        <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).
+        18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).
       </p>
     </div>
   </section>
 
-  <!-- 3 benefits -->
+  <!-- ===== Benefits ===== -->
   <section class="section container grid cols-3">
-    <div class="card feature-card">
+    <div class="card">
       <h3>Make a real impact</h3>
-      <p>Every subscription sends guaranteed funds to UK charities. We publish proof of donations every month.</p>
-      <a class="btn" href="donation-transparency.html">See Transparency</a>
+      <p>Every subscription sends guaranteed funds to UK charities. We publish proof of donations each month.</p>
+      <a class="btn" href="donation-transparency.html">See transparency</a>
     </div>
-    <div class="card feature-card">
+    <div class="card">
       <h3>Win weekly prizes</h3>
       <p>60% of every subscription fuels the prize pot. A winner is drawn randomly each week.</p>
-      <a class="btn" href="winners.html">See Winners</a>
+      <a class="btn" href="winners.html">See winners</a>
     </div>
-    <div class="card feature-card">
+    <div class="card">
       <h3>Fair & simple</h3>
       <p>Limit 1 subscription per person. Clear rules on eligibility, verification, and timing.</p>
-      <a class="btn" href="how-it-works.html">Learn More</a>
+      <a class="btn" href="how-it-works.html">Learn more</a>
     </div>
   </section>
 
-  <!-- Trust message -->
+  <!-- ===== Trust / Compliance ===== -->
   <section class="section container">
-    <div class="card feature-card">
-      <h2>Why choose The Great Change UK?</h2>
-      <ul>
-        <li>Direct support for top UK charities, chosen by you.</li>
-        <li>Weekly excitement with transparent, published results.</li>
-        <li>No lock-in: cancel anytime in a couple of clicks.</li>
-      </ul>
+    <div class="card">
+      <h3 style="margin:0 0 8px">Responsible Play & Registration</h3>
+      <p class="small" style="margin:0 0 6px">
+        Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.
+      </p>
+      <p class="small" style="margin:0 0 6px">
+        Model: <strong>60% prize pot / 20% charity / 20% operations</strong>. At least 20% of proceeds are applied to the purposes of the society.
+      </p>
+      <p class="small" style="margin:0">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
     </div>
   </section>
 
-  <!-- Compliance -->
-  <section class="section container">
-    <div class="card feature-card">
-      <h2>Responsible Play & Registration</h2>
-      <p class="small">Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.</p>
-      <p class="small">Our model: <strong>60% prize pot / 20% charity / 20% operations</strong>. At least 20% of proceeds are applied to the purposes of the society.</p>
-      <p class="small">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="container">
-    <div class="grid cols-3">
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container grid cols-3">
       <div>
         <strong>The Great Change UK Ltd</strong><br>
         Company No: [YOUR REAL NUMBER]<br>
@@ -142,33 +184,31 @@
         Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
       </div>
       <div class="small">
-        <strong>Lottery Disclosure</strong><br>
-        18+ UK residents only. Prize values vary with the prize pot and are not guaranteed.
+        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
       </div>
-      <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
+      <div class="small">
+        Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
+      </div>
     </div>
   </footer>
 
+  <!-- ===== Scripts ===== -->
   <script>
-    // year
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // hamburger
+    // Accessible hamburger
     (function(){
-      const btn=document.getElementById('hamburger');
-      const menu=document.getElementById('navMenu');
-      const backdrop=document.getElementById('navBackdrop');
-      function open(){menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');}
-      function close(){menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');}
-      btn.addEventListener('click',()=>menu.classList.contains('show')?close():open());
-      backdrop.addEventListener('click',close);
-      document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+      const btn = document.getElementById('hamburger');
+      const menu = document.getElementById('navMenu');
+      const backdrop = document.getElementById('navBackdrop');
+      if(!btn || !menu || !backdrop) return;
+      function open(){ menu.classList.add('show'); backdrop.hidden=false; btn.setAttribute('aria-expanded','true'); }
+      function close(){ menu.classList.remove('show'); backdrop.hidden=true; btn.setAttribute('aria-expanded','false'); }
+      btn.addEventListener('click', ()=> menu.classList.contains('show') ? close() : open());
+      backdrop.addEventListener('click', close);
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
     })();
-  <script>
-  // Inline Base64 data URL for the logo (40px tall)
-  document.getElementById('siteLogo').src =
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAoCAYAAABEG6GjAAABbUlEQVR4nO3ZwQ2CMBSF4dcwsQ1soUzvlgUuSZBygTixUnNQw8fpLeMCEf88fH9yHsIfLQAAAAAAAAAAAAB4zU9FxXOehVhZrqxryrlPO7sn5y6ZvA+GXz7fR+r0Yq18SMLm8ItJ12TuPb/K90VkqLfnx3nYPk8cuSPY6wqxqsqi6LyLwvLXrj+Ej8Z8EIXe1/AoJ+TTotWs7dUDrB6Zt/o62N/hUnwtGZXKJ9DbHLdeLOmpVOY5w0iI2ucwuxx1/qb37m21cIj58tbjY+HhN0hfPbOTdjcTf91+PgRt/Y1Tw+cJ9++FYAAAAAAAAAAAAAQJivxPvov2lePT0eYdfW5LgAAAAASUVORK5CYII=";
-</script>
-
+  </script>
 </body>
 </html>
