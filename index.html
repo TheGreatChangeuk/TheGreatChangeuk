@@ -7,54 +7,61 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* --- Keep it consistent with your other pages --- */
-
-    /* Blue navbar strip + text logo */
-    .navbar{ background:linear-gradient(90deg,#002147,#003366); border-bottom:1px solid rgba(255,255,255,.08); }
-    .logo{ color:#fff; font-weight:800; text-decoration:none; letter-spacing:.3px; }
-
-    /* HERO: same deep-blue gradient as rest, strong headline */
+    /* --- Responsive tweaks for mobile --- */
     .hero--blue {
-  background: linear-gradient(135deg, #000d1a, #001a33, #002147);
-  padding: 84px 0 56px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-
+      background: linear-gradient(135deg,#001a33,#003366);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.12);
     }
-    .hero--blue h1{ font-size:48px; line-height:1.1; margin:0 0 14px; }
-    .hero--blue p{ color:#e6f0ff; max-width:820px; margin:0 auto 22px; font-size:18px; }
-    .hero--blue .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-
-    /* Feature cards keep the dark theme */
-    .feature-card{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); }
-    .feature-card h3{ margin-top:0 }
-
-    /* Buttons keep your blue brand (same as other pages) */
-    .cta-btn{ background:var(--brand); color:#051422; }
-    .btn{ border:1px solid rgba(255,255,255,.25); }
-
-    /* Always-on hamburger to match the site */
-    .hamburger{ font-size:28px; background:none; border:none; color:#fff; cursor:pointer; margin-left:auto; }
-    .nav-links{
-      display:none; position:absolute; right:20px; top:60px; background:#0d1b2a;
-      padding:18px; border-radius:12px; box-shadow:var(--shadow);
-      flex-direction:column; gap:14px; z-index:1200
+    .hero--blue h1 {
+      font-size: clamp(26px, 6vw, 42px);
+      line-height: 1.2;
+      margin: 0 0 14px;
     }
-    .nav-links a{ color:#fff }
-    .nav-links .cta{ background:var(--brand); color:#051422; border-radius:10px; padding:8px 12px }
-    .nav-links.show{ display:flex }
-    .navbar-inner{ position:relative }
-    .nav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1100 }
-    .nav-backdrop[hidden]{ display:none }
+    .hero--blue p {
+      color:#e6f0ff;
+      max-width: 640px;
+      margin: 0 auto 22px;
+      font-size: clamp(16px, 4vw, 18px);
+    }
+    .cta-row {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+    .cta-btn, .btn {
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .cta-btn {
+      background:#3ed6ff; color:#051422;
+    }
+    .btn {
+      border:1px solid rgba(255,255,255,.6);
+      color:#fff;
+    }
+
+    /* Logo sizing */
+    .logo img { height:40px; }
+
+    /* Mobile nav spacing */
+    .navbar { padding:10px 16px; }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header class="navbar">
-    <div class="navbar-inner container">
-      <a href="index.html" class="logo" aria-label="The Great Change UK">The Great Change UK</a>
+    <div class="navbar-inner container" style="display:flex;align-items:center;justify-content:space-between;">
+      <!-- Inline logo -->
+      <a href="index.html" class="logo" aria-label="The Great Change UK">
+        <img src="images/logo.png" alt="The Great Change UK Logo">
+      </a>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
       <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
@@ -71,11 +78,11 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero hero--blue">
+  <section class="hero--blue">
     <div class="container">
       <span class="badge">Give Monthly • Win Weekly</span>
       <h1>Give to a charity you believe in — and get entered into a weekly draw.</h1>
-      <p>Join for £10/month. <strong>30%</strong> of every subscription goes to charity. <strong>60%</strong> builds the weekly prize pot. <strong>10%</strong> runs the platform.</p>
+      <p>Join for £10/month. <strong>60%</strong> builds the weekly prize pot, <strong>20%</strong> is donated to charity, <strong>20%</strong> runs the platform (including payment fees).</p>
       <div class="cta-row">
         <a class="cta-btn" href="subscribe.html">Join Now for £10</a>
         <a class="btn" href="how-it-works.html">How it works</a>
@@ -86,102 +93,43 @@
     </div>
   </section>
 
-  <!-- 3 quick benefits -->
-  <section class="section container grid cols-3">
-    <div class="card feature-card">
-      <h3>Real impact</h3>
-      <p>Your monthly support funds causes you care about. We publish proof of donations.</p>
-      <a class="btn" href="donation-transparency.html">See transparency</a>
-    </div>
-    <div class="card feature-card">
-      <h3>Weekly prizes</h3>
-      <p>60% fuels the pot. One eligible subscriber wins each week, chosen at random.</p>
-      <a class="btn" href="winners.html">See winners</a>
-    </div>
-    <div class="card feature-card">
-      <h3>Simple & fair</h3>
-      <p>Clear rules on eligibility, draw timings and verification.</p>
-      <a class="btn" href="how-it-works.html">Learn more</a>
-    </div>
-  </section>
-
-  <!-- Social proof / reassurance -->
-  <section class="section container">
-    <div class="card feature-card">
-      <h2>Why people join</h2>
-      <ul>
-        <li>Support the charities they already believe in — with transparency.</li>
-        <li>Weekly draw adds excitement, with published winners.</li>
-        <li>Cancel anytime — no lock‑in.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Compliance -->
-  <section class="section container">
-    <div class="card feature-card">
-      <h2>Responsible Play & Registration</h2>
-      <p class="small">Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.</p>
-      <p class="small">At least 20% of proceeds applied to the purposes of the society. Our model: <strong>30% charity / 60% prize pot / 10% operations</strong>.</p>
-      <p class="small">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="container">
     <div class="grid cols-3">
       <div>
         <strong>The Great Change UK Ltd</strong><br>
-        Company No: <span id="coNo">[YOUR REAL NUMBER]</span><br>
-        Registered office: <span id="coAddr">[YOUR ADDRESS]</span><br>
+        Company No: [YOUR REAL NUMBER]<br>
+        Registered office: [YOUR ADDRESS]<br>
         Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
       </div>
       <div class="small">
         <strong>Lottery Disclosure</strong><br>
-        Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
-        Prize values vary with the prize pot and are not guaranteed.
+        Model: 60% prize pot / 20% charity / 20% operations.<br>
+        At least 20% of proceeds are applied to the purposes of the society.
       </div>
       <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- Cookie Banner -->
-  <div id="cookieBar" class="cookie-bar container" role="dialog" aria-live="polite">
-    <div>We use cookies to run the site. Turn on <strong>analytics cookies</strong> if you’re happy to help us improve.</div>
-    <div class="actions">
-      <button class="btn ghost" id="rejectAnalytics">Reject analytics</button>
-      <button class="btn" id="manageCookies">Manage choices</button>
-      <button class="btn primary" id="acceptAnalytics">Accept analytics</button>
-    </div>
-  </div>
-
-  <!-- Scripts: year, cookies, hamburger -->
   <script>
     // footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // cookies
-    const KEY='gc_cookie_pref_v1', bar=document.getElementById('cookieBar'), pref=localStorage.getItem(KEY);
-    if(!pref) bar.style.display='flex';
-    document.getElementById('acceptAnalytics').onclick=()=>{localStorage.setItem(KEY,'analytics'); bar.remove();};
-    document.getElementById('rejectAnalytics').onclick=()=>{localStorage.setItem(KEY,'essential'); bar.remove();};
-    document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
-    if(pref==='analytics'){ /* load analytics here */ }
-
-    // hamburger
+    // hamburger menu
     (function(){
-      const btn = document.getElementById('hamburger');
-      const menu = document.getElementById('navMenu');
-      const backdrop = document.querySelector('.nav-backdrop');
-      function open(){ menu.classList.add('show'); backdrop.hidden=false; btn.setAttribute('aria-expanded','true');}
-      function close(){ menu.classList.remove('show'); backdrop.hidden=true; btn.setAttribute('aria-expanded','false');}
-      btn.addEventListener('click', ()=> menu.classList.contains('show') ? close() : open());
-      backdrop.addEventListener('click', close);
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+      const btn=document.getElementById('hamburger');
+      const menu=document.getElementById('navMenu');
+      const backdrop=document.getElementById('navBackdrop');
+      function open(){menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');}
+      function close(){menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');}
+      btn.addEventListener('click',()=>menu.classList.contains('show')?close():open());
+      backdrop.addEventListener('click',close);
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
     })();
   </script>
 </body>
 </html>
+
 
 
 
