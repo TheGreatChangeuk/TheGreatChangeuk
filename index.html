@@ -6,17 +6,24 @@
 <title>The Great Change UK — Subscribe. Support Charity. Win Weekly.</title>
 <meta name="description" content="Subscribe for weekly draws and support a UK charity you believe in. £10/month. Simple weekly draw. Transparent donation proof. 18+ UK only." />
 
+<!-- SEO / Sharing -->
+<link rel="canonical" href="https://thegreatchangeuk.com/">
+<meta property="og:title" content="The Great Change UK — Subscribe. Support Charity. Win Weekly.">
+<meta property="og:description" content="Subscribe for weekly draws and support a UK charity you believe in. £10/month. Simple weekly draw. Transparent donation proof.">
+<meta property="og:url" content="https://thegreatchangeuk.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
   :root{
-    /* New palette – calmer, brighter */
-    --bg:#0a1220;            /* page background */
-    --ink:#0c1b33;           /* deep blue */
-    --brand:#2062ff;         /* primary blue */
-    --brand-2:#1337a6;       /* deep brand */
-    --accent:#75b7ff;        /* soft accent */
+    /* New palette – calm + bright */
+    --bg:#0a1220;
+    --ink:#0c1b33;
+    --brand:#2062ff;
+    --brand-2:#1337a6;
+    --accent:#75b7ff;
     --text:#f7fbff;
     --muted:#cfe1ff;
-    --surface:#0f1d36;
     --card:rgba(255,255,255,.06);
     --border:rgba(255,255,255,.14);
     --shadow:0 16px 42px rgba(5,15,35,.28);
@@ -36,6 +43,14 @@
   .container{max-width:var(--container);margin:0 auto;padding:0 18px}
   .section{padding:56px 0}
 
+  /* Accessible skip link */
+  .visually-hidden-focusable{
+    position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+  }
+  .visually-hidden-focusable:focus{
+    position:static;width:auto;height:auto;padding:8px 12px;background:#fff;color:#0a1e3b;border-radius:8px;
+  }
+
   /* HEADER */
   .navbar{
     position:sticky; top:0; z-index:1000;
@@ -50,7 +65,7 @@
     box-shadow:var(--shadow);flex-direction:column;gap:12px;z-index:1200
   }
   .nav-links a{color:#fff}
-  .nav-links .cta{background:#fff;color:#0b1e3b;padding:9px 12px;border-radius:10px}
+  .nav-links .cta{background:#fff;color:#0b1e3b;padding:9px 12px;border-radius:10px;text-decoration:none}
   .nav-links.show{display:flex}
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100}
   .backdrop[hidden]{display:none}
@@ -85,7 +100,7 @@
   .feature p{margin:0;color:#e7f1ff}
   .feature small{display:block;margin-top:10px;color:#d9e9ff}
 
-  /* THREE COLUMNS – new icons style (no chips) */
+  /* THREE COLUMNS */
   .grid{display:grid;gap:18px}
   @media(min-width:880px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
   .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
@@ -102,7 +117,7 @@
     text-align:center; padding:24px 12px; border-top:1px solid var(--border); border-bottom:1px solid var(--border)
   }
 
-  /* LEGAL CARD */
+  /* INFO */
   ul.clean{margin:10px 0 0; padding-left:18px; line-height:1.55}
   .info{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
   .small{font-size:14px}
@@ -117,8 +132,10 @@
 </head>
 <body>
 
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
 <!-- HEADER -->
-<header class="navbar">
+<header class="navbar" role="banner">
   <div class="nav-inner container">
     <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
@@ -135,105 +152,98 @@
   <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Give monthly • Win weekly</span>
-      <h1>Subscribe for weekly draws — and donate to a charity of your choice.</h1>
-      <p class="lede">£10/month. Choose a UK charity you care about, enjoy a simple weekly draw, and see transparent donation proof each month.</p>
-      <div class="row">
-        <a class="cta" href="subscribe.html">Join Now for £10</a>
-        <a class="btn" href="how-it-works.html">How it works</a>
+<main id="main" role="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Give monthly • Win weekly</span>
+        <h1>Subscribe for weekly draws — and donate to a charity of your choice.</h1>
+        <p class="lede">£10/month. Choose a UK charity you care about, enjoy a simple weekly draw, and see transparent donation proof each month.</p>
+        <div class="row">
+          <a class="cta" href="subscribe.html" aria-label="Join now for ten pounds per month">Join Now for £10</a>
+          <a class="btn" href="how-it-works.html" aria-label="Learn how it works">How it works</a>
+        </div>
+        <p class="trust">Secure checkout  •  Cancel anytime  •  One subscription per person  •  Prize scales with subscribers</p>
+        <p class="small" style="margin-top:8px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
       </div>
-     <p class="trust"> • Secure checkout  •  Cancel anytime  •  One subscription per person  •  Prize scales with subscribers</p>
-      <p class="small" style="margin-top:8px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
+
+      <!-- Prize + transparency (MANUAL EDIT) -->
+      <aside class="feature" aria-label="Current weekly prize">
+        <h3 style="margin:0 0 8px">Current weekly prize</h3>
+
+        <!-- ✏️ EDIT THIS NUMBER WHENEVER YOU WANT -->
+        <div style="font-size:40px;font-weight:900;line-height:1;margin:2px 0 6px">
+          £1,250
+        </div>
+
+        <!-- optional last updated note -->
+        <p style="margin:0 0 12px;color:#dfeaff">Updated: 05 Sep 2025</p>
+
+        <p style="margin:0 0 10px;color:#e7f1ff">
+          The prize depends on the number of <strong>active, paid</strong> subscribers at the <strong>weekly</strong> cutoff.
+        </p>
+
+        <div class="row" style="margin-top:10px;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="donation-transparency.html">See transparency</a>
+          <a class="btn" href="how-it-works.html">How it works</a>
+        </div>
+      </aside>
     </div>
- <!-- Prize (MANUAL EDIT) -->
-<aside class="feature" aria-label="Current prize">
-  <h3 style="margin:0 0 8px">Current weekly prize</h3>
+  </section>
 
-  <!-- ✏️ EDIT THIS NUMBER WHENEVER YOU WANT -->
-  <div style="font-size:40px;font-weight:900;line-height:1;margin:2px 0 6px">
-    Coming soon !!!
-  </div>
-
-  <!-- (optional) last updated note -->
-  <p style="margin:0 0 12px;color:#dfeaff">Updated: 05 Sep 2025</p>
-
-  <p style="margin:0 0 10px;color:#e7f1ff">
-    The prize depends on the number of <strong>active, paid</strong> subscribers at the monthly cutoff.
-  </p>
-
-  <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-    <a class="btn" href="donation-transparency.html">See transparency</a>
-    <a class="btn" href="how-it-works.html">How it works</a>
-  </div>
-</aside>
-
- <div style="margin-top:8px">
-    <small>Prize depending on the number of <strong>active, paid</strong> subscribers.
-      We publish donation proof monthly (30% of every subscription goes to chosen charity).
-    </small>
-  </div>
-
-  <div class="row" style="margin-top:12px;gap:10px;flex-wrap:wrap">
-    <a class="btn" href="donation-transparency.html">See transparency</a>
-    <a class="btn" href="how-it-works.html">How it works</a>
-  </div>
-</aside>
- </div>
-</section>
-
-<!-- THREE COLUMNS -->
-<section class="section container grid cols-3">
-  <div class="card">
-    <div class="icon">£</div>
-    <h3>Simple subscription</h3>
-    <p>£10/month. Manage or cancel anytime in a couple of clicks.</p>
-    <a class="btn" href="subscribe.html">Start now</a>
-  </div>
-  <div class="card">
-    <div class="icon">🎗</div>
-    <h3>Choose your charity</h3>
-    <p>Pick from trusted UK charities at checkout; your choice stays attached to your subscription.</p>
-    <a class="btn" href="subscribe.html">Choose at checkout</a>
-  </div>
-  <div class="card">
-    <div class="icon">🏆</div>
-    <h3>Weekly winner</h3>
-    <p>We randomly select one winner each week from active subscribers and publish results once verified.</p>
-    <a class="btn" href="winners.html">See winners</a>
-  </div>
-</section>
-
-<!-- STRIP CTA -->
-<section class="strip">
-  <div class="container">
-    <strong>Ready to join the next draw?</strong> Subscribe in seconds and support a UK charity you care about.
-    &nbsp; <a class="cta" style="padding:10px 16px" href="subscribe.html">Join for £10</a>
-  </div>
-</section>
-
-<!-- LEGAL / INFO -->
-<section class="section">
-  <div class="container">
-    <div class="info">
-      <h3 style="margin:0 0 8px">Important information</h3>
-      <ul class="clean">
-        <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only.</li>
-        <li>Weekly draw; winners selected at random from active, paid subscribers.</li>
-        <li>Age/ID verification may be required before payout.</li>
-        <li>30% of proceeds are donated to UK charities. See our <a href="donation-transparency.html">Transparency</a> page.</li>
-        <li>Cancel anytime; see our <a href="legal.html">Terms &amp; Rules</a> for full details.</li>
-      </ul>
-      <p class="small" style="margin:10px 0 0">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
+  <!-- THREE COLUMNS -->
+  <section class="section container grid cols-3">
+    <div class="card">
+      <div class="icon">£</div>
+      <h3>Simple subscription</h3>
+      <p>£10/month. Manage or cancel anytime in a couple of clicks.</p>
+      <a class="btn" href="subscribe.html">Start now</a>
     </div>
-  </div>
-</section>
+    <div class="card">
+      <div class="icon">🎗</div>
+      <h3>Choose your charity</h3>
+      <p>Pick from trusted UK charities at checkout; your choice stays attached to your subscription.</p>
+      <a class="btn" href="subscribe.html">Choose at checkout</a>
+    </div>
+    <div class="card">
+      <div class="icon">🏆</div>
+      <h3>Weekly winner</h3>
+      <p>We randomly select a winner each week from active subscribers and publish results once verified.</p>
+      <a class="btn" href="winners.html">See winners</a>
+    </div>
+  </section>
+
+  <!-- STRIP CTA -->
+  <section class="strip" aria-label="Call to action">
+    <div class="container">
+      <strong>Ready to join the next draw?</strong> Subscribe in seconds and support a UK charity you care about.
+      &nbsp; <a class="cta" style="padding:10px 16px" href="subscribe.html">Join for £10</a>
+    </div>
+  </section>
+
+  <!-- LEGAL / INFO -->
+  <section class="section">
+    <div class="container">
+      <div class="info">
+        <h3 style="margin:0 0 8px">Important information</h3>
+        <ul class="clean">
+          <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only.</li>
+          <li>Weekly draw; winners selected at random from active, paid subscribers.</li>
+          <li>Age/ID verification may be required before payout.</li>
+          <li>At least 20% of proceeds are donated to UK good causes. See our <a href="donation-transparency.html">Transparency</a> page.</li>
+          <li>Cancel anytime; see our <a href="legal.html">Terms &amp; Rules</a> for full details.</li>
+        </ul>
+        <p class="small" style="margin:10px 0 0">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <div class="container" style="display:grid;gap:22px">
     <div>
       <strong>The Great Change UK Ltd</strong><br/>
@@ -262,8 +272,10 @@
     backdrop.addEventListener('click',close);
     document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
   })();
+</script>
 </body>
 </html>
+
 
 
 
