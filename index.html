@@ -146,16 +146,27 @@
         <a class="cta" href="subscribe.html">Join Now for £10</a>
         <a class="btn" href="how-it-works.html">How it works</a>
       </div>
-      <p class="trust">✅ Secure checkout &nbsp; • &nbsp; ❌ Cancel anytime &nbsp; • &nbsp; 🎟 One subscription per person</p>
+     <p class="trust"> • Secure checkout  •  Cancel anytime  •  One subscription per person  •  Prize scales with subscribers</p>
       <p class="small" style="margin-top:8px">18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
     </div>
+ <!-- Prize + transparency -->
+<aside class="feature" aria-label="Current prize and transparency">
+  <h3 style="margin:0 0 6px">Current estimated weekly prize</h3>
+  <div id="prizeAmount" style="font-size:40px;font-weight:900;line-height:1;margin:4px 0 6px">£—</div>
+  <p id="prizeNote" style="margin:0 0 10px;color:#e7f1ff">Calculating…</p>
 
-    <aside class="feature" aria-label="Donation transparency">
-      <h3>Transparent by design</h3>
-      <p>We publish monthly donation proof. At least <strong>20%</strong> of proceeds are donated to UK good causes.</p>
-      <small>See the latest proof → <a href="donation-transparency.html">Transparency</a></small>
-    </aside>
+  <div style="margin-top:8px">
+    <small>Prize depends on the number of <strong>active, paid</strong> subscribers at the weekly cutoff.
+      We publish donation proof monthly (at least 20% goes to UK good causes).
+    </small>
   </div>
+
+  <div class="row" style="margin-top:12px;gap:10px;flex-wrap:wrap">
+    <a class="btn" href="donation-transparency.html">See transparency</a>
+    <a class="btn" href="how-it-works.html">How it works</a>
+  </div>
+</aside>
+ </div>
 </section>
 
 <!-- THREE COLUMNS -->
@@ -236,6 +247,57 @@
     document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
   })();
 </script>
+/*
+  Prize estimator — The Great Change UK
+  - Assumes £10/month subscription
+  - Stripe fees: 1.5% + 20p per sub
+  - Prize share: 60% of *net* proceeds (your internal model)
+  - Shows a WEEKLY estimate (monthly prize / 4, rounded to nearest £5)
+  HOW TO UPDATE:
+    - Quick update (no code edit): set localStorage: tgcu_subs = number of active paid subs
+        In your browser console: localStorage.setItem('tgcu_subs','850')
+    - Or pass ?subs=850 in the URL for a one-off preview
+    - Or hard-code DEFAULT_SUBS below.
+*/
+
+(function(){
+  const PRICE = 10.00;                 // £ per month
+  const STRIPE_PCT = 0.015;            // 1.5%
+  const STRIPE_FIXED = 0.20;           // 20p per transaction
+  const PRIZE_SHARE = 0.60;            // 60% of NET proceeds
+  const WEEKS_PER_MONTH = 4;
+
+  // 1) Work out how many paid subs to use
+  const urlSubs = Number(new URLSearchParams(location.search).get('subs'));
+  const storedSubs = Number(localStorage.getItem('tgcu_subs'));
+  const DEFAULT_SUBS = 350;            // <- change this if you want a baked-in baseline
+
+  const subs = Number.isFinite(urlSubs) && urlSubs > 0 ? urlSubs
+             : Number.isFinite(storedSubs) && storedSubs > 0 ? storedSubs
+             : DEFAULT_SUBS;
+
+  // 2) Maths
+  const stripePerSub = (PRICE * STRIPE_PCT) + STRIPE_FIXED;     // ~£0.35
+  const netPerSub = PRICE - stripePerSub;                        // ~£9.65
+  const monthlyNet = subs * netPerSub;
+  const monthlyPrize = monthlyNet * PRIZE_SHARE;
+  const weeklyPrizeRaw = monthlyPrize / WEEKS_PER_MONTH;
+
+  // Round to a neat £5 step for display
+  const weeklyPrize = Math.max(0, Math.round(weeklyPrizeRaw / 5) * 5);
+
+  // 3) Update UI
+  const £ = n => '£' + n.toLocaleString('en-GB', {maximumFractionDigits:0});
+  const prizeEl = document.getElementById('prizeAmount');
+  const noteEl  = document.getElementById('prizeNote');
+
+  if (prizeEl && noteEl) {
+    prizeEl.textContent = £(weeklyPrize);
+    noteEl.textContent  = `Based on ${subs.toLocaleString('en-GB')} active subscribers • 60% of net proceeds • estimate`;
+  }
+})();
+</script>
+
 </body>
 </html>
 
