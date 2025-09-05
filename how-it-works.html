@@ -16,12 +16,27 @@
 
 <style>
   :root{
-    --bg:#0a1220; --ink:#0c1b33; --brand:#2062ff; --brand-2:#1337a6; --accent:#75b7ff;
-    --text:#f7fbff; --muted:#cfe1ff; --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.14);
-    --shadow:0 16px 42px rgba(5,15,35,.28); --radius:18px; --container:1160px;
+    --bg:#0a1220; --ink:#0c1b33;
+    --brand:#2c7bff;          /* brighter primary */
+    --brand-2:#1856d6;        /* deep but cleaner */
+    --brand-soft:#66a6ff;     /* light accent for hero */
+    --accent:#75b7ff;
+
+    --text:#f7fbff; --muted:#d6e6ff;
+
+    --card:rgba(255,255,255,.08);      /* lighter than before */
+    --card-soft:rgba(255,255,255,.12); /* for step cards */
+    --border:rgba(255,255,255,.16);
+    --shadow:0 16px 42px rgba(5,15,35,.22);
+    --radius:18px; --container:1160px;
   }
+
   *{box-sizing:border-box} html,body{margin:0}
-  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  body{
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg); color:var(--text);
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
   a{color:#fff;text-decoration:none} a:hover{text-decoration:underline}
   .container{max-width:var(--container);margin:0 auto;padding:0 18px}
   .section{padding:56px 0}
@@ -40,25 +55,31 @@
   .nav-links.show{display:flex}
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100} .backdrop[hidden]{display:none}
 
-  /* Page hero (simple) */
+  /* Lighter HERO */
   .hero{
-    background:linear-gradient(180deg,#0b1730 0%, #081222 100%);
-    border-bottom:1px solid var(--border); text-align:left;
+    background:
+      radial-gradient(1200px 600px at 75% -10%, rgba(114,185,255,.28), transparent 60%),
+      linear-gradient(135deg, var(--brand-soft) 0%, var(--brand) 55%, var(--brand-2) 100%);
+    border-bottom:1px solid var(--border);
   }
-  .hero .wrap{padding:72px 0 54px}
+  .hero .wrap{padding:78px 0 56px}
   h1{margin:0 0 10px;font-size:clamp(30px,6.4vw,44px);line-height:1.12}
-  .lede{max-width:760px;color:#eaf2ff;margin:0 0 6px;font-size:clamp(16px,4vw,18px)}
+  .lede{max-width:760px;color:#eff6ff;margin:0 0 6px;font-size:clamp(16px,4vw,18px)}
   .trust{margin-top:10px;opacity:.95;color:#f2f7ff;font-size:14px}
   .row{display:flex;flex-wrap:wrap;gap:12px}
   .cta,.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:800}
   .cta{background:#fff;color:#0a1e3b;box-shadow:var(--shadow)}
-  .btn{border:1px solid rgba(255,255,255,.65);color:#fff}
+  .btn{border:1px solid rgba(255,255,255,.7);color:#fff}
 
-  /* Steps */
+  /* Steps – lighter surfaces */
   .grid{display:grid;gap:18px}
-  .steps{background:linear-gradient(180deg,#0a1430,#0a162f)}
-  .step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;box-shadow:var(--shadow);min-height:160px}
-  .step h3{margin:6px 0 8px} .step p{margin:0;color:var(--muted)}
+  .steps{
+    background:linear-gradient(180deg, rgba(102,166,255,.10), rgba(24,86,214,.12));
+    border-top:1px solid var(--border);
+  }
+  .step{background:var(--card-soft);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;box-shadow:var(--shadow)}
+  .step h3{margin:6px 0 8px}
+  .step p{margin:0;color:var(--muted)}
 
   /* Info cards */
   .info{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
@@ -66,7 +87,7 @@
   .small{font-size:14px}
 
   /* CTA strip */
-  .strip{background:linear-gradient(90deg,var(--brand-2),var(--brand));text-align:center;padding:24px 12px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .strip{background:linear-gradient(90deg, var(--brand-2), var(--brand));text-align:center;padding:24px 12px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 
   /* Footer */
   footer{padding:32px 0;color:#cfe5ff;border-top:1px solid var(--border)} footer a{color:#cfe5ff}
@@ -78,12 +99,11 @@
   @media (max-width:760px){
     .container{padding:0 14px}
     .nav-inner{padding:10px 0} .brand{font-size:16px} .hamburger{font-size:26px;padding:10px 12px}
-    .hero .wrap{padding:56px 0 40px}
+    .hero .wrap{padding:60px 0 42px}
     h1{font-size:clamp(26px,7.2vw,34px)} .lede{font-size:15.5px}
     .cta,.btn{width:100%;text-align:center;padding:12px 16px}
     .grid{gap:14px}
-    .info{padding:16px;border-radius:14px}
-    .step{padding:16px;border-radius:14px}
+    .step,.info{padding:16px;border-radius:14px}
   }
 </style>
 </head>
@@ -111,7 +131,7 @@
 
 <main id="main" role="main">
 
-  <!-- Page hero -->
+  <!-- Lighter page hero -->
   <section class="hero">
     <div class="container wrap">
       <h1>How it works</h1>
@@ -214,6 +234,7 @@
 </script>
 </body>
 </html>
+
 
 
 
