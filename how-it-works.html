@@ -1,40 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>How It Works | The Great Change UK</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Page-specific helpers (works with your style.css) */
-    .step{display:flex;gap:16px;align-items:flex-start;margin:12px 0}
-    .step-num{min-width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,.08);font-weight:800}
-    .pill{display:inline-block;padding:4px 10px;border:1px solid rgba(255,255,255,.16);border-radius:999px}
-    .keyline{border-left:3px solid rgba(255,255,255,.14);padding-left:14px}
-    .grid.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:800px){.grid.stats{grid-template-columns:1fr}}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>How It Works — The Great Change UK</title>
+<meta name="description" content="Subscribe for £10/month, choose your UK charity, and enter weekly prize draws. Simple rules, transparent donation proof, cancel anytime." />
 
-    /* Hamburger (always on desktop + mobile) */
-    .hamburger{font-size:28px;background:none;border:none;color:var(--text);cursor:pointer;margin-left:auto}
-    .nav-links{display:none;position:absolute;right:20px;top:60px;background:#0d1b2a;padding:18px;border-radius:12px;box-shadow:var(--shadow);flex-direction:column;gap:14px;z-index:1200}
-    .nav-links.show{display:flex}
-    .navbar-inner{position:relative}
-    .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1100}
-    .nav-backdrop[hidden]{display:none}
-    /* Make sure header SVG scales nicely */
-    .logo svg{display:block;height:40px;width:auto}
-  </style>
+<!-- SEO / Sharing -->
+<link rel="canonical" href="https://thegreatchangeuk.com/how-it-works.html">
+<meta property="og:title" content="How It Works — The Great Change UK">
+<meta property="og:description" content="Subscribe for £10/month, choose your UK charity, and enter weekly prize draws. Transparent donation proof.">
+<meta property="og:url" content="https://thegreatchangeuk.com/how-it-works.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --bg:#0a1220; --ink:#0c1b33; --brand:#2062ff; --brand-2:#1337a6; --accent:#75b7ff;
+    --text:#f7fbff; --muted:#cfe1ff; --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.14);
+    --shadow:0 16px 42px rgba(5,15,35,.28); --radius:18px; --container:1160px;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  a{color:#fff;text-decoration:none} a:hover{text-decoration:underline}
+  .container{max-width:var(--container);margin:0 auto;padding:0 18px}
+  .section{padding:56px 0}
+
+  /* Skip link */
+  .visually-hidden-focusable{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .visually-hidden-focusable:focus{position:static;width:auto;height:auto;padding:8px 12px;background:#fff;color:#0a1e3b;border-radius:8px}
+
+  /* Header */
+  .navbar{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,var(--ink),var(--brand-2));border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{font-weight:800;letter-spacing:.2px;font-size:18px;color:#fff}
+  .hamburger{font-size:28px;background:none;border:none;color:#fff;cursor:pointer;padding:6px 10px;border-radius:10px}
+  .nav-links{display:none;position:absolute;right:18px;top:64px;background:#0d274c;padding:18px;border-radius:14px;box-shadow:var(--shadow);flex-direction:column;gap:12px;z-index:1200}
+  .nav-links a{color:#fff} .nav-links .cta{background:#fff;color:#0b1e3b;padding:9px 12px;border-radius:10px}
+  .nav-links.show{display:flex}
+  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100} .backdrop[hidden]{display:none}
+
+  /* Page hero (simple) */
+  .hero{
+    background:linear-gradient(180deg,#0b1730 0%, #081222 100%);
+    border-bottom:1px solid var(--border); text-align:left;
+  }
+  .hero .wrap{padding:72px 0 54px}
+  h1{margin:0 0 10px;font-size:clamp(30px,6.4vw,44px);line-height:1.12}
+  .lede{max-width:760px;color:#eaf2ff;margin:0 0 6px;font-size:clamp(16px,4vw,18px)}
+  .trust{margin-top:10px;opacity:.95;color:#f2f7ff;font-size:14px}
+  .row{display:flex;flex-wrap:wrap;gap:12px}
+  .cta,.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:800}
+  .cta{background:#fff;color:#0a1e3b;box-shadow:var(--shadow)}
+  .btn{border:1px solid rgba(255,255,255,.65);color:#fff}
+
+  /* Steps */
+  .grid{display:grid;gap:18px}
+  .steps{background:linear-gradient(180deg,#0a1430,#0a162f)}
+  .step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;box-shadow:var(--shadow);min-height:160px}
+  .step h3{margin:6px 0 8px} .step p{margin:0;color:var(--muted)}
+
+  /* Info cards */
+  .info{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  ul.clean{margin:10px 0 0;padding-left:18px;line-height:1.55}
+  .small{font-size:14px}
+
+  /* CTA strip */
+  .strip{background:linear-gradient(90deg,var(--brand-2),var(--brand));text-align:center;padding:24px 12px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+  /* Footer */
+  footer{padding:32px 0;color:#cfe5ff;border-top:1px solid var(--border)} footer a{color:#cfe5ff}
+
+  /* Focus */
+  .hamburger:focus-visible,.btn:focus-visible,.cta:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* Mobile polish */
+  @media (max-width:760px){
+    .container{padding:0 14px}
+    .nav-inner{padding:10px 0} .brand{font-size:16px} .hamburger{font-size:26px;padding:10px 12px}
+    .hero .wrap{padding:56px 0 40px}
+    h1{font-size:clamp(26px,7.2vw,34px)} .lede{font-size:15.5px}
+    .cta,.btn{width:100%;text-align:center;padding:12px 16px}
+    .grid{gap:14px}
+    .info{padding:16px;border-radius:14px}
+    .step{padding:16px;border-radius:14px}
+  }
+</style>
 </head>
 <body>
-  <!-- Header with inline SVG logo + hamburger -->
-<header class="navbar">
-  <div class="navbar-inner container">
-    <a href="index.html" class="logo" aria-label="The Great Change UK">The Great Change UK</a>
 
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+<!-- Header -->
+<header class="navbar" role="banner">
+  <div class="nav-inner container">
+    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-
     <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
-      <a href="how-it-works.html">How It Works</a>
+      <a href="how-it-works.html" aria-current="page">How It Works</a>
       <a href="subscribe.html" class="cta">Subscribe</a>
       <a href="winners.html">Winners</a>
       <a href="donation-transparency.html">Transparency</a>
@@ -43,192 +106,114 @@
       <a href="faq.html">FAQ</a>
     </nav>
   </div>
-  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+  <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
+<main id="main" role="main">
 
-  <!-- Hero -->
-  <section class="hero container">
-    <span class="badge">Clear. Fair. Transparent.</span>
-    <h1>Exactly How It Works</h1>
-    <p>Subscribe for £10/month. 60% fuels the weekly prize pot, 30% goes to the charity you choose, and 10% covers operations. Here’s the full process, end‑to‑end.</p>
-    <a href="/subscribe.html" class="cta-btn">Start Your £10 Subscription</a>
-  </section>
-
-  <!-- 3-Step Overview -->
-  <section class="section container grid cols-3">
-    <div class="card">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div><h3>Subscribe</h3><p>Set up a £10/month recurring payment via secure checkout.</p></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="step">
-        <div class="step-num">2</div>
-        <div><h3>Choose Charity</h3><p>Pick your charity. We allocate <strong>30%</strong> of your fee to them each month.</p></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="step">
-        <div class="step-num">3</div>
-        <div><h3>Win Weekly</h3><p><strong>60%</strong> builds the prize pot. We draw a winner every week at random.</p></div>
+  <!-- Page hero -->
+  <section class="hero">
+    <div class="container wrap">
+      <h1>How it works</h1>
+      <p class="lede">Subscribe for £10/month. Choose a UK charity you care about. Each week we randomly select a winner from active subscribers. We publish donation proof monthly.</p>
+      <p class="trust">Secure checkout • Cancel anytime • One subscription per person • 18+ UK only</p>
+      <div class="row" style="margin-top:14px">
+        <a class="cta" href="subscribe.html">Join for £10</a>
+        <a class="btn" href="donation-transparency.html">See transparency</a>
       </div>
     </div>
   </section>
 
-  <!-- Where your £10 goes -->
-  <section class="section container">
-    <h2>Where Your £10 Goes</h2>
-    <div class="grid stats">
-      <div class="card"><h3>£6 → Prize Pot (60%)</h3><p>Directly funds the weekly prize. Pot size varies with active subscribers.</p></div>
-      <div class="card"><h3>£3 → Charity (30%)</h3><p>Donated monthly to your chosen charity. Tracked on our Transparency page.</p></div>
-      <div class="card"><h3>£1 → Operations (10%)</h3><p>Keeps things running (payments, hosting, fees) so the model is sustainable.</p></div>
-    </div>
-    <p class="small keyline">Note: Prize values vary with the size of the pot and are not guaranteed.</p>
-  </section>
-
-  <!-- Draw process -->
-  <section class="section container">
-    <h2>Weekly Draw Process</h2>
-    <div class="card">
-      <ol>
-        <li><strong>Eligibility snapshot:</strong> we take all <em>active, paid</em> subscribers at the weekly cut‑off (<em>[Day] [Time]</em>).</li>
-        <li><strong>Random selection:</strong> we run a fair random draw from that list and keep an audit log.</li>
-        <li><strong>Notify winner:</strong> we contact the winner by email.</li>
-        <li><strong>Verification:</strong> winner may be asked to verify age/ID before payout.</li>
-        <li><strong>Payout:</strong> prize is paid via UK bank transfer.</li>
-      </ol>
-      <p class="small">If we’re unable to verify or reach the winner within 30 days, the prize may be forfeited as set out in our Terms.</p>
+  <!-- Steps -->
+  <section class="section steps">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1fr; gap:18px">
+        <div class="step">
+          <h3>1) Subscribe</h3>
+          <p>Sign up for £10/month via our secure Stripe checkout. Apple Pay, Google Pay, Visa, Mastercard. Manage or cancel anytime.</p>
+        </div>
+        <div class="step">
+          <h3>2) Choose your charity</h3>
+          <p>Select from trusted UK charities during checkout; your choice is saved to your subscription. At least 20% of proceeds go to UK good causes.</p>
+        </div>
+        <div class="step">
+          <h3>3) Weekly draw</h3>
+          <p>We randomly select one winner each week from active, paid subscribers and publish results once verified. ID/age checks may be required before payout.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Eligibility & Fair Play -->
-  <section class="section container grid cols-2">
-    <div class="card">
-      <h2>Eligibility</h2>
-      <ul>
-        <li>18+ and UK resident.</li>
-        <li>One account per person; duplicate/fraudulent accounts may be closed.</li>
-        <li>Employees involved in administering the draw are not eligible.</li>
+  <!-- FAQ pointers -->
+  <section class="section">
+    <div class="container grid" style="grid-template-columns:1fr 1fr; gap:18px">
+      <div class="info">
+        <h3 style="margin:0 0 8px">What happens after I subscribe?</h3>
+        <p class="small">You’ll receive a Stripe receipt by email. Keep it handy — you can manage or cancel from there at any time.</p>
+      </div>
+      <div class="info">
+        <h3 style="margin:0 0 8px">Where can I see donations?</h3>
+        <p class="small">We post monthly totals and proof on our <a href="donation-transparency.html">Transparency</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="strip" aria-label="Call to action">
+    <div class="container">
+      Ready to join the next draw?
+      <a class="cta" style="padding:10px 16px" href="subscribe.html">Start for £10</a>
+    </div>
+  </section>
+
+  <!-- Important info -->
+  <section class="section">
+    <div class="container info">
+      <h3 style="margin:0 0 8px">Important information</h3>
+      <ul class="clean">
+        <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only. One subscription per person.</li>
+        <li>Weekly draw; winners selected at random from active, paid subscribers. ID/age verification may be required before payout.</li>
+        <li>At least 20% of proceeds are donated to UK good causes. See <a href="donation-transparency.html">Transparency</a> for monthly proof.</li>
+        <li>Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</li>
       </ul>
-      <p class="small">Full details in our <a href="/legal.html">Terms & Conditions</a>.</p>
-    </div>
-    <div class="card">
-      <h2>Verification</h2>
-      <p>We may request age and identity verification before any prize is paid. This protects the integrity of the draw and ensures legal compliance.</p>
     </div>
   </section>
 
-  <!-- Transparency & Proof -->
-  <section class="section container grid cols-2">
-    <div class="card">
-      <h2>Donation Transparency</h2>
-      <p>We publish monthly donation totals per charity and lifetime totals. We also upload proof of donations (receipts/screenshots).</p>
-      <a class="cta-btn" href="/donation-transparency.html">See Donations</a>
-    </div>
-    <div class="card">
-      <h2>Recent Winners</h2>
-      <p>We publish the date, prize and charity supported for each winner once verified.</p>
-      <a class="cta-btn" href="/winners.html">See Winners</a>
-    </div>
-  </section>
+</main>
 
-  <!-- FAQs -->
-  <section class="section container">
-    <h2>FAQs</h2>
-    <div class="card">
-      <p>Got questions about cancellations, charity changes, duplicate entries, or draw timings? We’ve answered the most common ones here.</p>
-      <a class="cta-btn" href="/faq.html">Read the FAQ</a>
+<!-- Footer -->
+<footer role="contentinfo">
+  <div class="container" style="display:grid;gap:22px">
+    <div>
+      <strong>The Great Change UK Ltd</strong><br/>
+      Company No: 16504959<br/>
+      Registered office: [YOUR ADDRESS]<br/>
+      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="container">
-    <div class="grid cols-3">
-      <div>
-        <strong>The Great Change UK Ltd</strong><br>
-        Company No: <span id="coNo">[YOUR REAL NUMBER]</span><br>
-        Registered office: <span id="coAddr">[YOUR ADDRESS]</span><br>
-        Contact: <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
-      </div>
-      <div class="small">
-        <strong>Lottery Disclosure</strong><br>
-        Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.<br>
-        At least 20% of proceeds applied to the purposes of the society. Our model: <strong>30% charity / 60% prize pot / 10% operations</strong>.<br>
-        Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].
-      </div>
-      <div class="small">
-        Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
-        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Cookie Banner (unchanged) -->
-  <div id="cookieBar" class="cookie-bar container" role="dialog" aria-live="polite">
-    <div>We use cookies to run the site. Turn on <strong>analytics cookies</strong> if you’re happy to help us improve.</div>
-    <div class="actions">
-      <button class="btn ghost" id="rejectAnalytics">Reject analytics</button>
-      <button class="btn" id="manageCookies">Manage choices</button>
-      <button class="btn primary" id="acceptAnalytics">Accept analytics</button>
-    </div>
+    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
+    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
   </div>
+</footer>
 
-  <!-- Footer year + cookie prefs + hamburger toggle -->
-  <script>
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Cookie prefs
-    const KEY='gc_cookie_pref_v1', bar=document.getElementById('cookieBar'), pref=localStorage.getItem(KEY);
-    if(!pref) bar.style.display='flex';
-    document.getElementById('acceptAnalytics').onclick=()=>{localStorage.setItem(KEY,'analytics'); bar.remove();};
-    document.getElementById('rejectAnalytics').onclick=()=>{localStorage.setItem(KEY,'essential'); bar.remove();};
-    document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
-    if(pref==='analytics'){ /* load analytics here */ }
-
-    // Hamburger
-    (function(){
-      const btn = document.getElementById('hamburger');
-      const menu = document.getElementById('navMenu');
-      const backdrop = document.getElementById('navBackdrop');
-      function openMenu(){ menu.classList.add('show'); backdrop.hidden=false; btn.setAttribute('aria-expanded','true'); }
-      function closeMenu(){ menu.classList.remove('show'); backdrop.hidden=true; btn.setAttribute('aria-expanded','false'); }
-      btn.addEventListener('click', ()=> menu.classList.contains('show') ? closeMenu() : openMenu());
-      backdrop.addEventListener('click', closeMenu);
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
-    })();
-  </script>
-  <script>
-(function(){
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('navMenu');
-  const backdrop = document.querySelector('.nav-backdrop');
-  if(!btn || !menu || !backdrop) return;
-
-  function open(){
-    menu.classList.add('show');
-    backdrop.hidden = false;
-    btn.setAttribute('aria-expanded','true');
-  }
-  function close(){
-    menu.classList.remove('show');
-    backdrop.hidden = true;
-    btn.setAttribute('aria-expanded','false');
-  }
-
-  btn.addEventListener('click', ()=> 
-    menu.classList.contains('show') ? close() : open()
-  );
-  backdrop.addEventListener('click', close);
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape') close();
-  });
-})();
+  // Hamburger
+  (function(){
+    const btn=document.getElementById('hamburger');
+    const menu=document.getElementById('navMenu');
+    const backdrop=document.getElementById('backdrop');
+    if(!btn||!menu||!backdrop) return;
+    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
+    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
+    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
+    backdrop.addEventListener('click',close);
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
 </script>
-
 </body>
 </html>
+
 
 
