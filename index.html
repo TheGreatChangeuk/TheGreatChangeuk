@@ -6,84 +6,79 @@
   <title>The Great Change UK — Subscribe. Support Charity. Win Weekly.</title>
   <meta name="description" content="Subscribe for weekly draws and support a UK charity you believe in. 18+ UK only. Secure checkout. Cancel anytime." />
 
+  <!-- Minimal, self-contained styles -->
   <style>
     :root{
-      --blue-top:#51a8ff;     /* lighter hero top */
-      --blue-mid:#1f69d9;
-      --blue-deep:#0f2f63;    /* darker hero bottom */
-      --nav-blue:#134a9e;     /* header bar */
-      --ink:#081320;
-      --text:#f7fbff;
-      --muted:#e4f0ff;
-      --chip-bg:rgba(255,255,255,.95);
-      --chip-text:#0b2247;
-      --border:rgba(255,255,255,.16);
-      --card:rgba(255,255,255,.10);
-      --shadow:0 10px 30px rgba(7,22,42,.18);
-      --container:1100px;
+      /* Fresh, modern blues */
+      --blue-top:#69b6ff;   /* light top */
+      --blue-mid:#2d7fe8;   /* mid */
+      --blue-deep:#103669;  /* dark underlayer */
+      --nav-blue:#124ea3;   /* header bar */
+      --bg:#07162a; --text:#f7fbff; --muted:#cfe3ff;
+      --card:rgba(255,255,255,.10); --border:rgba(255,255,255,.14);
+      --shadow:0 8px 28px rgba(7,22,40,.18);
+      --container:1120px; --radius:14px;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
-      font-family: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
-      background:#07162a;
-      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg); color:var(--text);
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     a{color:#fff;text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 16px}
-    .section{padding:42px 0}
+    .container{max-width:var(--container);margin:0 auto;padding:0 16px}
+    .section{padding:44px 0}
 
     /* Header */
-    .navbar{background:linear-gradient(90deg,var(--nav-blue),#0d3a7e);border-bottom:1px solid var(--border)}
+    .navbar{
+      background:linear-gradient(90deg,var(--nav-blue),#0d3a7e);
+      border-bottom:1px solid var(--border);
+    }
     .navbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{font-weight:800;letter-spacing:.2px;color:#fff;font-size:18px}
-    .hamburger{font-size:28px;background:none;border:none;color:#fff;cursor:pointer;padding:6px 10px;border-radius:6px}
+    .brand{font-weight:800;letter-spacing:.2px;font-size:18px;color:#fff}
+    .hamburger{font-size:28px;background:none;border:none;color:#fff;cursor:pointer;padding:6px 10px;border-radius:8px}
     .nav-links{
-      display:none;position:absolute;right:16px;top:60px;background:#0d2b4f;padding:16px;border-radius:12px;
+      display:none;position:absolute;right:16px;top:60px;background:#0d294a;padding:16px;border-radius:14px;
       box-shadow:var(--shadow);flex-direction:column;gap:12px;z-index:1200
     }
     .nav-links a{color:#fff}
-    .nav-links .cta{background:#ffffff; color:#0c2546; padding:8px 12px; border-radius:10px}
+    .nav-links .cta{background:#fff;color:#0b1e3b;padding:8px 12px;border-radius:10px}
     .nav-links.show{display:flex}
     .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100}
     .nav-backdrop[hidden]{display:none}
 
-    /* Hero */
+    /* Hero (lighter → darker) */
     .hero{
-      background:linear-gradient(180deg, var(--blue-top) 0%, var(--blue-mid) 50%, var(--blue-deep) 100%);
-      text-align:center; padding:72px 20px 60px; border-bottom:1px solid var(--border)
+      background:linear-gradient(180deg,var(--blue-top) 0%, var(--blue-mid) 55%, var(--blue-deep) 100%);
+      text-align:center; padding:84px 20px 66px; border-bottom:1px solid var(--border)
     }
-    .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;color:var(--chip-text);background:var(--chip-bg);
-      padding:5px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06)
-    }
-    .hero h1{margin:0 0 14px; font-size:clamp(26px,6.2vw,42px); line-height:1.15; color:#fff}
-    .hero p.lede{max-width:720px;margin:0 auto 22px;color:#eef7ff;font-size:clamp(16px,4vw,18px)}
+    .hero h1{margin:0 0 14px;font-size:clamp(28px,6.2vw,46px);line-height:1.12}
+    .lede{max-width:760px;margin:0 auto 22px;color:#eef6ff;font-size:clamp(16px,4.2vw,18px)}
     .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-    .btn,.cta{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none}
-    .cta{background:#ffffff;color:#0a1e3b; box-shadow: var(--shadow)}
-    .btn{border:1px solid rgba(255,255,255,.65); color:#fff}
+    .cta,.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none}
+    .cta{background:#fff;color:#0a1e3b;box-shadow:var(--shadow)}
+    .btn{border:1px solid rgba(255,255,255,.65);color:#fff}
+    .trustline{opacity:.95;margin-top:16px;font-size:14px;color:#f2f7ff}
+    .trustline span{opacity:.95}
 
     /* Highlights */
-    .highlights{display:grid;gap:16px}
-    @media(min-width:800px){ .highlights{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow)}
-    .card h3{margin:4px 0 8px}
-    .card p{margin:0 0 8px;color:#e7f2ff}
+    .grid{display:grid;gap:16px}
+    @media(min-width:820px){ .cols-3{grid-template-columns:repeat(3,1fr)} }
+    .card{
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+      padding:18px;box-shadow:var(--shadow)
+    }
+    .card h3{margin:6px 0 8px}
+    .card p{margin:0 0 10px;color:var(--muted)}
 
     /* Footer */
-    footer{padding:28px 0;color:#cfe9ff}
-    footer a{color:#cfe9ff}
-    .grid{display:grid;gap:24px}
-    @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+    footer{padding:28px 0;color:#cfe5ff}
+    footer a{color:#cfe5ff}
 
     /* Focus states */
-    .hamburger:focus-visible,.btn:focus-visible,.cta:focus-visible{outline:2px solid #c3e7ff; outline-offset:2px}
+    .hamburger:focus-visible,.btn:focus-visible,.cta:focus-visible{outline:2px solid #bfe0ff;outline-offset:2px}
   </style>
 </head>
 <body>
@@ -91,7 +86,6 @@
   <!-- Header -->
   <header class="navbar">
     <div class="navbar-inner container">
-      <!-- TEXT LOGO -->
       <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
@@ -111,45 +105,34 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-
-      <!-- top pill like before -->
-      <div class="chips">
-        <span class="chip">Give Monthly</span>
-        <span class="chip">Win Weekly</span>
-      </div>
-
       <h1>Subscribe for weekly draws — and donate to a charity of your choice.</h1>
-      <p class="lede">Join for £10/month. Choose a UK charity you care about, enjoy a simple weekly draw, and see transparent donation proof.</p>
+      <p class="lede">£10/month. Choose a UK charity you care about, enjoy a simple weekly draw, and see transparent donation proof every month.</p>
 
       <div class="cta-row">
         <a class="cta" href="subscribe.html">Join Now for £10</a>
         <a class="btn" href="how-it-works.html">How it works</a>
       </div>
 
-      <!-- new chips row styled the same way -->
-      <div class="chips" style="margin-top:14px">
-        <span class="chip">Secure checkout</span>
-        <span class="chip">Cancel anytime</span>
-        <span class="chip">One subscription per person</span>
-      </div>
+      <p class="trustline">
+        ✅ <span>Secure checkout</span> &nbsp; • &nbsp; ❌ <span>Cancel anytime</span> &nbsp; • &nbsp; 🎟 <span>One subscription per person</span>
+      </p>
 
-      <p class="small" style="margin-top:12px">
-        18+ UK residents only. Play responsibly — 
-        <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).
+      <p class="small" style="margin-top:10px">
+        18+ UK residents only. Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).
       </p>
     </div>
   </section>
 
-  <!-- Highlights -->
-  <section class="section container highlights">
+  <!-- Benefits -->
+  <section class="section container grid cols-3">
     <div class="card">
       <h3>Pick your charity</h3>
-      <p>Support well-known UK charities. Your choice is saved at checkout.</p>
+      <p>Support trusted UK charities. Your selection is saved securely on Stripe Checkout.</p>
       <a class="btn" href="subscribe.html">Choose at checkout</a>
     </div>
     <div class="card">
       <h3>Simple weekly draw</h3>
-      <p>We randomly select a winner each week from active subscribers. Winners are published once verified.</p>
+      <p>We randomly select a winner each week from active subscribers and publish results once verified.</p>
       <a class="btn" href="winners.html">See winners</a>
     </div>
     <div class="card">
@@ -159,14 +142,15 @@
     </div>
   </section>
 
-  <!-- Responsible Play / Legal essentials -->
+  <!-- Legal essentials -->
   <section class="section container">
     <div class="card">
       <h3 style="margin:0 0 8px">Important information</h3>
-      <ul style="margin:8px 0 0; padding-left:18px; line-height:1.5">
+      <ul style="margin:8px 0 0;padding-left:18px;line-height:1.5">
         <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only.</li>
         <li>Weekly draw; winners selected at random from active, paid subscribers.</li>
         <li>Age/ID verification may be required before payout.</li>
+        <li>At least 20% of proceeds are donated to UK good causes. See our <a href="donation-transparency.html">Transparency</a> page.</li>
         <li>Cancel anytime; see our <a href="legal.html">Terms & Rules</a> for full details.</li>
       </ul>
       <p class="small" style="margin:10px 0 0">Registered with Herefordshire Council as a <em>Small Society Lottery</em> — Registration No: [XXXX].</p>
@@ -175,32 +159,35 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container grid cols-3">
+    <div class="container" style="display:grid;gap:24px">
       <div>
         <strong>The Great Change UK Ltd</strong><br>
-        Company No: [COMPANY NUMBER]<br>
-        Registered office: [ADDRESS]<br>
+        Company No: 16504959<br>
+        Registered office: [YOUR ADDRESS]<br>
         Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
       </div>
-      <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
+      <div class="small">
+        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
+      </div>
       <div class="small">
         Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    // footer year
+    // Year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // hamburger
+    // Accessible hamburger
     (function(){
       const btn=document.getElementById('hamburger');
       const menu=document.getElementById('navMenu');
       const backdrop=document.getElementById('navBackdrop');
       if(!btn||!menu||!backdrop) return;
-      function open(){menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');}
-      function close(){menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');}
+      const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
+      const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
       btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
       backdrop.addEventListener('click',close);
       document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
@@ -208,5 +195,6 @@
   </script>
 </body>
 </html>
+
 
 
