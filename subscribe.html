@@ -1,22 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscribe | The Great Change UK</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Subscribe — The Great Change UK</title>
+<meta name="description" content="Subscribe for £10/month. Secure checkout, cancel anytime. Choose your UK charity at checkout. Weekly prize draw with transparent donation proof." />
+<link rel="canonical" href="https://thegreatchangeuk.com/subscribe.html">
+<meta property="og:title" content="Subscribe — The Great Change UK">
+<meta property="og:description" content="£10/month. Choose your UK charity at checkout. Weekly draw. Secure Stripe checkout. Cancel anytime.">
+<meta property="og:url" content="https://thegreatchangeuk.com/subscribe.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Shared site styles -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-<header class="navbar">
-  <div class="navbar-inner container">
-    <a href="index.html" class="logo" aria-label="The Great Change UK">The Great Change UK</a>
 
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+<header class="navbar" role="banner">
+  <div class="nav-inner container">
+    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-
     <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
       <a href="how-it-works.html">How It Works</a>
-      <a href="subscribe.html" class="cta">Subscribe</a>
+      <a href="subscribe.html" aria-current="page" class="cta">Subscribe</a>
       <a href="winners.html">Winners</a>
       <a href="donation-transparency.html">Transparency</a>
       <a href="contact.html">Contact</a>
@@ -24,110 +33,88 @@
       <a href="faq.html">FAQ</a>
     </nav>
   </div>
-  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+  <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
+<main id="main" role="main">
 
-  <!-- Subscribe Form -->
-  <section class="section container">
-    <h1>Subscribe Now</h1>
-    <div class="grid cols-2">
-      <!-- Form -->
-      <form class="card form" action=https://buy.stripe.com/bJefZhceJ5MBfqVfGb1B601 method="GET">
-       
-
-        <label>
-          <input type="checkbox" name="age" required> I confirm I am 18+ and a UK resident.
-        </label>
-
-        <button type="submit" class="cta-btn">Continue to Secure Payment</button>
-        <p class="small">£10/month recurring. Cancel anytime before the next billing date.</p>
-      </form>
-
-      <!-- Info card -->
-      <div class="card">
-        <h3>Where your £10 goes</h3>
-        <ul>
-          <li>£6 → Weekly Prize Pot</li>
-          <li>£3 → Your Chosen Charity</li>
-          <li>£1 → Operations & Fees</li>
-        </ul>
-        <p class="small">We publish monthly donation totals on our <a href="/donation-transparency.html">Transparency page</a>.</p>
+  <!-- Centered hero on dark variant -->
+  <section class="hero--dark">
+    <div class="container wrap" style="text-align:center">
+      <h1>Subscribe for £10/month</h1>
+      <p class="lede">Secure Stripe checkout. Cancel anytime. Choose your UK charity at checkout. At least 20% of proceeds go to UK good causes.</p>
+      <div class="row" style="justify-content:center;margin-top:14px">
+        <!-- 🔗 Replace with your real Stripe Payment Link -->
+        <a class="cta" href="https://buy.stripe.com/your-payment-link" aria-label="Go to secure checkout">Go to secure checkout</a>
+        <a class="btn" href="how-it-works.html">How it works</a>
       </div>
+      <p class="trust">Apple Pay • Google Pay • Visa • Mastercard</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="container">
-    <div class="grid cols-3">
-      <div>
-        <strong>The Great Change UK Ltd</strong><br>
-        Company No: <span id="coNo">[YOUR REAL NUMBER]</span><br>
-        Registered office: <span id="coAddr">[YOUR ADDRESS]</span><br>
-        Contact: <a href="mailto:archie@thegreatchangeuk.com">archie@thegreatchangeuk.com</a>
-      </div>
-      <div class="small">
-        <strong>Lottery Disclosure</strong><br>
-        Promoter: The Great Change UK Ltd. 18+ UK residents only. Weekly draw. Winners selected at random from active subscribers.<br>
-        At least 20% of proceeds applied to the purposes of the society. Our model: <strong>30% charity / 60% prize pot / 10% operations</strong>.<br>
-        Registered with [Your Local Council] as a <em>Small Society Lottery</em> — Registration No: [XXXX].
-      </div>
-      <div class="small">
-        Play responsibly — <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).<br>
-        © <span id="y"></span> The Great Change UK Ltd. All rights reserved.
-      </div>
+  <!-- Why it’s simple -->
+  <section class="section container cols-3 grid">
+    <div class="card">
+      <h3>Pick your charity</h3>
+      <p>Select from trusted UK charities during Stripe checkout; your choice is saved to your subscription.</p>
     </div>
-  </footer>
+    <div class="card">
+      <h3>Manage anytime</h3>
+      <p>Your Stripe receipt includes a link to manage or cancel. You can also contact us for help.</p>
+    </div>
+    <div class="card">
+      <h3>Weekly prize</h3>
+      <p>We select one winner each week from active, paid subscribers and publish results once verified.</p>
+    </div>
+  </section>
 
-  <!-- Cookie Banner -->
-  <div id="cookieBar" class="cookie-bar container" role="dialog" aria-live="polite">
-    <div>We use cookies to run the site. Turn on <strong>analytics cookies</strong> if you’re happy to help us improve.</div>
-    <div class="actions">
-      <button class="btn ghost" id="rejectAnalytics">Reject analytics</button>
-      <button class="btn" id="manageCookies">Manage choices</button>
-      <button class="btn primary" id="acceptAnalytics">Accept analytics</button>
+  <!-- Important info -->
+  <section class="section">
+    <div class="container info">
+      <h3 style="margin:0 0 8px">Important information</h3>
+      <ul class="clean">
+        <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only. One subscription per person.</li>
+        <li>At least 20% of proceeds are donated to UK good causes. See our <a href="donation-transparency.html">Transparency</a> page for monthly proof.</li>
+        <li>Weekly draw; winners selected at random from active, paid subscribers. ID/age verification may be required before payout.</li>
+      </ul>
+      <p class="small" style="margin-top:10px;opacity:.9">
+        Problems at checkout? Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.
+      </p>
     </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container" style="display:grid;gap:22px">
+    <div>
+      <strong>The Great Change UK Ltd</strong><br/>
+      Company No: 16504959<br/>
+      Registered office: [YOUR ADDRESS]<br/>
+      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
+    </div>
+    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
+    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
   </div>
+</footer>
 
-  <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
-    const KEY='gc_cookie_pref_v1';
-    const bar=document.getElementById('cookieBar');
-    const pref=localStorage.getItem(KEY);
-    if(!pref) bar.style.display='flex';
-    document.getElementById('acceptAnalytics').onclick=()=>{localStorage.setItem(KEY,'analytics'); bar.remove();};
-    document.getElementById('rejectAnalytics').onclick=()=>{localStorage.setItem(KEY,'essential'); bar.remove();};
-    document.getElementById('manageCookies').onclick=()=>alert('Toggle analytics on/off. Essential cookies always on.');
-    if(pref==='analytics'){ /* load analytics script here */ }
-  </script>
-  <script>
-(function(){
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('navMenu');
-  const backdrop = document.querySelector('.nav-backdrop');
-  if(!btn || !menu || !backdrop) return;
-
-  function open(){
-    menu.classList.add('show');
-    backdrop.hidden = false;
-    btn.setAttribute('aria-expanded','true');
-  }
-  function close(){
-    menu.classList.remove('show');
-    backdrop.hidden = true;
-    btn.setAttribute('aria-expanded','false');
-  }
-
-  btn.addEventListener('click', ()=> 
-    menu.classList.contains('show') ? close() : open()
-  );
-  backdrop.addEventListener('click', close);
-  document.addEventListener('keydown', e=>{
-    if(e.key === 'Escape') close();
-  });
-})();
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Hamburger
+  (function(){
+    const btn=document.getElementById('hamburger');
+    const menu=document.getElementById('navMenu');
+    const backdrop=document.getElementById('backdrop');
+    if(!btn||!menu||!backdrop) return;
+    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
+    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
+    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
+    backdrop.addEventListener('click',close);
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
 </script>
-
 </body>
 </html>
+
 
