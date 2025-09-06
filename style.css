@@ -1,177 +1,147 @@
-/* ================================
-   The Great Change UK – Global CSS
-   ================================ */
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FAQ — The Great Change UK</title>
+<meta name="description" content="Answers about eligibility, subscriptions, charity donations and the weekly prize draw." />
+<link rel="canonical" href="https://thegreatchangeuk.com/faq.html">
+<meta property="og:title" content="FAQ — The Great Change UK">
+<meta property="og:description" content="Common questions about subscriptions, eligibility, prizes and donations.">
+<meta property="og:url" content="https://thegreatchangeuk.com/faq.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
-:root{
-  --bg:#0d1b2a;
-  --bg-2:#12263a;
-  --brand:#3ea6ff;
-  --text:#f5f7fa;
-  --muted:#a9b3bd;
-  --ok:#19c37d;
-  --warn:#ffb020;
-  --err:#ff5c5c;
-  --radius:14px;
-  --shadow:0 10px 30px rgba(0,0,0,.15);
-}
+<!-- Shared CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{max-width:100%;height:auto;display:block}
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
 
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-  background:linear-gradient(180deg,var(--bg),var(--bg-2));
-  color:var(--text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+<!-- Header -->
+<header class="navbar" role="banner">
+  <div class="nav-inner container">
+    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
+    <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="subscribe.html" class="cta">Subscribe</a>
+      <a href="winners.html">Winners</a>
+      <a href="donation-transparency.html">Transparency</a>
+      <a href="contact.html">Contact</a>
+      <a href="legal.html">Legal</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+    </nav>
+  </div>
+  <div class="backdrop" id="backdrop" hidden></div>
+</header>
 
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
+<main id="main" role="main">
 
-h1,h2,h3{line-height:1.2;margin:0 0 10px}
-p{margin:0 0 14px}
-small,.small{font-size:12px;color:var(--muted)}
+  <!-- Light diagonal hero -->
+  <section class="hero--diagonal">
+    <div class="container wrap">
+      <h1>Frequently asked questions</h1>
+      <p class="lede">Quick answers about eligibility, subscriptions, charity donations and the weekly prize draw.</p>
+    </div>
+  </section>
 
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
+  <!-- FAQ cards -->
+  <section class="section">
+    <div class="container grid">
+      <div class="info">
+        <h3>Who can subscribe?</h3>
+        <p>18+ UK residents only. One subscription per person. You must be physically in the UK when purchasing.</p>
+      </div>
 
-/* ================= NAVBAR ================ */
-.navbar{
-  position:sticky; top:0;
-  backdrop-filter:saturate(140%) blur(8px);
-  background:rgba(10,18,30,.7);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  z-index:1000;
-}
-.navbar-inner{display:flex;align-items:center;gap:24px;padding:14px 0}
-.logo img{height:36px}
-.nav-links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-.nav-links a{
-  padding:8px 12px;border-radius:10px;
-  border:1px solid transparent
-}
-.nav-links a:hover{background:rgba(255,255,255,.06)}
-.nav-links a.cta{
-  background:var(--brand);color:#051422;font-weight:700;box-shadow:var(--shadow)
-}
-.nav-links a.cta:hover{filter:brightness(.95)}
+      <div class="info">
+        <h3>How do I choose my charity?</h3>
+        <p>You select your UK charity during Stripe checkout. Your choice is saved to your subscription and used for monthly donations.</p>
+      </div>
 
-/* ================= HERO ================== */
-.hero{padding:80px 0 40px;text-align:center}
-.hero h1{font-size:44px;margin-bottom:12px}
-.hero p{color:var(--muted);max-width:720px;margin:0 auto 26px}
-.badge{
-  display:inline-block;margin-bottom:12px;
-  padding:4px 10px;border:1px solid rgba(255,255,255,.16);
-  border-radius:999px;font-size:12px;color:var(--text)
-}
-.cta-btn{
-  display:inline-block;padding:14px 22px;border-radius:12px;
-  background:var(--brand);color:#051422;font-weight:800;box-shadow:var(--shadow)
-}
-.cta-btn:hover{filter:brightness(.95)}
+      <div class="info">
+        <h3>How much goes to charity?</h3>
+        <p>At least <strong>20%</strong> of proceeds are donated to UK good causes chosen by subscribers. See monthly proof on our <a href="donation-transparency.html">Transparency</a> page.</p>
+      </div>
 
-/* ================ SECTIONS / CARDS / GRID ================ */
-.section{padding:40px 0}
-.card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--radius);
-  padding:20px;
-  box-shadow:var(--shadow)
-}
-.grid{display:grid;gap:20px}
-.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+      <div class="info">
+        <h3>When are prizes drawn?</h3>
+        <p>We select one winner each week from active, paid subscribers at the weekly cutoff, then publish once verified.</p>
+      </div>
 
-/* ================== TABLES ================== */
-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden}
-thead th{background:rgba(255,255,255,.06);text-align:left;padding:12px}
-td{padding:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+      <div class="info">
+        <h3>What is the prize amount?</h3>
+        <p>The weekly prize varies based on the number of active subscribers. See the current estimate on our home page.</p>
+      </div>
 
-/* ================== FORMS =================== */
-.form label{display:block;margin:12px 0 6px}
-.form input,.form select,.form textarea{
-  width:100%;padding:12px 14px;border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.03);color:var(--text)
-}
-.form input::placeholder,.form textarea::placeholder{color:#c9d3dc88}
-.form button{margin-top:14px}
+      <div class="info">
+        <h3>How do I cancel?</h3>
+        <p>Use the “Manage subscription” link on your Stripe receipt at any time, or email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+      </div>
 
-/* ================== FOOTER ================== */
-footer{
-  margin-top:40px;padding:30px 0;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:var(--muted)
-}
+      <div class="info">
+        <h3>Payment methods</h3>
+        <p>Apple Pay, Google Pay, Visa and Mastercard via Stripe.</p>
+      </div>
 
-/* ================ COOKIE BAR ================= */
-.cookie-bar{
-  position:fixed;left:20px;right:20px;bottom:20px;
-  background:#0b1524;border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;padding:16px;display:none;gap:12px;align-items:center;z-index:2000
-}
-.cookie-bar .actions{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-.btn{
-  padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);color:var(--text);cursor:pointer
-}
-.btn.primary{background:var(--brand);color:#051422;border-color:transparent;font-weight:700}
-.btn.ghost{background:transparent}
+      <div class="info">
+        <h3>What personal details are shown for winners?</h3>
+        <p>With consent, we may publish first name + initial, town/county, and prize amount.</p>
+      </div>
 
-/* ============== RESPONSIVE ============== */
-@media (max-width:800px){
-  .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
-  .hero h1{font-size:34px}
-  .nav-links{gap:10px}
-}
-/* === Master Header (consistent across site) === */
-.navbar {
-  background: linear-gradient(90deg,#002147,#003366);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.logo {
-  color: #fff;
-  font-weight: 800;
-  text-decoration: none;
-  letter-spacing: .3px;
-}
-.hamburger {
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  margin-left: auto;
-}
-.nav-links {
-  display: none;
-  position: absolute;
-  right: 20px; top: 60px;
-  background: #0d1b2a;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  flex-direction: column;
-  gap: 14px;
-  z-index: 1200;
-}
-.nav-links a { color: #fff; }
-.nav-links .cta {
-  background: var(--brand);
-  color: #051422;
-  border-radius: 10px;
-  padding: 8px 12px;
-}
-.nav-links.show { display: flex; }
-.navbar-inner { position: relative; }
-.nav-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.4);
-  z-index: 1100;
-}
-.nav-backdrop[hidden] { display: none; }
+      <div class="info">
+        <h3>Responsible play</h3>
+        <p>Please play responsibly. If you need support: <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
+      </div>
+
+      <div class="info">
+        <h3>I need help or want to complain</h3>
+        <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>. We aim to respond within 1–2 business days.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="strip" aria-label="Call to action">
+    <div class="container">
+      Ready to support a charity you care about?
+      <a class="cta" style="padding:10px 16px" href="subscribe.html">Subscribe for £10</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer role="contentinfo">
+  <div class="container" style="display:grid;gap:22px">
+    <div>
+      <strong>The Great Change UK Ltd</strong><br/>
+      Company No: 16504959<br/>
+      Registered office: [YOUR ADDRESS]<br/>
+      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
+    </div>
+    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
+    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+  // Hamburger
+  (function(){
+    const btn=document.getElementById('hamburger');
+    const menu=document.getElementById('navMenu');
+    const backdrop=document.getElementById('backdrop');
+    if(!btn||!menu||!backdrop) return;
+    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
+    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
+    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
+    backdrop.addEventListener('click',close);
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
+</script>
+</body>
+</html>
+
