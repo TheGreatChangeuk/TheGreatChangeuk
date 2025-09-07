@@ -1,118 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Subscribe — The Great Change UK</title>
-<meta name="description" content="Subscribe for £10/month. Secure Stripe checkout, cancel anytime. Choose your UK charity at checkout. Weekly prize draw with transparent donation proof." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Subscribe — The Great Change UK</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0e1b2a;          /* deep navy */
+      --bg-soft: #14263b;
+      --brand: #1e90ff;       /* blue accent */
+      --brand-2:#2aa5ff;
+      --text: #eaf1f7;
+      --muted: #b7c4d3;
+      --card: #0f2137;
+      --success:#13c18d;
+      --outline: rgba(255,255,255,.08);
+    }
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0a1624;color:var(--text);}
 
-<link rel="stylesheet" href="/style.css?v=5">
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:24px;}
+    header{background:var(--bg);border-bottom:1px solid var(--outline);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .brand a{color:#fff;text-decoration:none}
+    .nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-weight:500}
+    .nav a:hover{color:#fff}
+
+    /* Hero */
+    .hero{
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(30,144,255,.25), transparent),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      border:1px solid var(--outline);
+      border-radius:16px;
+      padding:56px 28px;
+      text-align:center;
+      margin-top:28px;
+    }
+    .eyebrow{display:inline-block;background:rgba(255,255,255,.06);border:1px solid var(--outline);padding:6px 10px;border-radius:999px;font-size:.85rem;color:var(--muted);margin-bottom:14px}
+    .hero h1{margin:0 0 10px 0;font-size:clamp(28px,4.5vw,40px);font-weight:700;letter-spacing:.2px}
+    .sublead{color:var(--muted);max-width:760px;margin:0 auto 26px;line-height:1.55}
+
+    /* Jackpot banner */
+    .pot{
+      display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#04121f;border-radius:12px;padding:16px 18px;font-weight:700;
+      box-shadow:0 10px 30px rgba(30,144,255,.25);
+      margin:18px auto 26px;max-width:760px;
+    }
+    .pot .amount{font-size:clamp(22px,4vw,30px);padding:2px 10px;background:#fff;border-radius:10px}
+    .pot small{font-weight:600;opacity:.9}
+
+    /* CTAs */
+    .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:14px 22px;border-radius:10px;font-weight:600;text-decoration:none;
+      transition:.18s ease; border:1px solid transparent;
+    }
+    .btn-primary{background:#fff;color:#0b1626}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{border-color:var(--outline);color:var(--text);background:transparent}
+    .btn-ghost:hover{border-color:#3a4d65;background:rgba(255,255,255,.04)}
+
+    /* Benefits (no icons) */
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0 6px}
+    .card{
+      background:var(--card);border:1px solid var(--outline);border-radius:12px;padding:18px;
+    }
+    .card h3{margin:0 0 8px 0;font-size:1.04rem}
+    .card p{margin:0;color:var(--muted);line-height:1.55}
+
+    /* Stats strip */
+    .strip{
+      margin:30px 0 6px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center
+    }
+    .metric{border:1px solid var(--outline);border-radius:10px;padding:14px;background:rgba(255,255,255,.02)}
+    .metric .k{display:block;font-weight:700;font-size:1.15rem}
+    .muted{color:var(--muted)}
+
+    /* Trust + legal */
+    .trust{margin:18px 0 0;text-align:center;color:var(--muted);font-size:.98rem}
+    .legal{margin:16px auto 0;max-width:920px;color:var(--muted);font-size:.9rem;line-height:1.5}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .benefits{grid-template-columns:1fr}
+      .strip{grid-template-columns:1fr}
+      .nav a{margin-left:14px}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="/">The Great Change UK</a></div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/how-it-works">How it works</a>
+        <a href="/legal">Legal</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-<!-- Header -->
-<header class="navbar" role="banner">
-  <div class="nav-inner container">
-    <a href="/index.html" class="brand">The Great Change UK</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-    <nav class="nav-links" id="navMenu">
-      <a href="/how-it-works.html">How It Works</a>
-      <a href="/subscribe.html" class="cta" aria-current="page">Subscribe</a>
-      <a href="/winners.html">Winners</a>
-      <a href="/donation-transparency.html">Transparency</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/legal.html">Legal</a>
-      <a href="/faq.html">FAQ</a>
-    </nav>
-  </div>
-  <div class="backdrop" id="backdrop" hidden></div>
-</header>
-
-<main id="main">
-
-  <!-- Hero -->
-  <section class="hero--dark">
-    <div class="container wrap">
-      <h1>Subscribe for £10/month</h1>
-      <p class="lede">
-        Secure Stripe checkout. Cancel anytime. You’ll choose your UK charity during checkout.  
-        At least 20% of proceeds go to UK good causes.
+  <main class="container">
+    <section class="hero" aria-labelledby="subscribe-title">
+      <span class="eyebrow">£10 per month · UK only · 18+</span>
+      <h1 id="subscribe-title">Subscribe in minutes</h1>
+      <p class="sublead">
+        Join our weekly draw and support UK charities with every subscription. Transparent allocation:
+        <strong>60% prize pot</strong>, <strong>30% to charity</strong>, <strong>10% operations & fees</strong>.
       </p>
-      <div class="row" style="margin-top:14px">
-        <a class="cta" href="https://buy.stripe.com/your-payment-link">Go to secure checkout</a>
-        <a class="btn" href="/how-it-works.html">How it works</a>
+
+      <!-- UPDATE these values weekly -->
+      <div class="pot" aria-live="polite">
+        <div>This week’s prize pot</div>
+        <div class="amount">£3,250</div> <!-- ← edit amount -->
+        <small>Draw: Fri 8pm · Last winner: #0142</small> <!-- ← edit timing/winner -->
       </div>
-      <p class="trust">Apple Pay • Google Pay • Visa • Mastercard</p>
-    </div>
-  </section>
 
-  <!-- Why it’s simple -->
-  <section class="section container cols-3 grid">
-    <div class="card">
-      <h3>Pick your charity</h3>
-      <p>Select from trusted UK charities during Stripe checkout; your choice is saved to your subscription.</p>
-    </div>
-    <div class="card">
-      <h3>Manage anytime</h3>
-      <p>Your Stripe receipt includes a link to manage or cancel whenever you like. You can also email us for help.</p>
-    </div>
-    <div class="card">
-      <h3>Weekly prize</h3>
-      <p>We select one winner each week from active, paid subscribers and publish results once verified.</p>
-    </div>
-  </section>
+      <div class="cta">
+        <!-- Replace with your live Stripe link -->
+        <a class="btn btn-primary" href="https://checkout.stripe.com/REPLACE">Go to secure checkout</a>
+        <a class="btn btn-ghost" href="/how-it-works">How it works</a>
+      </div>
 
-  <!-- Important info -->
-  <section class="section">
-    <div class="container info">
-      <h3>Important information</h3>
-      <ul class="clean">
-        <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only. One subscription per person.</li>
-        <li>At least <strong>20%</strong> of proceeds are donated to UK good causes. See our <a href="/donation-transparency.html">Transparency</a> page for monthly proof.</li>
-        <li>Weekly draw; winners selected at random from active, paid subscribers. ID/age verification may be required before payout.</li>
-      </ul>
-      <p class="small" style="margin-top:10px;opacity:.9">
-        Problems at checkout? Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.
-      </p>
-    </div>
-  </section>
+      <p class="trust">Secure checkout via Stripe · Apple Pay · Google Pay · Visa · Mastercard</p>
+    </section>
 
-</main>
+    <section class="benefits" aria-label="Subscription benefits">
+      <article class="card">
+        <h3>Choose your charity</h3>
+        <p>Select a UK charity during checkout—your choice is saved to your account.</p>
+      </article>
+      <article class="card">
+        <h3>Manage anytime</h3>
+        <p>Your Stripe receipt includes a link to manage or cancel your subscription at any time.</p>
+      </article>
+      <article class="card">
+        <h3>Weekly draw</h3>
+        <p>We draw one verified subscriber each week and publish results on the site.</p>
+      </article>
+    </section>
 
-<!-- Footer -->
-<footer role="contentinfo">
-  <div class="container" style="display:grid;gap:22px">
-    <div>
-      <strong>The Great Change UK Ltd</strong><br/>
-      Company No: 16504959<br/>
-      Registered office: [YOUR ADDRESS]<br/>
-      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
-    </div>
-    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
-    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
-  </div>
-</footer>
+    <section class="strip" aria-label="Key figures">
+      <div class="metric">
+        <span class="k">£3,250</span><!-- mirror the pot -->
+        <span class="muted">Current prize pot</span>
+      </div>
+      <div class="metric">
+        <span class="k">£31,480</span>
+        <span class="muted">Total donated to date</span>
+      </div>
+      <div class="metric">
+        <span class="k">1 in 5,200</span>
+        <span class="muted">Approx. odds this week*</span>
+      </div>
+    </section>
 
-<script>
-  // Year
-  document.getElementById('y').textContent = new Date().getFullYear();
-  // Hamburger toggle
-  (function(){
-    const btn=document.getElementById('hamburger');
-    const menu=document.getElementById('navMenu');
-    const backdrop=document.getElementById('backdrop');
-    if(!btn||!menu||!backdrop) return;
-    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
-    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
-    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
-    backdrop.addEventListener('click',close);
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-  })();
-</script>
+    <p class="legal">
+      *Odds depend on the number of active, paid subscribers at the time of the draw. Prize pot varies by participation.
+      UK residents only, 18+. Please play responsibly. See <a href="/legal" style="color:#9bd0ff">Terms, Privacy & Responsible Gambling</a>.
+    </p>
+  </main>
 </body>
 </html>
+
 
 
 
