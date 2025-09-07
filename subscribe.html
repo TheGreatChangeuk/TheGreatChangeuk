@@ -5,52 +5,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Subscribe — The Great Change UK</title>
 <meta name="description" content="Subscribe for £10/month. Secure Stripe checkout, cancel anytime. Choose your UK charity at checkout. Weekly prize draw with transparent donation proof." />
-<link rel="canonical" href="https://thegreatchangeuk.com/subscribe.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Subscribe — The Great Change UK">
-<meta property="og:description" content="£10/month. Choose your UK charity at checkout. Weekly draw. Secure Stripe checkout. Cancel anytime.">
-<meta property="og:url" content="https://thegreatchangeuk.com/subscribe.html">
-<meta name="twitter:card" content="summary_large_image">
 
-<!-- Shared site styles (root-absolute + cache-buster) -->
-<link rel="stylesheet" href="/style.css?v=2">
-  <style>
-  /* quick proof styles */
-  :root{--bg:#0a1220;--brand:#2c7bff;--brand-2:#1856d6;--text:#f7fbff;--border:rgba(255,255,255,.16)}
-  html,body{margin:0}
-  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-  a{color:#fff;text-decoration:none}
-  .navbar{position:sticky;top:0;background:linear-gradient(90deg,#0c1b33,var(--brand-2));border-bottom:1px solid var(--border)}
-  .container{max-width:1160px;margin:0 auto;padding:0 18px}
-  .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-  .brand{font-weight:800}
-  .nav-links{display:flex;gap:14px}
-  .cta,.btn{display:inline-block;padding:10px 18px;border-radius:12px;font-weight:800}
-  .cta{background:#fff;color:#0a1e3b}
-  .btn{border:1px solid rgba(255,255,255,.7);color:#fff}
-  .hero--dark{background:linear-gradient(180deg,#0b1730 0%, #081222 100%);border-bottom:1px solid var(--border)}
-  .wrap{padding:60px 0 42px;text-align:center}
-  h1{margin:0 0 10px}
-  .lede{max-width:760px;margin:0 auto}
-  .section{padding:40px 0}
-  .grid{display:grid;gap:16px}
-  @media(min-width:880px){.cols-3{grid-template-columns:repeat(3,1fr)}}
-  .card,.info{background:rgba(255,255,255,.08);border:1px solid var(--border);border-radius:16px;padding:18px}
-</style>
-
+<link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
 
 <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
 
-<!-- Header (shared) -->
+<!-- Header -->
 <header class="navbar" role="banner">
   <div class="nav-inner container">
-    <a href="/index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
+    <a href="/index.html" class="brand">The Great Change UK</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-    <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
+    <nav class="nav-links" id="navMenu">
       <a href="/how-it-works.html">How It Works</a>
-      <a href="/subscribe.html" aria-current="page" class="cta">Subscribe</a>
+      <a href="/subscribe.html" class="cta" aria-current="page">Subscribe</a>
       <a href="/winners.html">Winners</a>
       <a href="/donation-transparency.html">Transparency</a>
       <a href="/contact.html">Contact</a>
@@ -61,31 +30,26 @@
   <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
-<main id="main" role="main">
+<main id="main">
 
   <!-- Hero -->
   <section class="hero--dark">
-    <div class="container wrap" style="text-align:center">
+    <div class="container wrap">
       <h1>Subscribe for £10/month</h1>
       <p class="lede">
-        Secure Stripe checkout. Cancel anytime. You’ll choose your UK charity during checkout.
+        Secure Stripe checkout. Cancel anytime. You’ll choose your UK charity during checkout.  
         At least 20% of proceeds go to UK good causes.
       </p>
-
-      <div class="row" style="justify-content:center;margin-top:14px">
-        <!-- 🔗 Replace this with your live Stripe Payment Link -->
-        <a class="cta" href="https://buy.stripe.com/your-payment-link" aria-label="Go to secure Stripe checkout">
-          Go to secure checkout
-        </a>
+      <div class="row" style="margin-top:14px">
+        <a class="cta" href="https://buy.stripe.com/your-payment-link">Go to secure checkout</a>
         <a class="btn" href="/how-it-works.html">How it works</a>
       </div>
-
       <p class="trust">Apple Pay • Google Pay • Visa • Mastercard</p>
     </div>
   </section>
 
   <!-- Why it’s simple -->
-  <section class="section container cols-3 grid" aria-label="Why subscribe">
+  <section class="section container cols-3 grid">
     <div class="card">
       <h3>Pick your charity</h3>
       <p>Select from trusted UK charities during Stripe checkout; your choice is saved to your subscription.</p>
@@ -96,17 +60,17 @@
     </div>
     <div class="card">
       <h3>Weekly prize</h3>
-      <p>We randomly select one winner each week from active, paid subscribers and publish results once verified.</p>
+      <p>We select one winner each week from active, paid subscribers and publish results once verified.</p>
     </div>
   </section>
 
   <!-- Important info -->
   <section class="section">
     <div class="container info">
-      <h3 style="margin:0 0 8px">Important information</h3>
+      <h3>Important information</h3>
       <ul class="clean">
         <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only. One subscription per person.</li>
-        <li>Public pages state at least <strong>20%</strong> to UK good causes. Monthly proof is on our <a href="/donation-transparency.html">Transparency</a> page.</li>
+        <li>At least <strong>20%</strong> of proceeds are donated to UK good causes. See our <a href="/donation-transparency.html">Transparency</a> page for monthly proof.</li>
         <li>Weekly draw; winners selected at random from active, paid subscribers. ID/age verification may be required before payout.</li>
       </ul>
       <p class="small" style="margin-top:10px;opacity:.9">
@@ -117,7 +81,7 @@
 
 </main>
 
-<!-- Footer (shared) -->
+<!-- Footer -->
 <footer role="contentinfo">
   <div class="container" style="display:grid;gap:22px">
     <div>
@@ -131,11 +95,10 @@
   </div>
 </footer>
 
-<!-- Shared JS -->
 <script>
   // Year
   document.getElementById('y').textContent = new Date().getFullYear();
-  // Hamburger
+  // Hamburger toggle
   (function(){
     const btn=document.getElementById('hamburger');
     const menu=document.getElementById('navMenu');
@@ -150,6 +113,7 @@
 </script>
 </body>
 </html>
+
 
 
 
