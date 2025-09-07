@@ -4,33 +4,34 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Subscribe — The Great Change UK</title>
-<meta name="description" content="Subscribe for £10/month. Secure checkout, cancel anytime. Choose your UK charity at checkout. Weekly prize draw with transparent donation proof." />
+<meta name="description" content="Subscribe for £10/month. Secure Stripe checkout, cancel anytime. Choose your UK charity at checkout. Weekly prize draw with transparent donation proof." />
 <link rel="canonical" href="https://thegreatchangeuk.com/subscribe.html">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Subscribe — The Great Change UK">
 <meta property="og:description" content="£10/month. Choose your UK charity at checkout. Weekly draw. Secure Stripe checkout. Cancel anytime.">
 <meta property="og:url" content="https://thegreatchangeuk.com/subscribe.html">
-<meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Shared site styles -->
-<link rel="stylesheet" href="style.css">
+<!-- Shared site styles (root-absolute + cache-buster) -->
+<link rel="stylesheet" href="/style.css?v=2">
 </head>
 <body>
 
 <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
 
+<!-- Header (shared) -->
 <header class="navbar" role="banner">
   <div class="nav-inner container">
-    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
+    <a href="/index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
     <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
-      <a href="how-it-works.html">How It Works</a>
-      <a href="subscribe.html" aria-current="page" class="cta">Subscribe</a>
-      <a href="winners.html">Winners</a>
-      <a href="donation-transparency.html">Transparency</a>
-      <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal</a>
-      <a href="faq.html">FAQ</a>
+      <a href="/how-it-works.html">How It Works</a>
+      <a href="/subscribe.html" aria-current="page" class="cta">Subscribe</a>
+      <a href="/winners.html">Winners</a>
+      <a href="/donation-transparency.html">Transparency</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/faq.html">FAQ</a>
     </nav>
   </div>
   <div class="backdrop" id="backdrop" hidden></div>
@@ -38,33 +39,40 @@
 
 <main id="main" role="main">
 
-  <!-- Centered hero on dark variant -->
+  <!-- Hero -->
   <section class="hero--dark">
     <div class="container wrap" style="text-align:center">
       <h1>Subscribe for £10/month</h1>
-      <p class="lede">Secure Stripe checkout. Cancel anytime. Choose your UK charity at checkout. At least 20% of proceeds go to UK good causes.</p>
+      <p class="lede">
+        Secure Stripe checkout. Cancel anytime. You’ll choose your UK charity during checkout.
+        At least 20% of proceeds go to UK good causes.
+      </p>
+
       <div class="row" style="justify-content:center;margin-top:14px">
-        <!-- 🔗 Replace with your real Stripe Payment Link -->
-        <a class="cta" href="https://buy.stripe.com/your-payment-link" aria-label="Go to secure checkout">Go to secure checkout</a>
-        <a class="btn" href="how-it-works.html">How it works</a>
+        <!-- 🔗 Replace this with your live Stripe Payment Link -->
+        <a class="cta" href="https://buy.stripe.com/your-payment-link" aria-label="Go to secure Stripe checkout">
+          Go to secure checkout
+        </a>
+        <a class="btn" href="/how-it-works.html">How it works</a>
       </div>
+
       <p class="trust">Apple Pay • Google Pay • Visa • Mastercard</p>
     </div>
   </section>
 
   <!-- Why it’s simple -->
-  <section class="section container cols-3 grid">
+  <section class="section container cols-3 grid" aria-label="Why subscribe">
     <div class="card">
       <h3>Pick your charity</h3>
       <p>Select from trusted UK charities during Stripe checkout; your choice is saved to your subscription.</p>
     </div>
     <div class="card">
       <h3>Manage anytime</h3>
-      <p>Your Stripe receipt includes a link to manage or cancel. You can also contact us for help.</p>
+      <p>Your Stripe receipt includes a link to manage or cancel whenever you like. You can also email us for help.</p>
     </div>
     <div class="card">
       <h3>Weekly prize</h3>
-      <p>We select one winner each week from active, paid subscribers and publish results once verified.</p>
+      <p>We randomly select one winner each week from active, paid subscribers and publish results once verified.</p>
     </div>
   </section>
 
@@ -74,7 +82,7 @@
       <h3 style="margin:0 0 8px">Important information</h3>
       <ul class="clean">
         <li>Promoter: <strong>The Great Change UK Ltd</strong>. 18+ UK residents only. One subscription per person.</li>
-        <li>At least 20% of proceeds are donated to UK good causes. See our <a href="donation-transparency.html">Transparency</a> page for monthly proof.</li>
+        <li>Public pages state at least <strong>20%</strong> to UK good causes. Monthly proof is on our <a href="/donation-transparency.html">Transparency</a> page.</li>
         <li>Weekly draw; winners selected at random from active, paid subscribers. ID/age verification may be required before payout.</li>
       </ul>
       <p class="small" style="margin-top:10px;opacity:.9">
@@ -85,6 +93,7 @@
 
 </main>
 
+<!-- Footer (shared) -->
 <footer role="contentinfo">
   <div class="container" style="display:grid;gap:22px">
     <div>
@@ -98,6 +107,7 @@
   </div>
 </footer>
 
+<!-- Shared JS -->
 <script>
   // Year
   document.getElementById('y').textContent = new Date().getFullYear();
@@ -116,5 +126,6 @@
 </script>
 </body>
 </html>
+
 
 
