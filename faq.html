@@ -1,146 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FAQ — The Great Change UK</title>
-<meta name="description" content="Answers about eligibility, subscriptions, charity donations and the weekly prize draw." />
-<link rel="canonical" href="https://thegreatchangeuk.com/faq.html">
-<meta property="og:title" content="FAQ — The Great Change UK">
-<meta property="og:description" content="Common questions about subscriptions, eligibility, prizes and donations.">
-<meta property="og:url" content="https://thegreatchangeuk.com/faq.html">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- Shared CSS -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
+  summary{cursor:pointer;font-weight:700}
+</style>
 </head>
 <body>
-
-<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-<!-- Header -->
-<header class="navbar" role="banner">
-  <div class="nav-inner container">
-    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-    <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
-      <a href="how-it-works.html">How It Works</a>
-      <a href="subscribe.html" class="cta">Subscribe</a>
-      <a href="winners.html">Winners</a>
-      <a href="donation-transparency.html">Transparency</a>
-      <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal</a>
-      <a href="faq.html" aria-current="page">FAQ</a>
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="logo"></span><span class="name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-expanded="false"><span></span></button>
+    <nav id="main-nav" class="nav">
+      <a href="/subscribe.html">Subscribe</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/winners.html">Winners</a>
+      <a href="/legal.html">Legal</a>
+      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
     </nav>
   </div>
-  <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
-<main id="main" role="main">
+<section class="hero"><div class="wrap hero-inner">
+  <span class="pill">Answers</span><h1 class="h1">Frequently asked questions</h1>
+  <p class="sub">Short, clear answers to the most common questions.</p>
+</div></section>
 
-  <!-- Light diagonal hero -->
-  <section class="hero--diagonal">
-    <div class="container wrap">
-      <h1>Frequently asked questions</h1>
-      <p class="lede">Quick answers about eligibility, subscriptions, charity donations and the weekly prize draw.</p>
-    </div>
-  </section>
+<section class="features" style="background:#fff">
+  <div class="wrap">
+    <details open><summary>Who can subscribe?</summary><p>UK residents aged 18+.</p></details>
+    <details><summary>How do I manage or cancel?</summary><p>Use the “Manage subscription” link in your Stripe receipt, or contact us.</p></details>
+    <details><summary>When is the draw?</summary><p>Every Friday at 8pm. Winner ID is posted on the Winners page after verification.</p></details>
+    <details><summary>How are donations handled?</summary><p>We aggregate monthly and publish totals on the Transparency page, including proof of donation references.</p></details>
+    <details><summary>Which charities can I pick?</summary><p>We currently support 10 trusted UK charities. You choose during checkout.</p></details>
+  </div>
+</section>
 
-  <!-- FAQ cards -->
-  <section class="section">
-    <div class="container grid">
-      <div class="info">
-        <h3>Who can subscribe?</h3>
-        <p>18+ UK residents only. One subscription per person. You must be physically in the UK when purchasing.</p>
-      </div>
-
-      <div class="info">
-        <h3>How do I choose my charity?</h3>
-        <p>You select your UK charity during Stripe checkout. Your choice is saved to your subscription and used for monthly donations.</p>
-      </div>
-
-      <div class="info">
-        <h3>How much goes to charity?</h3>
-        <p>At least <strong>20%</strong> of proceeds are donated to UK good causes chosen by subscribers. See monthly proof on our <a href="donation-transparency.html">Transparency</a> page.</p>
-      </div>
-
-      <div class="info">
-        <h3>When are prizes drawn?</h3>
-        <p>We select one winner each week from active, paid subscribers at the weekly cutoff, then publish once verified.</p>
-      </div>
-
-      <div class="info">
-        <h3>What is the prize amount?</h3>
-        <p>The weekly prize varies based on the number of active subscribers. See the current estimate on our home page.</p>
-      </div>
-
-      <div class="info">
-        <h3>How do I cancel?</h3>
-        <p>Use the “Manage subscription” link on your Stripe receipt at any time, or email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
-      </div>
-
-      <div class="info">
-        <h3>Payment methods</h3>
-        <p>Apple Pay, Google Pay, Visa and Mastercard via Stripe.</p>
-      </div>
-
-      <div class="info">
-        <h3>What personal details are shown for winners?</h3>
-        <p>With consent, we may publish first name + initial, town/county, and prize amount.</p>
-      </div>
-
-      <div class="info">
-        <h3>Responsible play</h3>
-        <p>Please play responsibly. If you need support: <a href="https://www.begambleaware.org/">BeGambleAware.org</a> (0808 8020 133).</p>
-      </div>
-
-      <div class="info">
-        <h3>I need help or want to complain</h3>
-        <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>. We aim to respond within 1–2 business days.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA strip -->
-  <section class="strip" aria-label="Call to action">
-    <div class="container">
-      Ready to support a charity you care about?
-      <a class="cta" style="padding:10px 16px" href="subscribe.html">Subscribe for £10</a>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer role="contentinfo">
-  <div class="container" style="display:grid;gap:22px">
-    <div>
-      <strong>The Great Change UK Ltd</strong><br/>
-      Company No: 16504959<br/>
-      Registered office: [YOUR ADDRESS]<br/>
-      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
-    </div>
-    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
-    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div><div class="brand" style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span class="logo"></span><span class="name" style="color:#fff;font-weight:800">The Great Change UK</span></div><p>© <span id="year"></span> The Great Change UK</p></div>
+    <div><h4>Company</h4><a href="/subscribe.html">Subscribe</a><br><a href="/how-it-works.html">How it works</a></div>
+    <div><h4>Legal</h4><a href="/legal.html">Terms & Privacy</a></div>
+    <div><h4>Contact</h4><a href="/contact.html">Contact form</a></div>
   </div>
 </footer>
-
 <script>
-  // Year
-  document.getElementById('y').textContent = new Date().getFullYear();
-  // Hamburger
-  (function(){
-    const btn=document.getElementById('hamburger');
-    const menu=document.getElementById('navMenu');
-    const backdrop=document.getElementById('backdrop');
-    if(!btn||!menu||!backdrop) return;
-    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
-    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
-    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
-    backdrop.addEventListener('click',close);
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-  })();
+  document.querySelector('.nav-toggle').onclick=()=>{const n=document.getElementById('main-nav');const o=n.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',o)}
+  document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-</body>
-</html>
+</body></html>
+
