@@ -1,234 +1,73 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Donation Transparency — The Great Change UK</title>
-<meta name="description" content="We publish monthly totals and proof of donations. At least 20% of proceeds are donated to UK good causes." />
-
-<!-- SEO / Sharing -->
-<link rel="canonical" href="https://thegreatchangeuk.com/donation-transparency.html">
-<meta property="og:title" content="Donation Transparency — The Great Change UK">
-<meta property="og:description" content="See monthly totals, receipts and how funds are handled. At least 20% of proceeds go to UK good causes.">
-<meta property="og:url" content="https://thegreatchangeuk.com/donation-transparency.html">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Winners — The Great Change UK</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  :root{
-    --bg:#0a1220; --ink:#0c1b33;
-    --brand:#2c7bff; --brand-2:#1856d6; --brand-soft:#66a6ff; --accent:#75b7ff;
-    --text:#f7fbff; --muted:#d6e6ff;
-    --card:rgba(255,255,255,.08); --card-soft:rgba(255,255,255,.12); --border:rgba(255,255,255,.16);
-    --shadow:0 16px 42px rgba(5,15,35,.22); --radius:18px; --container:1160px;
-  }
-  *{box-sizing:border-box} html,body{margin:0}
-  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-  a{color:#fff;text-decoration:none} a:hover{text-decoration:underline}
-  .container{max-width:var(--container);margin:0 auto;padding:0 18px}
-  .section{padding:56px 0}
-
-  /* Skip link */
-  .visually-hidden-focusable{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-  .visually-hidden-focusable:focus{position:static;width:auto;height:auto;padding:8px 12px;background:#fff;color:#0a1e3b;border-radius:8px}
-
-  /* Header */
-  .navbar{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,var(--ink),var(--brand-2));border-bottom:1px solid var(--border)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-  .brand{font-weight:800;letter-spacing:.2px;font-size:18px;color:#fff}
-  .hamburger{font-size:28px;background:none;border:none;color:#fff;cursor:pointer;padding:6px 10px;border-radius:10px}
-  .nav-links{display:none;position:absolute;right:18px;top:64px;background:#0d274c;padding:18px;border-radius:14px;box-shadow:var(--shadow);flex-direction:column;gap:12px;z-index:1200}
-  .nav-links a{color:#fff} .nav-links .cta{background:#fff;color:#0b1e3b;padding:9px 12px;border-radius:10px}
-  .nav-links.show{display:flex}
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1100} .backdrop[hidden]{display:none}
-
-  /* Lighter HERO */
-  .hero{
-    background:
-      radial-gradient(1200px 600px at 75% -10%, rgba(114,185,255,.28), transparent 60%),
-      linear-gradient(135deg, var(--brand-soft) 0%, var(--brand) 55%, var(--brand-2) 100%);
-    border-bottom:1px solid var(--border);
-  }
-  .hero .wrap{padding:78px 0 56px}
-  h1{margin:0 0 10px;font-size:clamp(30px,6.4vw,44px);line-height:1.12}
-  .lede{max-width:760px;color:#eff6ff;margin:0 0 6px;font-size:clamp(16px,4vw,18px)}
-  .row{display:flex;flex-wrap:wrap;gap:12px}
-
-  /* Cards & tables */
-  .info,.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-  .grid{display:grid;gap:18px}
-  .table{width:100%;border-collapse:separate;border-spacing:0}
-  .table th,.table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
-  .table th{color:#eaf2ff}
-  .pill{display:inline-block;background:rgba(44,123,255,.18);border:1px solid rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;font-size:12px}
-
-  .small{font-size:14px} .muted{color:var(--muted)}
-
-  /* CTA strip */
-  .strip{background:linear-gradient(90deg, var(--brand-2), var(--brand));text-align:center;padding:24px 12px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-
-  /* Footer */
-  footer{padding:32px 0;color:#cfe5ff;border-top:1px solid var(--border)} footer a{color:#cfe5ff}
-
-  /* Focus */
-  .hamburger:focus-visible,.btn:focus-visible,.cta:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .btn,.cta{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:800}
-  .btn{border:1px solid rgba(255,255,255,.7);color:#fff}
-  .cta{background:#fff;color:#0a1e3b;box-shadow:var(--shadow)}
-
-  /* Mobile polish */
-  @media (max-width:760px){
-    .container{padding:0 14px}
-    .nav-inner{padding:10px 0} .brand{font-size:16px} .hamburger{font-size:26px;padding:10px 12px}
-    .hero .wrap{padding:60px 0 42px}
-    h1{font-size:clamp(26px,7.2vw,34px)} .lede{font-size:15.5px}
-    .grid{gap:14px}
-    .info,.card{padding:16px;border-radius:14px}
-    .table th,.table td{padding:8px 10px}
-  }
+  .table{width:100%;border-collapse:separate;border-spacing:0 10px}
+  .table th{font-weight:700;text-align:left;padding:8px 10px}
+  .table td{background:#fff;border:1px solid var(--line);padding:12px 10px;border-radius:12px}
+  .table tr td:first-child{border-right:none}
 </style>
 </head>
 <body>
-
-<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-<!-- Header -->
-<header class="navbar" role="banner">
-  <div class="nav-inner container">
-    <a href="index.html" class="brand" aria-label="The Great Change UK">The Great Change UK</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
-    <nav class="nav-links" id="navMenu" role="navigation" aria-label="Primary">
-      <a href="how-it-works.html">How It Works</a>
-      <a href="subscribe.html" class="cta">Subscribe</a>
-      <a href="winners.html">Winners</a>
-      <a href="donation-transparency.html" aria-current="page">Transparency</a>
-      <a href="contact.html">Contact</a>
-      <a href="legal.html">Legal</a>
-      <a href="faq.html">FAQ</a>
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="logo"></span><span class="name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-expanded="false"><span></span></button>
+    <nav id="main-nav" class="nav">
+      <a href="/subscribe.html">Subscribe</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/transparency.html">Transparency</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
     </nav>
   </div>
-  <div class="backdrop" id="backdrop" hidden></div>
 </header>
 
-<main id="main" role="main">
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="pill">Updated weekly</span>
+    <h1 class="h1">Winners</h1>
+    <p class="sub">We publish the winning ID each week once verified.</p>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container wrap">
-      <h1>Donation transparency</h1>
-      <p class="lede">We publish monthly totals and donation proof. <strong>At least 20% of proceeds</strong> are donated to UK good causes chosen by our subscribers.</p>
-    </div>
-  </section>
+<section class="features" style="background:#fff">
+  <div class="wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th><th>Draw #</th><th>Winner ID</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Fri 30 Aug 2025</td><td>#0143</td><td>TGC-9F72</td><td>Paid</td></tr>
+        <tr><td>Fri 23 Aug 2025</td><td>#0142</td><td>TGC-6A11</td><td>Paid</td></tr>
+        <tr><td>Fri 16 Aug 2025</td><td>#0141</td><td>TGC-3CD9</td><td>Paid</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:10px">We verify eligibility (age/UK residency) before paying out.</p>
+  </div>
+</section>
 
-  <!-- Latest month summary -->
-  <section class="section">
-    <div class="container grid" style="grid-template-columns:1.1fr .9fr">
-      <div class="info">
-        <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:6px">
-          <h3 style="margin:0">Latest month: <span class="pill">September 2025</span></h3>
-          <a class="btn" href="receipts/2025-09-donations.pdf">Download receipts (PDF)</a>
-        </div>
-        <table class="table" aria-label="Monthly totals">
-          <thead>
-            <tr><th>Item</th><th>Amount</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Total subscriptions received</td><td><strong>£X,XXX</strong></td></tr>
-            <tr><td>Donated to UK charities</td><td><strong>£XXX</strong></td></tr>
-            <tr><td>Prize payouts (weekly)</td><td><strong>£X,XXX</strong></td></tr>
-            <tr><td>Operating & compliance costs</td><td><strong>£XXX</strong></td></tr>
-          </tbody>
-        </table>
-        <p class="small muted" style="margin-top:10px">Figures shown once monthly reconciliation completes. Donation receipts are redacted for payer privacy when required.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin:0 0 8px">How we handle funds</h3>
-        <ul class="small" style="margin:0; padding-left:18px; line-height:1.55">
-          <li>Prize funds are ring-fenced until each weekly draw is verified.</li>
-          <li>Charitable donations are batched and paid monthly to the charities selected at checkout.</li>
-          <li>Receipts (or confirmations) are uploaded to this page each month.</li>
-        </ul>
-        <p class="small" style="margin-top:10px">
-          For our full allocation policy, see <a href="legal.html">Legal & Terms</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Prior months -->
-  <section class="section">
-    <div class="container">
-      <div class="info">
-        <h3 style="margin:0 0 8px">Previous months</h3>
-        <table class="table" aria-label="Previous months">
-          <thead>
-            <tr><th>Month</th><th>Subscriptions</th><th>Donated</th><th>Prizes</th><th>Receipts</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>August 2025</td>
-              <td>£X,XXX</td>
-              <td>£XXX</td>
-              <td>£X,XXX</td>
-              <td><a href="receipts/2025-08-donations.pdf">PDF</a></td>
-            </tr>
-            <tr>
-              <td>July 2025</td>
-              <td>£X,XXX</td>
-              <td>£XXX</td>
-              <td>£X,XXX</td>
-              <td><a href="receipts/2025-07-donations.pdf">PDF</a></td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="small muted">We’ll keep at least 12 months of history available here.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="strip" aria-label="Call to action">
-    <div class="container">
-      Ready to support a UK charity you care about?
-      <a class="cta" style="padding:10px 16px" href="subscribe.html">Subscribe for £10</a>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer role="contentinfo">
-  <div class="container" style="display:grid;gap:22px">
-    <div>
-      <strong>The Great Change UK Ltd</strong><br/>
-      Company No: 16504959<br/>
-      Registered office: [YOUR ADDRESS]<br/>
-      Contact: <a href="mailto:info@thegreatchangeuk.com">info@thegreatchangeuk.com</a>
-    </div>
-    <div class="small">© <span id="y"></span> The Great Change UK Ltd. All rights reserved.</div>
-    <div class="small">Need help? <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div><div class="brand" style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span class="logo"></span><span class="name" style="color:#fff;font-weight:800">The Great Change UK</span></div><p>© <span id="year"></span> The Great Change UK</p></div>
+    <div><h4>Company</h4><a href="/how-it-works.html">How it works</a><br><a href="/subscribe.html">Subscribe</a></div>
+    <div><h4>Legal</h4><a href="/legal.html">Terms & Privacy</a></div>
+    <div><h4>Contact</h4><a href="/contact.html">Contact form</a></div>
   </div>
 </footer>
-
 <script>
-  // Year
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Hamburger
-  (function(){
-    const btn=document.getElementById('hamburger');
-    const menu=document.getElementById('navMenu');
-    const backdrop=document.getElementById('backdrop');
-    if(!btn||!menu||!backdrop) return;
-    const open=()=>{menu.classList.add('show');backdrop.hidden=false;btn.setAttribute('aria-expanded','true');};
-    const close=()=>{menu.classList.remove('show');backdrop.hidden=true;btn.setAttribute('aria-expanded','false');};
-    btn.addEventListener('click',()=> menu.classList.contains('show') ? close() : open());
-    backdrop.addEventListener('click',close);
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-  })();
+  document.querySelector('.nav-toggle').onclick=()=>{const n=document.getElementById('main-nav');const o=n.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',o)}
+  document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-</body>
-</html>
+</body></html>
+
 
 
