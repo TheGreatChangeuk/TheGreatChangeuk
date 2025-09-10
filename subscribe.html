@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Subscribe — The Great Change UK</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,74 +10,54 @@
 <meta name="description" content="Subscribe for £10/month via secure Stripe checkout. Choose your charity, manage anytime. UK only, 18+." />
 </head>
 <body>
-
-<header class="header">
-  <div class="wrap bar">
-    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-controls="mobileNav" aria-expanded="false"><span class="bars"></span></button>
-    <nav class="nav" aria-label="Primary">
-      <a href="/how-it-works.html">How it works</a>
-      <a href="/impact.html">Winners & donations</a>
-      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
-    </nav>
-  </div>
-  <div id="navOverlay" class="nav-overlay"></div>
-  <nav id="mobileNav" class="nav-sheet" aria-hidden="true">
-    <div class="sheet">
-      <a class="nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a>
-      <a class="nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a>
-      <a class="btn sheet-cta" href="/subscribe.html">Subscribe</a>
-    </div>
+<header class="header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+  <nav class="nav" aria-label="Primary">
+    <a href="/impact.html">Winners & donations</a>
+    <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
   </nav>
-</header>
+</div></header>
 
 <section class="hero">
   <div class="wrap hero-inner">
     <span class="pill">£10/month · Cancel anytime</span>
     <h1 class="h1">Subscribe in minutes</h1>
     <p class="sub">Secure Stripe checkout. Choose your charity during checkout and manage or cancel anytime from your receipt.</p>
-
-    <div class="pot" aria-live="polite">
-      <div class="label">This week’s prize pot</div>
-      <div class="amount">£3,250</div>
-      <div class="meta">Draw: Friday 8pm · Winner published after verification</div>
-    </div>
-
+    <div class="pot"><div class="label">This week’s prize pot</div><div class="amount">£3,250</div><div class="meta">Draw: Friday 8pm · Winner published after verification</div></div>
     <div class="cta-row">
-      <!-- REPLACE with your live Stripe Checkout link -->
-      <a class="btn btn-primary" href="https://checkout.stripe.com/REPLACE"
-         onclick="window.plausible && plausible('Subscribe Checkout Clicked')">Go to secure checkout</a>
-      <a class="btn btn-ghost" href="/how-it-works.html">How it works</a>
+      <a class="btn btn-primary" href="https://checkout.stripe.com/REPLACE" onclick="window.plausible&&plausible('Subscribe Checkout Clicked')">Go to secure checkout</a>
     </div>
     <p class="trust">Apple Pay · Google Pay · Visa · Mastercard</p>
   </div>
 </section>
 
-<section class="features">
-  <div class="wrap">
-    <div class="cards">
-      <article class="card"><h3>What you get</h3><p>One entry in our weekly draw, plus the chance to support a UK charity of your choice.</p></article>
-      <article class="card"><h3>Your control</h3><p>Update card details or cancel anytime using the link in your Stripe receipt.</p></article>
-      <article class="card"><h3>Transparency</h3><p>We publish weekly winners and monthly donation totals on our site.</p></article>
-    </div>
-  </div>
-</section>
+<section class="features"><div class="wrap"><div class="cards">
+  <article class="card"><h3>What you get</h3><p>One entry in our weekly draw, plus the chance to support a UK charity of your choice.</p></article>
+  <article class="card"><h3>Your control</h3><p>Update payment details or cancel anytime using the link in your Stripe receipt.</p></article>
+  <article class="card"><h3>Transparency</h3><p>We publish weekly winners and monthly donation totals on our site.</p></article>
+</div></div></section>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div>
-      <span class="brand-name brand-name--footer">The Great Change UK</span>
-      <p>UK residents only, 18+. Please play responsibly.</p>
-      <p>© <span id="year"></span> The Great Change UK</p>
-    </div>
-    <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
-    <div><h4>Contact</h4><a href="/contact.html">Contact form</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
-  </div>
-</footer>
+<footer class="footer"><div class="wrap footer-inner">
+  <div><span class="brand-name brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
+  <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
+  <div><h4>Contact</h4><a href="/contact.html">Contact</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+</div></footer>
 
 <script>
-  (function(){const b=document.querySelector('.nav-toggle');const o=document.getElementById('navOverlay');const s=document.getElementById('mobileNav');function t(x){document.body.classList.toggle('nav-open',x);b&&b.setAttribute('aria-expanded',x);o&&(o.style.display=x?'block':'none');s&&s.setAttribute('aria-hidden',!x);}b&&b.addEventListener('click',e=>{e.preventDefault();t(!document.body.classList.contains('nav-open'));});o&&o.addEventListener('click',()=>t(false));window.addEventListener('keydown',e=>{if(e.key==='Escape')t(false)});})();
-  (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+(function(){
+  const btn=document.querySelector('.nav-toggle'); if(!btn) return;
+  const open=()=>{btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+    const ov=document.createElement('div'); ov.className='mobile-overlay';
+    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
+    sheet.innerHTML=`<a class="mobile-nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="mobile-nav-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(ov,sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
+    const close=()=>{btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{ov.remove(); sheet.remove()},200); window.removeEventListener('keydown',esc)};
+    const esc=(e)=>{if(e.key==='Escape') close()}; ov.addEventListener('click',close); window.addEventListener('keydown',esc); btn._close=close;
+  };
+  btn.addEventListener('click',e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true')?btn._close&&btn._close():open();});
+})();
+(function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 </script>
 
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
@@ -86,7 +65,6 @@
   <div class="cookie-actions"><button id="cookie-decline" class="btn-ghost" type="button">Decline</button><button id="cookie-accept" class="btn-primary" type="button">Accept</button></div>
 </div>
 <script>
-  (function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
+(function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
 </script>
-</body>
-</html>
+</body></html>
