@@ -1,76 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Contact — The Great Change UK</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-<header class="header">
-  <div class="wrap bar">
-    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-controls="mobileNav" aria-expanded="false"><span class="bars"></span></button>
-    <nav class="nav" aria-label="Primary">
-      <a href="/how-it-works.html">How it works</a>
-      <a href="/impact.html">Winners & donations</a>
-      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
-    </nav>
-  </div>
-  <div id="navOverlay" class="nav-overlay"></div>
-  <nav id="mobileNav" class="nav-sheet" aria-hidden="true">
-    <div class="sheet">
-      <a class="nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a>
-      <a class="nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a>
-      <a class="btn sheet-cta" href="/subscribe.html">Subscribe</a>
-    </div>
+<header class="header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+  <nav class="nav" aria-label="Primary">
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/impact.html">Winners & donations</a>
+    <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
   </nav>
-</header>
+</div></header>
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <span class="pill">We’re here to help</span>
-    <h1 class="h1">Contact us</h1>
-    <p class="sub">We aim to reply within 1–2 working days.</p>
-  </div>
-</section>
+<section class="hero"><div class="wrap hero-inner">
+  <span class="pill">We’re here to help</span>
+  <h1 class="h1">Contact us</h1>
+  <p class="sub">We aim to reply within 1–2 working days.</p>
+</div></section>
 
-<section class="features">
-  <div class="wrap">
-    <div class="cards">
-      <article class="card">
-        <h3>Email</h3>
-        <p><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></p>
-      </article>
-      <article class="card">
-        <h3>Common requests</h3>
-        <p>• Update payment details — use the link in your Stripe receipt.<br>
-           • Cancel — use the same link, or email us.<br>
-           • Winner verification — we’ll guide you through ID checks.</p>
-      </article>
-      <article class="card">
-        <h3>Response times</h3>
-        <p>Mon–Fri, 9:00–17:00 (UK). We usually respond within 1–2 business days.</p>
-      </article>
-    </div>
-  </div>
-</section>
+<section class="features"><div class="wrap"><div class="cards">
+  <article class="card"><h3>Email</h3><p><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></p></article>
+  <article class="card"><h3>Common requests</h3><p>• Update payment details — use the link in your Stripe receipt.<br>• Cancel — use the same link, or email us.<br>• Winner verification — we’ll guide you through ID checks.</p></article>
+  <article class="card"><h3>Hours</h3><p>Mon–Fri, 9:00–17:00 (UK). Responses within 1–2 business days.</p></article>
+</div></div></section>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div>
-      <span class="brand-name brand-name--footer">The Great Change UK</span>
-      <p>© <span id="year"></span> The Great Change UK</p>
-    </div>
-  </div>
-</footer>
+<footer class="footer"><div class="wrap footer-inner">
+  <div><span class="brand-name brand-name--footer">The Great Change UK</span><p>© <span id="year"></span> The Great Change UK</p></div>
+</div></footer>
 
 <script>
-  (function(){const b=document.querySelector('.nav-toggle');const o=document.getElementById('navOverlay');const s=document.getElementById('mobileNav');function t(x){document.body.classList.toggle('nav-open',x);b&&b.setAttribute('aria-expanded',x);o&&(o.style.display=x?'block':'none');s&&s.setAttribute('aria-hidden',!x);}b&&b.addEventListener('click',e=>{e.preventDefault();t(!document.body.classList.contains('nav-open'));});o&&o.addEventListener('click',()=>t(false));window.addEventListener('keydown',e=>{if(e.key==='Escape')t(false)});})();
-  (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+(function(){
+  const btn=document.querySelector('.nav-toggle'); if(!btn) return;
+  const open=()=>{btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+    const ov=document.createElement('div'); ov.className='mobile-overlay';
+    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
+    sheet.innerHTML=`<a class="mobile-nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a><a class="mobile-nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="mobile-nav-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(ov,sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
+    const close=()=>{btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{ov.remove(); sheet.remove()},200); window.removeEventListener('keydown',esc)};
+    const esc=(e)=>{if(e.key==='Escape') close()}; ov.addEventListener('click',close); window.addEventListener('keydown',esc); btn._close=close;
+  };
+  btn.addEventListener('click',e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true')?btn._close&&btn._close():open();});
+})();
+(function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 </script>
-</body>
-</html>
+</body></html>
