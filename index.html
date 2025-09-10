@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Site styles -->
-<link rel="stylesheet" href="style.css">
+<!-- Site styles (we’ll add this next) -->
+<link rel="stylesheet" href="/style.css" />
 
-<!-- Cookieless analytics (safe under UK GDPR/PECR) -->
+<!-- Cookieless analytics (no consent needed) -->
 <script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
 
 <meta name="description" content="Subscribe for £10/month, enter a weekly prize draw, and support UK charities. Winners and donation transparency published regularly. UK only, 18+." />
@@ -20,12 +20,11 @@
 </head>
 <body>
 
-<!-- HEADER (logo = Home; only 3 links in nav) -->
+<!-- ===== Header (text brand; only 3 links) ===== -->
 <header class="header">
   <div class="wrap bar">
     <a class="brand" href="/">
-      <!-- Replace with your logo asset -->
-      <img class="brand-logo" src="/assets/logo.svg" alt="The Great Change UK" />
+      <span class="brand-name">The Great Change UK</span>
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false"><span></span></button>
     <nav id="main-nav" class="nav">
@@ -37,7 +36,7 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ===== Hero ===== -->
 <section class="hero" role="banner">
   <div class="wrap hero-inner">
     <span class="pill">£10/month · UK only · 18+</span>
@@ -47,8 +46,8 @@
     <!-- Update these weekly -->
     <div class="pot" aria-live="polite">
       <div class="label">This week’s prize pot</div>
-      <div class="amount">£3,250</div> <!-- ← EDIT AMOUNT -->
-      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div> <!-- ← EDIT TEXT -->
+      <div class="amount">£3,250</div> <!-- ← EDIT -->
+      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div> <!-- ← EDIT -->
     </div>
 
     <div class="cta-row">
@@ -60,7 +59,7 @@
   </div>
 </section>
 
-<!-- FEATURES (3 short, persuasive cards) -->
+<!-- ===== Feature cards ===== -->
 <section class="features">
   <div class="wrap">
     <div class="cards" aria-label="How it works">
@@ -74,13 +73,13 @@
       </article>
       <article class="card">
         <h3>Weekly transparency</h3>
-        <p>We publish the winner’s ID every week and keep a clear donation ledger.</p>
+        <p>We publish the winner ID every week and keep a clear donation ledger.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF / STATS -->
+<!-- ===== Stats / social proof ===== -->
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
@@ -96,14 +95,12 @@
   </div>
 </section>
 
-<!-- FOOTER (legal + contact only) -->
+<!-- ===== Footer (legal + contact only) ===== -->
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
       <div class="brand" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <!-- Use a white/mono version of your logo for dark footer -->
-        <img class="brand-logo" src="/assets/logo-white.svg" alt="The Great Change UK" style="height:28px" />
-        <span class="name" style="color:#fff;font-weight:800">The Great Change UK</span>
+        <span class="brand-name brand-name--footer">The Great Change UK</span>
       </div>
       <p>UK residents only, 18+. Please play responsibly.</p>
       <p>© <span id="year"></span> The Great Change UK</p>
@@ -123,7 +120,7 @@
   </div>
 </footer>
 
-<!-- === Scripts: nav + year + minimal cookie banner (Accept/Decline) === -->
+<!-- ===== JS: nav + footer year ===== -->
 <script>
   // Mobile menu: solid overlay + scroll lock
   (function () {
@@ -137,17 +134,16 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
   })();
-
   // Year in footer
   (function(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); })();
 </script>
 
-<!-- Cookie banner (future-proof: Accept/Decline). Legal now: essential only + Plausible (cookieless) -->
+<!-- ===== Compact Cookie Banner (Accept / Decline, safe-area aware) ===== -->
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
-  <p>
+  <div class="cookie-copy">
     We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a>
-  </p>
-  <div>
+  </div>
+  <div class="cookie-actions">
     <button id="cookie-decline" class="btn-ghost" type="button">Decline</button>
     <button id="cookie-accept" class="btn-primary" type="button">Accept</button>
   </div>
@@ -162,11 +158,11 @@
     if (localStorage.getItem(KEY)) banner.style.display = 'none';
 
     function setConsent(val){
-      localStorage.setItem(KEY, val); // 'accepted' or 'declined'
+      try{ localStorage.setItem(KEY, val); }catch(e){}
       banner.style.display = 'none';
     }
-    if (accept) accept.addEventListener('click', ()=> setConsent('accepted'));
-    if (decline) decline.addEventListener('click', ()=> setConsent('declined'));
+    accept && accept.addEventListener('click', ()=> setConsent('accepted'));
+    decline && decline.addEventListener('click', ()=> setConsent('declined'));
   })();
 </script>
 
