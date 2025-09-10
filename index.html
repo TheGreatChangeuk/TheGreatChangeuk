@@ -5,45 +5,43 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>The Great Change UK — Win weekly. Help UK charities.</title>
 <meta name="description" content="Subscribe for £10/month, enter a weekly prize draw, and support UK charities. Winners and donation transparency published regularly. UK only, 18+." />
-<meta name="theme-color" content="#1e63f0" />
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Styles -->
 <link rel="stylesheet" href="/style.css" />
-
-<!-- Cookieless analytics (no consent needed) -->
 <script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 
-<!-- ===== Header ===== -->
 <header class="header">
   <div class="wrap bar">
     <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="mobileNav" aria-expanded="false"><span class="bars"></span></button>
 
-    <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
-      <span class="bars"></span>
-    </button>
-
-    <nav id="main-nav" class="nav">
-      <a href="/how-it-works.html">How it works & FAQ</a>
-      <a href="/impact.html">Winners & Transparency</a>
+    <!-- Desktop nav -->
+    <nav class="nav" aria-label="Primary">
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/impact.html">Winners & donations</a>
       <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
     </nav>
   </div>
+
+  <!-- Mobile overlay & sheet -->
+  <div id="navOverlay" class="nav-overlay" hidden></div>
+  <nav id="mobileNav" class="nav-sheet" aria-hidden="true">
+    <div class="sheet">
+      <a class="nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a>
+      <a class="nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a>
+      <a class="btn sheet-cta" href="/subscribe.html">Subscribe</a>
+    </div>
+  </nav>
 </header>
 
-<!-- ===== Hero ===== -->
 <section class="hero" role="banner">
   <div class="wrap hero-inner">
     <span class="pill">£10/month · UK only · 18+</span>
     <h1 class="h1">Win weekly. Help UK charities.</h1>
     <p class="sub">A simple monthly subscription enters you into our weekly draw and supports good causes across the UK.</p>
 
-    <!-- Update weekly -->
     <div class="pot" aria-live="polite">
       <div class="label">This week’s prize pot</div>
       <div class="amount">£3,250</div>
@@ -51,51 +49,32 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="/subscribe.html" onclick="window.plausible && plausible('Subscribe CTA Clicked')">Subscribe now</a>
+      <a class="btn btn-primary" href="/subscribe.html">Subscribe now</a>
       <a class="btn btn-ghost" href="/how-it-works.html">How it works</a>
     </div>
-
     <p class="trust">Secure checkout via Stripe · Apple Pay · Google Pay · Visa · Mastercard</p>
   </div>
 </section>
 
-<!-- ===== Features ===== -->
 <section class="features">
   <div class="wrap">
     <div class="cards" aria-label="How it works">
-      <article class="card">
-        <h3>It takes minutes</h3>
-        <p>Subscribe via secure Stripe. Your receipt lets you manage or cancel anytime.</p>
-      </article>
-      <article class="card">
-        <h3>Choose your charity</h3>
-        <p>Pick from 10 supported UK charities during checkout. We publish donation totals monthly.</p>
-      </article>
-      <article class="card">
-        <h3>Weekly transparency</h3>
-        <p>We publish the winner ID every week and keep a clear donation ledger.</p>
-      </article>
+      <article class="card"><h3>It takes minutes</h3><p>Subscribe via secure Stripe. Your receipt lets you manage or cancel anytime.</p></article>
+      <article class="card"><h3>Choose your charity</h3><p>Pick from 10 supported UK charities during checkout. We publish donation totals monthly.</p></article>
+      <article class="card"><h3>Weekly transparency</h3><p>We publish the winner ID every week and keep a clear donation ledger.</p></article>
     </div>
   </div>
 </section>
 
-<!-- ===== Stats ===== -->
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat">
-        <span class="k">£31,480</span>
-        <span class="t">Total donated to date</span>
-      </div>
-      <div class="stat">
-        <span class="k">10</span>
-        <span class="t">UK charities supported</span>
-      </div>
+      <div class="stat"><span class="k">£31,480</span><span class="t">Total donated to date</span></div>
+      <div class="stat"><span class="k">10</span><span class="t">UK charities supported</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
@@ -103,59 +82,37 @@
       <p>UK residents only, 18+. Please play responsibly.</p>
       <p>© <span id="year"></span> The Great Change UK</p>
     </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="/terms.html#terms">Terms & Conditions</a><br />
-      <a href="/terms.html#cookies">Cookie Notice</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="/contact.html">Contact form</a><br />
-      <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
-    </div>
+    <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
+    <div><h4>Contact</h4><a href="/contact.html">Contact form</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
   </div>
 </footer>
 
-<!-- ===== Scripts ===== -->
 <script>
-  // Mobile menu: solid overlay + scroll lock
+  // Mobile bottom-sheet menu toggle
   (function(){
-    const btn = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('main-nav');
-    if(!btn || !nav) return;
-    btn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
+    const btn=document.querySelector('.nav-toggle');
+    const overlay=document.getElementById('navOverlay');
+    const sheet=document.getElementById('mobileNav');
+    function openNav(open){
+      document.body.classList.toggle('nav-open', open);
+      btn && btn.setAttribute('aria-expanded', open);
+      if(overlay) overlay.hidden=!open;
+      if(sheet) sheet.setAttribute('aria-hidden', !open);
+    }
+    btn && btn.addEventListener('click', e=>{e.preventDefault(); openNav(!document.body.classList.contains('nav-open'));});
+    overlay && overlay.addEventListener('click', ()=>openNav(false));
+    window.addEventListener('keydown', e=>{ if(e.key==='Escape') openNav(false); });
   })();
-
-  // Year in footer
-  (function(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); })();
+  (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 </script>
 
-<!-- ===== Cookie Banner (Accept / Decline, safe-area aware) ===== -->
+<!-- Cookie banner -->
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
-  <div class="cookie-copy">
-    We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a>
-  </div>
-  <div class="cookie-actions">
-    <button id="cookie-decline" class="btn-ghost" type="button">Decline</button>
-    <button id="cookie-accept" class="btn-primary" type="button">Accept</button>
-  </div>
+  <div class="cookie-copy">We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
+  <div class="cookie-actions"><button id="cookie-decline" class="btn-ghost" type="button">Decline</button><button id="cookie-accept" class="btn-primary" type="button">Accept</button></div>
 </div>
 <script>
-  (function(){
-    const banner = document.getElementById('cookie-banner');
-    const accept = document.getElementById('cookie-accept');
-    const decline = document.getElementById('cookie-decline');
-    const KEY = 'cookieConsent';
-    if(localStorage.getItem(KEY)) banner.style.display='none';
-    function setConsent(v){ try{localStorage.setItem(KEY,v)}catch(e){} banner.style.display='none'; }
-    accept && accept.addEventListener('click',()=>setConsent('accepted'));
-    decline && decline.addEventListener('click',()=>setConsent('declined'));
-  })();
+  (function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
 </script>
 
 </body>
