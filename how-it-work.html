@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>How it works & FAQ — The Great Change UK</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+<script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
+<meta name="description" content="How The Great Change UK works: subscribe, choose your charity, weekly prize draw, winners published, donations reported monthly. FAQ included." />
+<style>
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0;box-shadow:var(--shadow-sm)}
+  summary{cursor:pointer;font-weight:700;list-style:none}
+  summary::-webkit-details-marker{display:none}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false"><span class="bars"></span></button>
+    <nav id="main-nav" class="nav">
+      <a href="/how-it-works.html">How it works & FAQ</a>
+      <a href="/impact.html">Winners & Transparency</a>
+      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="pill">Simple process · Clear rules</span>
+    <h1 class="h1">How it works</h1>
+    <p class="sub">Subscribe, choose your charity, and you’re in the weekly draw. We publish winners and donation reports regularly.</p>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="cards">
+      <article class="card"><h3>1. Subscribe</h3><p>£10/month via secure Stripe checkout. Your receipt includes a manage/cancel link.</p></article>
+      <article class="card"><h3>2. Choose your charity</h3><p>Pick from our 10 supported UK charities during checkout.</p></article>
+      <article class="card"><h3>3. Weekly draw</h3><p>Every Friday 8pm we select one winner from active, paid subscribers.</p></article>
+      <article class="card"><h3>4. Publish results</h3><p>Winner ID is posted on the Winners section after verification.</p></article>
+      <article class="card"><h3>5. Donate monthly</h3><p>Monthly totals and proofs are posted on the Transparency section.</p></article>
+      <article class="card"><h3>6. Responsible play</h3><p>UK residents only, 18+. Please play responsibly.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="stats" style="background:#fff">
+  <div class="wrap">
+    <h2 style="margin:0 0 8px">FAQ</h2>
+    <details open><summary>Who can subscribe?</summary><p>UK residents aged 18+.</p></details>
+    <details><summary>How do I manage or cancel?</summary><p>Use the link in your Stripe receipt, or contact us at support@thegreatchangeuk.com.</p></details>
+    <details><summary>When is the draw?</summary><p>Every Friday at 8pm. Winner ID is posted on the Winners section after verification.</p></details>
+    <details><summary>How are donations handled?</summary><p>We aggregate monthly and publish totals and proof references in Transparency.</p></details>
+    <details><summary>Which charities can I pick?</summary><p>We currently support 10 trusted UK charities. You choose during checkout.</p></details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <span class="brand-name brand-name--footer">The Great Change UK</span>
+      <p>UK residents only, 18+. Please play responsibly.</p>
+      <p>© <span id="year"></span> The Great Change UK</p>
+    </div>
+    <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
+    <div><h4>Contact</h4><a href="/contact.html">Contact form</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+  </div>
+</footer>
+
+<script>
+  (function(){const b=document.querySelector('.nav-toggle');const n=document.getElementById('main-nav');if(!b||!n)return;b.addEventListener('click',e=>{e.preventDefault();const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});})();
+  (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+</script>
+
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
+  <div class="cookie-copy">We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
+  <div class="cookie-actions"><button id="cookie-decline" class="btn-ghost" type="button">Decline</button><button id="cookie-accept" class="btn-primary" type="button">Accept</button></div>
+</div>
+<script>
+  (function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
+</script>
+</body>
+</html>
