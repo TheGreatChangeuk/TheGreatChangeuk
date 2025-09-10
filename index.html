@@ -4,29 +4,30 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>The Great Change UK — Win weekly. Help UK charities.</title>
+<meta name="description" content="Subscribe for £10/month, enter a weekly prize draw, and support UK charities. Winners and donation transparency published regularly. UK only, 18+." />
+<meta name="theme-color" content="#1e63f0" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Site styles (we’ll add this next) -->
+<!-- Styles -->
 <link rel="stylesheet" href="/style.css" />
 
 <!-- Cookieless analytics (no consent needed) -->
 <script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
-
-<meta name="description" content="Subscribe for £10/month, enter a weekly prize draw, and support UK charities. Winners and donation transparency published regularly. UK only, 18+." />
-<meta name="theme-color" content="#1e63f0" />
 </head>
 <body>
 
-<!-- ===== Header (text brand; only 3 links) ===== -->
+<!-- ===== Header ===== -->
 <header class="header">
   <div class="wrap bar">
-    <a class="brand" href="/">
-      <span class="brand-name">The Great Change UK</span>
-    </a>
-    <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false"><span></span></button>
+    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+
+    <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+      <span class="bars"></span>
+    </button>
+
     <nav id="main-nav" class="nav">
       <a href="/how-it-works.html">How it works & FAQ</a>
       <a href="/impact.html">Winners & Transparency</a>
@@ -42,11 +43,11 @@
     <h1 class="h1">Win weekly. Help UK charities.</h1>
     <p class="sub">A simple monthly subscription enters you into our weekly draw and supports good causes across the UK.</p>
 
-    <!-- Update these weekly -->
+    <!-- Update weekly -->
     <div class="pot" aria-live="polite">
       <div class="label">This week’s prize pot</div>
-      <div class="amount">£3,250</div> <!-- ← EDIT -->
-      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div> <!-- ← EDIT -->
+      <div class="amount">£3,250</div>
+      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div>
     </div>
 
     <div class="cta-row">
@@ -58,7 +59,7 @@
   </div>
 </section>
 
-<!-- ===== Feature cards ===== -->
+<!-- ===== Features ===== -->
 <section class="features">
   <div class="wrap">
     <div class="cards" aria-label="How it works">
@@ -78,12 +79,12 @@
   </div>
 </section>
 
-<!-- ===== Stats / social proof ===== -->
+<!-- ===== Stats ===== -->
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat">
-        <span class="k">£31,480</span> <!-- ← update as you grow -->
+        <span class="k">£31,480</span>
         <span class="t">Total donated to date</span>
       </div>
       <div class="stat">
@@ -94,23 +95,19 @@
   </div>
 </section>
 
-<!-- ===== Footer (legal + contact only) ===== -->
+<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
-      <div class="brand" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span class="brand-name brand-name--footer">The Great Change UK</span>
-      </div>
+      <span class="brand-name brand-name--footer">The Great Change UK</span>
       <p>UK residents only, 18+. Please play responsibly.</p>
       <p>© <span id="year"></span> The Great Change UK</p>
     </div>
-
     <div>
       <h4>Legal</h4>
       <a href="/terms.html#terms">Terms & Conditions</a><br />
       <a href="/terms.html#cookies">Cookie Notice</a>
     </div>
-
     <div>
       <h4>Contact</h4>
       <a href="/contact.html">Contact form</a><br />
@@ -119,25 +116,26 @@
   </div>
 </footer>
 
-<!-- ===== JS: nav + footer year ===== -->
+<!-- ===== Scripts ===== -->
 <script>
   // Mobile menu: solid overlay + scroll lock
-  (function () {
+  (function(){
     const btn = document.querySelector('.nav-toggle');
     const nav = document.getElementById('main-nav');
-    if (!btn || !nav) return;
-    btn.addEventListener('click', (e) => {
+    if(!btn || !nav) return;
+    btn.addEventListener('click', (e)=>{
       e.preventDefault();
       const open = nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
   })();
+
   // Year in footer
   (function(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); })();
 </script>
 
-<!-- ===== Compact Cookie Banner (Accept / Decline, safe-area aware) ===== -->
+<!-- ===== Cookie Banner (Accept / Decline, safe-area aware) ===== -->
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
   <div class="cookie-copy">
     We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a>
@@ -153,15 +151,10 @@
     const accept = document.getElementById('cookie-accept');
     const decline = document.getElementById('cookie-decline');
     const KEY = 'cookieConsent';
-
-    if (localStorage.getItem(KEY)) banner.style.display = 'none';
-
-    function setConsent(val){
-      try{ localStorage.setItem(KEY, val); }catch(e){}
-      banner.style.display = 'none';
-    }
-    accept && accept.addEventListener('click', ()=> setConsent('accepted'));
-    decline && decline.addEventListener('click', ()=> setConsent('declined'));
+    if(localStorage.getItem(KEY)) banner.style.display='none';
+    function setConsent(v){ try{localStorage.setItem(KEY,v)}catch(e){} banner.style.display='none'; }
+    accept && accept.addEventListener('click',()=>setConsent('accepted'));
+    decline && decline.addEventListener('click',()=>setConsent('declined'));
   })();
 </script>
 
