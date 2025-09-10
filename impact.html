@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Winners & donations — The Great Change UK</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,47 +13,24 @@
   .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center;box-shadow:var(--shadow-sm)}
   .kpi .k{display:block;font-weight:900;font-size:22px}
   @media(min-width:900px){.impact-kpis{grid-template-columns:repeat(3,1fr);gap:16px}.kpi .k{font-size:24px}}
-  .table{width:100%;border-collapse:separate;border-spacing:0 10px}
-  .table th{font-weight:700;text-align:left;padding:8px 10px;color:var(--muted)}
-  .table td{background:#fff;border:1px solid var(--line);padding:12px 10px;border-radius:12px}
-  .bars{margin:18px 0;display:grid;gap:12px}
-  .bar{background:#eef2ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px}
-  .track{background:#e8eef9;height:12px;border-radius:999px;overflow:hidden}
-  .fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#3b82f6);border-radius:999px;width:0}
-  .logo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .logo-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
-  .logo-card img{max-width:120px;max-height:40px;object-fit:contain;margin:0 auto}
-  @media(min-width:900px){.logo-grid{grid-template-columns:repeat(5,1fr)}}
 </style>
 </head>
 <body>
-
-<header class="header">
-  <div class="wrap bar">
-    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-controls="mobileNav" aria-expanded="false"><span class="bars"></span></button>
-    <nav class="nav" aria-label="Primary">
-      <a href="/how-it-works.html">How it works</a>
-      <a href="/impact.html">Winners & donations</a>
-      <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
-    </nav>
-  </div>
-  <div id="navOverlay" class="nav-overlay"></div>
-  <nav id="mobileNav" class="nav-sheet" aria-hidden="true">
-    <div class="sheet">
-      <a class="nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a>
-      <a class="nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a>
-      <a class="btn sheet-cta" href="/subscribe.html">Subscribe</a>
-    </div>
+<header class="header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+  <nav class="nav" aria-label="Primary">
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/impact.html">Winners & donations</a>
+    <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
   </nav>
-</header>
+</div></header>
 
 <section class="hero">
   <div class="wrap hero-inner">
     <span class="pill">Updated weekly & monthly</span>
     <h1 class="h1">Winners & Donation Transparency</h1>
     <p class="sub">We publish weekly winners and monthly donation reports—because trust matters.</p>
-
     <div class="impact-kpis">
       <div class="kpi"><span class="k">£31,480</span><span class="t">Total donated to date</span></div>
       <div class="kpi"><span class="k">£3,250</span><span class="t">This week’s prize pot</span></div>
@@ -92,36 +68,30 @@
     </div>
 
     <h3 style="margin:18px 0 10px">Supported charities</h3>
-    <div class="logo-grid">
-      <div class="logo-card"><img src="/assets/charities/red-cross.svg" alt="British Red Cross"></div>
-      <div class="logo-card"><img src="/assets/charities/mind.svg" alt="Mind"></div>
-      <div class="logo-card"><img src="/assets/charities/macmillan.svg" alt="Macmillan Cancer Support"></div>
-      <div class="logo-card"><img src="/assets/charities/alzheimers.svg" alt="Alzheimer’s Society"></div>
-      <div class="logo-card"><img src="/assets/charities/rspca.svg" alt="RSPCA"></div>
-      <div class="logo-card"><img src="/assets/charities/bhf.svg" alt="British Heart Foundation"></div>
-      <div class="logo-card"><img src="/assets/charities/nspcc.svg" alt="NSPCC"></div>
-      <div class="logo-card"><img src="/assets/charities/shelter.svg" alt="Shelter"></div>
-      <div class="logo-card"><img src="/assets/charities/cancer-research.svg" alt="Cancer Research UK"></div>
-      <div class="logo-card"><img src="/assets/charities/wateraid.svg" alt="WaterAid"></div>
-    </div>
+    <p class="muted">We currently support 10 trusted UK charities. We publish donation totals monthly.</p>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <div>
-      <span class="brand-name brand-name--footer">The Great Change UK</span>
-      <p>UK residents only, 18+. Please play responsibly.</p>
-      <p>© <span id="year"></span> The Great Change UK</p>
-    </div>
-    <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
-    <div><h4>Contact</h4><a href="/contact.html">Contact form</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
-  </div>
-</footer>
+<footer class="footer"><div class="wrap footer-inner">
+  <div><span class="brand-name brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
+  <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
+  <div><h4>Contact</h4><a href="/contact.html">Contact</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+</div></footer>
 
 <script>
-  (function(){const b=document.querySelector('.nav-toggle');const o=document.getElementById('navOverlay');const s=document.getElementById('mobileNav');function t(x){document.body.classList.toggle('nav-open',x);b&&b.setAttribute('aria-expanded',x);o&&(o.style.display=x?'block':'none');s&&s.setAttribute('aria-hidden',!x);}b&&b.addEventListener('click',e=>{e.preventDefault();t(!document.body.classList.contains('nav-open'));});o&&o.addEventListener('click',()=>t(false));window.addEventListener('keydown',e=>{if(e.key==='Escape')t(false)});})();
-  (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+(function(){
+  const btn=document.querySelector('.nav-toggle'); if(!btn) return;
+  const open=()=>{btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+    const ov=document.createElement('div'); ov.className='mobile-overlay';
+    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
+    sheet.innerHTML=`<a class="mobile-nav-item" href="/how-it-works.html">How it works <span>FAQ included</span></a><a class="mobile-nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="mobile-nav-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(ov,sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
+    const close=()=>{btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{ov.remove(); sheet.remove()},200); window.removeEventListener('keydown',esc)};
+    const esc=(e)=>{if(e.key==='Escape') close()}; ov.addEventListener('click',close); window.addEventListener('keydown',esc); btn._close=close;
+  };
+  btn.addEventListener('click',e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true')?btn._close&&btn._close():open();});
+})();
+(function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 </script>
 
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
@@ -129,7 +99,6 @@
   <div class="cookie-actions"><button id="cookie-decline" class="btn-ghost" type="button">Decline</button><button id="cookie-accept" class="btn-primary" type="button">Accept</button></div>
 </div>
 <script>
-  (function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
+(function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
 </script>
-</body>
-</html>
+</body></html>
