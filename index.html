@@ -1,55 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Great Change UK — Win weekly. Help UK charities.</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Great Change UK — Win weekly. Help UK charities.</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- New CSS -->
-  <link rel="stylesheet" href="style.css">
+<!-- Site styles -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Cookieless analytics (safe under UK GDPR/PECR) -->
+<script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
+
+<meta name="description" content="Subscribe for £10/month, enter a weekly prize draw, and support UK charities. Winners and donation transparency published regularly. UK only, 18+." />
+<meta name="theme-color" content="#1e63f0" />
 </head>
 <body>
 
-<!-- Header -->
+<!-- HEADER (logo = Home; only 3 links in nav) -->
 <header class="header">
   <div class="wrap bar">
     <a class="brand" href="/">
-      <span class="logo" aria-hidden="true"></span>
-      <span class="name">The Great Change UK</span>
+      <!-- Replace with your logo asset -->
+      <img class="brand-logo" src="/assets/logo.svg" alt="The Great Change UK" />
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false"><span></span></button>
     <nav id="main-nav" class="nav">
-      <a href="/how-it-works.html">How it works</a>
+      <a href="/how-it-works.html">How it works & FAQ</a>
+      <a href="/impact.html">Winners & Transparency</a>
       <a href="/subscribe.html">Subscribe</a>
-      <a href="/winners.html">Winners</a>
-      <a href="/transparency.html">Transparency</a>
-      <a href="/legal.html">Legal</a>
-      <a href="/faq.html">FAQ</a>
       <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero" role="banner">
   <div class="wrap hero-inner">
     <span class="pill">£10/month · UK only · 18+</span>
     <h1 class="h1">Win weekly. Help UK charities.</h1>
-    <p class="sub">A simple monthly subscription enters you in our weekly draw and supports UK good causes every month.</p>
+    <p class="sub">A simple monthly subscription enters you into our weekly draw and supports good causes across the UK.</p>
 
-    <!-- Update these values weekly -->
+    <!-- Update these weekly -->
     <div class="pot" aria-live="polite">
       <div class="label">This week’s prize pot</div>
-      <div class="amount">£3,250</div> <!-- EDIT -->
-      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div> <!-- EDIT -->
+      <div class="amount">£3,250</div> <!-- ← EDIT AMOUNT -->
+      <div class="meta">Draw: Friday 8pm · Last winner published on Winners</div> <!-- ← EDIT TEXT -->
     </div>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://checkout.stripe.com/REPLACE">Subscribe now</a> <!-- REPLACE -->
+      <a class="btn btn-primary" href="/subscribe.html" onclick="window.plausible && plausible('Subscribe CTA Clicked')">Subscribe now</a>
       <a class="btn btn-ghost" href="/how-it-works.html">How it works</a>
     </div>
 
@@ -57,33 +60,32 @@
   </div>
 </section>
 
-<!-- Features -->
+<!-- FEATURES (3 short, persuasive cards) -->
 <section class="features">
   <div class="wrap">
-    <h2>How it works</h2>
     <div class="cards" aria-label="How it works">
       <article class="card">
         <h3>It takes minutes</h3>
-        <p>Subscribe securely via Stripe. Your receipt includes a link to manage or cancel anytime.</p>
+        <p>Subscribe via secure Stripe. Your receipt lets you manage or cancel anytime.</p>
       </article>
       <article class="card">
         <h3>Choose your charity</h3>
-        <p>Select from trusted UK charities during checkout. Your choice is saved to your subscription.</p>
+        <p>Pick from 10 supported UK charities during checkout. We publish donation totals monthly.</p>
       </article>
       <article class="card">
         <h3>Weekly transparency</h3>
-        <p>We publish winners every week and monthly donation reports on our site.</p>
+        <p>We publish the winner’s ID every week and keep a clear donation ledger.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Stats -->
+<!-- SOCIAL PROOF / STATS -->
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat">
-        <span class="k">£31,480</span>
+        <span class="k">£31,480</span> <!-- ← update as you grow -->
         <span class="t">Total donated to date</span>
       </div>
       <div class="stat">
@@ -94,58 +96,79 @@
   </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER (legal + contact only) -->
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>
       <div class="brand" style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span class="logo" aria-hidden="true"></span>
+        <!-- Use a white/mono version of your logo for dark footer -->
+        <img class="brand-logo" src="/assets/logo-white.svg" alt="The Great Change UK" style="height:28px" />
         <span class="name" style="color:#fff;font-weight:800">The Great Change UK</span>
       </div>
-      <p>We run a weekly prize draw that gives back to UK charities. UK residents only, 18+. Please play responsibly.</p>
-      <p>© <span id="year"></span> The Great Change UK · Registered company in the UK</p>
+      <p>UK residents only, 18+. Please play responsibly.</p>
+      <p>© <span id="year"></span> The Great Change UK</p>
     </div>
-    <div>
-      <h4>Company</h4>
-      <a href="/how-it-works.html">How it works</a><br>
-      <a href="/winners.html">Winners</a><br>
-      <a href="/transparency.html">Transparency</a>
-    </div>
+
     <div>
       <h4>Legal</h4>
-      <a href="/legal.html">Terms & Privacy</a><br>
-      <a href="/legal.html#responsible">Responsible Gambling</a><br>
-      <a href="/legal.html#cookies">Cookie Notice</a>
+      <a href="/terms.html#terms">Terms & Conditions</a><br />
+      <a href="/terms.html#cookies">Cookie Notice</a>
     </div>
+
     <div>
       <h4>Contact</h4>
-      <a href="/contact.html">Contact form</a><br>
+      <a href="/contact.html">Contact form</a><br />
       <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
     </div>
   </div>
 </footer>
 
+<!-- === Scripts: nav + year + minimal cookie banner (Accept/Decline) === -->
 <script>
-  // mobile menu
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('main-nav');
-  if(btn && nav){
-    btn.addEventListener('click', () => {
+  // Mobile menu: solid overlay + scroll lock
+  (function () {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const open = nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
-  }
-  // year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+
+  // Year in footer
+  (function(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); })();
+</script>
+
+<!-- Cookie banner (future-proof: Accept/Decline). Legal now: essential only + Plausible (cookieless) -->
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
+  <p>
+    We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a>
+  </p>
+  <div>
+    <button id="cookie-decline" class="btn-ghost" type="button">Decline</button>
+    <button id="cookie-accept" class="btn-primary" type="button">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){
+    const banner = document.getElementById('cookie-banner');
+    const accept = document.getElementById('cookie-accept');
+    const decline = document.getElementById('cookie-decline');
+    const KEY = 'cookieConsent';
+
+    if (localStorage.getItem(KEY)) banner.style.display = 'none';
+
+    function setConsent(val){
+      localStorage.setItem(KEY, val); // 'accepted' or 'declined'
+      banner.style.display = 'none';
+    }
+    if (accept) accept.addEventListener('click', ()=> setConsent('accepted'));
+    if (decline) decline.addEventListener('click', ()=> setConsent('declined'));
+  })();
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
