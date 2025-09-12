@@ -1,70 +1,228 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Subscribe — The Great Change UK</title>
+<meta name="description" content="Subscribe for £10/month via secure Stripe checkout. Choose your charity, manage or cancel anytime. UK only, 18+.">
+<meta name="theme-color" content="#1e63f0">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css" />
-<script defer data-domain="thegreatchangeuk.com" src="https://plausible.io/js/plausible.js"></script>
-<meta name="description" content="Subscribe for £10/month via secure Stripe checkout. Choose your charity, manage anytime. UK only, 18+." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ——— Minimal embedded CSS (no external file) ——— */
+:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1e63f0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow)}
+.bar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.brand-name{color:#fff;font-weight:800;font-size:18px;letter-spacing:.2px}
+@media(min-width:900px){.brand-name{font-size:20px}}
+.nav{display:none}
+@media(min-width:900px){
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:#eef4ff}
+  .nav a:hover{text-decoration:underline}
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+}
+/* Hamburger */
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;cursor:pointer;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:transparent;-webkit-tap-highlight-color:transparent}
+.nav-toggle .bars,.nav-toggle .bars::before,.nav-toggle .bars::after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+.nav-toggle .bars{position:relative}
+.nav-toggle .bars::before,.nav-toggle .bars::after{position:absolute;left:0}
+.nav-toggle .bars::before{top:-6px}.nav-toggle .bars::after{top:6px}
+@media(min-width:900px){.nav-toggle{display:none}}
+/* Mobile menu (created by JS only) */
+.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
+.mobile-sheet.open{transform:translateY(0)}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-item span{display:block;font-weight:600;color:var(--muted);font-size:.9rem;margin-top:2px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 420px at 50% -150px,#4f8cff 0%,var(--blue) 45%,var(--blue2) 100%);color:#fff;padding:28px 0 30px}
+.center{max-width:780px;margin:0 auto;text-align:center}
+.pill{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:800;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.h1{font-size:34px;line-height:1.12;margin:12px 0 8px}
+.sub{color:#e6eeff}
+.panel{margin:16px auto 12px;padding:16px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.35)}
+.panel .amount{display:inline-block;background:#fff;color:#0b1220;padding:10px 16px;border-radius:14px;font-weight:900;font-size:28px;margin:10px 0 4px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.btn{display:inline-block;font-weight:800;border-radius:12px;padding:12px 16px;box-shadow:var(--shadow)}
+.primary{background:#fff;color:#0b1220} .primary:hover{filter:brightness(.96);text-decoration:none}
+.trust{text-align:center;opacity:.95;margin-top:6px}
+.badge{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-weight:700}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+
+/* Sections */
+.section{background:#fff;padding:22px 0}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px}
+.muted{color:var(--muted)}
+@media(min-width:900px){.grid3{grid-template-columns:repeat(3,1fr)}}
+
+/* Footer */
+.footer{background:var(--navy);color:#cfd7e4;padding:24px 0}
+.footer a{color:#cfd7e4}
+.footer h4{color:#fff;margin:0 0 8px}
+.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
+
+/* Cookie banner */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:var(--navy);color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+.cookie a{color:#93c5fd;text-decoration:underline}
+.cb{display:flex;gap:8px}
+.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
+.cbtn.ok{background:#2563eb;color:#fff;border:none}
+@media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
+</style>
 </head>
 <body>
-<header class="header"><div class="wrap bar">
-  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
-  <nav class="nav" aria-label="Primary">
-    <a href="/impact.html">Winners & donations</a>
-    <a class="subscribe-cta" href="/subscribe.html">Subscribe</a>
-  </nav>
-</div></header>
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <span class="pill">£10/month · Cancel anytime</span>
-    <h1 class="h1">Subscribe in minutes</h1>
-    <p class="sub">Secure Stripe checkout. Choose your charity during checkout and manage or cancel anytime from your receipt.</p>
-    <div class="pot"><div class="label">This week’s prize pot</div><div class="amount">£3,250</div><div class="meta">Draw: Friday 8pm · Winner published after verification</div></div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://checkout.stripe.com/REPLACE" onclick="window.plausible&&plausible('Subscribe Checkout Clicked')">Go to secure checkout</a>
-    </div>
-    <p class="trust">Apple Pay · Google Pay · Visa · Mastercard</p>
+<header class="header" role="banner">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+
+    <!-- Desktop nav (no 'How it works' here) -->
+    <nav class="nav" aria-label="Primary">
+      <a href="/impact.html">Winners & donations</a>
+      <a class="cta" href="/subscribe.html">Subscribe</a>
+    </nav>
   </div>
-</section>
+</header>
 
-<section class="features"><div class="wrap"><div class="cards">
-  <article class="card"><h3>What you get</h3><p>One entry in our weekly draw, plus the chance to support a UK charity of your choice.</p></article>
-  <article class="card"><h3>Your control</h3><p>Update payment details or cancel anytime using the link in your Stripe receipt.</p></article>
-  <article class="card"><h3>Transparency</h3><p>We publish weekly winners and monthly donation totals on our site.</p></article>
-</div></div></section>
+<main id="content">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap center">
+      <span class="pill">£10/month · Cancel anytime</span>
+      <h1 class="h1">Subscribe in minutes</h1>
+      <p class="sub">Secure Stripe checkout. Choose your charity during checkout and manage or cancel anytime using the link in your receipt.</p>
 
-<footer class="footer"><div class="wrap footer-inner">
-  <div><span class="brand-name brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
-  <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
-  <div><h4>Contact</h4><a href="/contact.html">Contact</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
-</div></footer>
+      <div class="panel" aria-live="polite">
+        <div style="font-weight:800">This week’s prize pot</div>
+        <div class="amount">£3,250</div>
+        <div>Draw: Friday 8pm · Winner published after verification</div>
+      </div>
+
+      <div class="row" role="group" aria-label="Primary action">
+        <!-- REPLACE with live Stripe Checkout link -->
+        <a class="btn primary" href="https://checkout.stripe.com/REPLACE">Go to secure checkout</a>
+      </div>
+      <p class="trust">Apple Pay · Google Pay · Visa · Mastercard</p>
+
+      <div class="badges" aria-label="Key conditions">
+        <span class="badge">UK residents only</span>
+        <span class="badge">18+</span>
+        <span class="badge">Please play responsibly</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section" aria-label="Why subscribe">
+    <div class="wrap grid grid3">
+      <article class="card"><h3>What you get</h3><p class="muted">One entry into our weekly draw and the ability to support a UK charity of your choice.</p></article>
+      <article class="card"><h3>Your control</h3><p class="muted">Update card details or cancel anytime using the self-service link in your Stripe receipt.</p></article>
+      <article class="card"><h3>Transparency</h3><p class="muted">We publish weekly winners and monthly donation totals on our site.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
+    <div>
+      <span class="brand-name--footer">The Great Change UK</span>
+      <p>UK residents only, 18+. Please play responsibly.</p>
+      <p>© <span id="year"></span> The Great Change UK</p>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="/terms.html#terms">Terms & Conditions</a><br>
+      <a href="/terms.html#cookies">Cookie Notice</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="/contact.html">Contact</a><br>
+      <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
+    </div>
+  </div>
+</footer>
 
 <script>
+/* Mobile menu: create/destroy on demand — no 'How it works' here */
 (function(){
   const btn=document.querySelector('.nav-toggle'); if(!btn) return;
-  const open=()=>{btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
-    const ov=document.createElement('div'); ov.className='mobile-overlay';
-    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
-    sheet.innerHTML=`<a class="mobile-nav-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="mobile-nav-cta" href="/subscribe.html">Subscribe</a>`;
-    document.body.append(ov,sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
-    const close=()=>{btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{ov.remove(); sheet.remove()},200); window.removeEventListener('keydown',esc)};
-    const esc=(e)=>{if(e.key==='Escape') close()}; ov.addEventListener('click',close); window.addEventListener('keydown',esc); btn._close=close;
-  };
-  btn.addEventListener('click',e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true')?btn._close&&btn._close():open();});
+
+  function openMenu(){
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+
+    const overlay=document.createElement('div');
+    overlay.className='mobile-overlay';
+
+    const sheet=document.createElement('div');
+    sheet.className='mobile-sheet';
+    sheet.innerHTML = `
+      <a class="m-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a>
+      <a class="m-cta" href="/subscribe.html">Subscribe</a>
+    `;
+
+    document.body.append(overlay, sheet);
+    requestAnimationFrame(()=>sheet.classList.add('open'));
+
+    function closeMenu(){
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+      sheet.classList.remove('open');
+      setTimeout(()=>{ overlay.remove(); sheet.remove(); }, 200);
+      window.removeEventListener('keydown', escClose);
+    }
+    function escClose(e){ if(e.key==='Escape') closeMenu(); }
+
+    overlay.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', escClose);
+    btn._closeMenu = closeMenu;
+  }
+
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    (btn.getAttribute('aria-expanded')==='true')
+      ? btn._closeMenu && btn._closeMenu()
+      : openMenu();
+  });
 })();
+
+/* Footer year */
 (function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 </script>
 
-<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice">
-  <div class="cookie-copy">We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
-  <div class="cookie-actions"><button id="cookie-decline" class="btn-ghost" type="button">Decline</button><button id="cookie-accept" class="btn-primary" type="button">Accept</button></div>
+<!-- Minimal cookie banner -->
+<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
+  <div>We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
+  <div class="cb">
+    <button id="c-no" class="cbtn" type="button">Decline</button>
+    <button id="c-ok" class="cbtn ok" type="button">Accept</button>
+  </div>
 </div>
 <script>
-(function(){const b=document.getElementById('cookie-banner'),a=document.getElementById('cookie-accept'),d=document.getElementById('cookie-decline'),k='cookieConsent';if(localStorage.getItem(k))b.style.display='none';function s(v){try{localStorage.setItem(k,v)}catch(e){}b.style.display='none'};a&&a.addEventListener('click',()=>s('accepted'));d&&d.addEventListener('click',()=>s('declined'));})();
+(function(){
+  const bar=document.getElementById('cookie'),
+        ok=document.getElementById('c-ok'),
+        no=document.getElementById('c-no'),
+        KEY='cookieConsent';
+  if(localStorage.getItem(KEY)) bar.style.display='none';
+  function set(v){ try{localStorage.setItem(KEY,v)}catch(e){} bar.style.display='none'; }
+  ok && ok.addEventListener('click', ()=>set('accepted'));
+  no && no.addEventListener('click', ()=>set('declined'));
+})();
 </script>
-</body></html>
+</body>
+</html>
