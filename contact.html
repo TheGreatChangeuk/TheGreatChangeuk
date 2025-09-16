@@ -12,21 +12,19 @@
 body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
-.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow)}
-.bar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top);padding-top:constant(safe-area-inset-top)}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
 .brand-name{color:#fff;font-weight:800;font-size:18px}
 .nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px;align-items:center}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:transparent}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
 @media(min-width:900px){.nav-toggle{display:none}}
-/* Distinct LOOK: bold gradient hero */
 .hero{background:radial-gradient(1200px 420px at 50% -150px,#4f8cff 0%,var(--blue) 45%,var(--blue2) 100%);color:#fff;padding:28px 0 30px}
 .center{max-width:760px;margin:0 auto;text-align:center}
 .pill{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:800;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35)}
 .h1{font-size:34px;margin:12px 0 8px}
 .sub{color:#e6eeff}
-/* content */
 .section{padding:22px 0}
 .grid{display:grid;grid-template-columns:1fr;gap:14px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
@@ -34,7 +32,6 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .contact-cta{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .cta-btn{display:inline-block;background:#1e63f0;color:#fff;font-weight:800;border-radius:12px;padding:12px 16px;border:none;box-shadow:var(--shadow)}
 .cta-btn:hover{filter:brightness(.95);text-decoration:none}
-/* footer/cookie */
 .footer{background:#0f172a;color:#cfd7e4;padding:24px 0}
 .footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
 .cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
@@ -82,7 +79,7 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 
 <footer class="footer"><div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
   <div><span class="brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
-  <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a> · <a href="/terms.html#cookies">Cookie Notice</a></div>
+  <div><h4>Legal</h4><a href="/terms/terms.html">Terms & Conditions</a><br><a href="/terms/cookies.html">Cookie Notice</a><br><a href="/terms/privacy.html">Privacy Policy</a><br><a href="/terms/responsible.html">Responsible Gambling</a></div>
   <div><h4>Contact</h4><a href="mailto:support@thegreatchangeuk.com">Email support</a></div>
 </div></footer>
 
@@ -102,14 +99,9 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 </script>
 
 <div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
-  <div>We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
+  <div>We use essential cookies to make this site work. <a href="/terms/cookies.html">Learn more</a></div>
   <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
 </div>
-<script>
-(function(){const bar=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),KEY='cookieConsent';
-  if(localStorage.getItem(KEY)) bar.style.display='none';
-  function set(v){try{localStorage.setItem(KEY,v)}catch(e){} bar.style.display='none'}
-  ok&&ok.addEventListener('click',()=>set('accepted')); no&&no.addEventListener('click',()=>set('declined'));
-})();
-</script>
-</body></html>
+<script>(function(){const bar=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),KEY='cookieConsent';if(localStorage.getItem(KEY))bar.style.display='none';function set(v){try{localStorage.setItem(KEY,v)}catch(e){}bar.style.display='none'}ok&&ok.addEventListener('click',()=>set('accepted'));no&&no.addEventListener('click',()=>set('declined'));})();</script>
+</body>
+</html>
