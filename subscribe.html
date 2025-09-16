@@ -7,20 +7,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* — shared base + header/footer styles (same as index) — */
 :root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1e63f0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
 *{box-sizing:border-box} html,body{margin:0}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow)}
-.bar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top);padding-top:constant(safe-area-inset-top)}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
 .brand-name{color:#fff;font-weight:800;font-size:18px}
-.nav{display:none} @media(min-width:900px){.nav{display:flex;gap:18px;align-items:center}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px;align-items:center}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:transparent}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
 @media(min-width:900px){.nav-toggle{display:none}}
-/* Distinct LOOK: light hero */
+.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
+.mobile-sheet.open{transform:translateY(0)}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-item span{display:block;font-weight:600;color:var(--muted);font-size:.9rem;margin-top:2px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
+/* — distinct hero for this page — */
 .hero{background:#fff;color:var(--ink);padding:28px 0 16px;border-bottom:1px solid var(--line)}
 .center{max-width:760px;margin:0 auto;text-align:center}
 .h1{font-size:34px;line-height:1.12;margin:6px 0 10px}
@@ -34,11 +41,9 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .trust{text-align:center;opacity:.85;margin-top:6px}
 .badge{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-weight:700}
 .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
-/* Blue info band */
 .band{background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;padding:16px 0}
 .band .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .band .b{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;font-weight:700}
-/* Cards */
 .section{padding:22px 0}
 .grid{display:grid;grid-template-columns:1fr;gap:14px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
@@ -47,16 +52,9 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 @media(min-width:900px){.grid3{grid-template-columns:repeat(3,1fr)}}
 .footer{background:var(--navy);color:#cfd7e4;padding:24px 0}
 .footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
-/* Cookie */
-.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:var(--navy);color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
 .cb{display:flex;gap:8px}.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}.cbtn.ok{background:#2563eb;color:#fff;border:none}
 @media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
-.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
-.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
-.mobile-sheet.open{transform:translateY(0)}
-.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
-.m-item span{display:block;font-weight:600;color:var(--muted);font-size:.9rem;margin-top:2px}
-.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -64,8 +62,9 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
   <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
   <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
   <nav class="nav" aria-label="Primary">
+    <a href="/how-it-works.html">How it works</a>
     <a href="/impact.html">Winners & donations</a>
-    <a class="cta" href="/subscribe.html">Subscribe</a>
+    <a class="cta" href="/subscribe.html" aria-current="page">Subscribe</a>
   </nav>
 </div></header>
 
@@ -95,17 +94,16 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 
 <footer class="footer"><div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
   <div><span class="brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
-  <div><h4>Legal</h4><a href="/terms.html#terms">Terms & Conditions</a><br><a href="/terms.html#cookies">Cookie Notice</a></div>
-  <div><h4>Contact</h4><a href="/contact.html">Contact</a><br><a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
+  <div><h4>Legal</h4><a href="/terms/terms.html">Terms & Conditions</a><br><a href="/terms/cookies.html">Cookie Notice</a><br><a href="/terms/privacy.html">Privacy Policy</a><br><a href="/terms/responsible.html">Responsible Gambling</a></div>
+  <div><h4>Contact</h4><a href="/contact.html">Contact</a></div>
 </div></footer>
 
-<script>
-(function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
+<script>(function(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();})();
 (function(){const b=document.querySelector('.nav-toggle'); if(!b) return;
   function open(){b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';
     const o=document.createElement('div');o.className='mobile-overlay';
     const s=document.createElement('div');s.className='mobile-sheet';
-    s.innerHTML=`<a class="m-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    s.innerHTML=`<a class="m-item" href="/how-it-works.html">How it works <span>FAQ included</span></a><a class="m-item" href="/impact.html">Winners & donations <span>Transparency reports</span></a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;
     document.body.append(o,s); requestAnimationFrame(()=>s.classList.add('open'));
     function close(){b.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{o.remove();s.remove()},200);window.removeEventListener('keydown',esc)}
     function esc(e){if(e.key==='Escape') close()}
@@ -114,15 +112,7 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 })();
 </script>
 
-<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
-  <div>We use essential cookies to make this site work. <a href="/terms.html#cookies">Learn more</a></div>
-  <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
-</div>
-<script>
-(function(){const bar=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),KEY='cookieConsent';
-  if(localStorage.getItem(KEY)) bar.style.display='none';
-  function set(v){try{localStorage.setItem(KEY,v)}catch(e){} bar.style.display='none'}
-  ok&&ok.addEventListener('click',()=>set('accepted')); no&&no.addEventListener('click',()=>set('declined'));
-})();
-</script>
-</body></html>
+<div id="cookie" class="cookie"><div>We use essential cookies to make this site work. <a href="/terms/cookies.html">Learn more</a></div><div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div></div>
+<script>(function(){const bar=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),KEY='cookieConsent';if(localStorage.getItem(KEY))bar.style.display='none';function set(v){try{localStorage.setItem(KEY,v)}catch(e){}bar.style.display='none'}ok&&ok.addEventListener('click',()=>set('accepted'));no&&no.addEventListener('click',()=>set('declined'));})();</script>
+</body>
+</html>
