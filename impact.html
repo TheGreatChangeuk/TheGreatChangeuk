@@ -12,14 +12,29 @@
 body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow)}
-.bar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
-.brand-name{color:#fff;font-weight:800;font-size:18px}
-.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px;align-items:center}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+
+/* Header (with iOS safe-area fix) */
+.header{
+  position:sticky; top:0; z-index:1000;
+  background:linear-gradient(180deg,#1f5ff0,#1b55da); color:#fff; box-shadow:var(--shadow);
+  padding-top: env(safe-area-inset-top);
+  padding-top: constant(safe-area-inset-top);
+}
+.bar{min-height:64px; display:flex; align-items:center; justify-content:space-between; padding:0 16px}
+.brand-name{color:#fff; font-weight:800; font-size:18px}
+.nav{display:none}
+@media(min-width:900px){
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:#eef4ff}
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:transparent}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
 @media(min-width:900px){.nav-toggle{display:none}}
+/* Prevent first-section margin collapse under the sticky header */
+.header + section, .header + main, .hero { margin-top: 0 !important; }
+
 /* Distinct LOOK: dark hero */
 .hero{background:linear-gradient(180deg,#0b1730,#152b63);color:#fff;padding:30px 0 32px}
 .center{max-width:780px;margin:0 auto;text-align:center}
@@ -31,6 +46,7 @@ a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .k{display:block;font-weight:900;font-size:26px}
 .t{opacity:.9}
 @media(min-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+
 /* Content */
 .section{padding:22px 0}
 h2{margin:0 0 10px}
@@ -42,6 +58,7 @@ h2{margin:0 0 10px}
 .bar{background:#eef2ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px}
 .track{background:#e8eef9;height:12px;border-radius:999px;overflow:hidden}
 .fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#3b82f6);border-radius:999px;width:0}
+
 /* Footer & cookie */
 .footer{background:#0f172a;color:#cfd7e4;padding:24px 0}
 .footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
@@ -81,9 +98,11 @@ h2{margin:0 0 10px}
   <section class="section" aria-label="Recent winners"><div class="wrap">
     <h2>Recent winners</h2>
     <table class="table"><thead><tr><th>Date</th><th>Draw #</th><th>Winner ID</th><th>Status</th></tr></thead>
-    <tbody><tr><td>Fri 30 Aug 2025</td><td>#0143</td><td>TGC-9F72</td><td>Paid</td></tr>
-           <tr><td>Fri 23 Aug 2025</td><td>#0142</td><td>TGC-6A11</td><td>Paid</td></tr>
-           <tr><td>Fri 16 Aug 2025</td><td>#0141</td><td>TGC-3CD9</td><td>Paid</td></tr></tbody></table>
+    <tbody>
+      <tr><td>Fri 30 Aug 2025</td><td>#0143</td><td>TGC-9F72</td><td>Paid</td></tr>
+      <tr><td>Fri 23 Aug 2025</td><td>#0142</td><td>TGC-6A11</td><td>Paid</td></tr>
+      <tr><td>Fri 16 Aug 2025</td><td>#0141</td><td>TGC-3CD9</td><td>Paid</td></tr>
+    </tbody></table>
     <p class="note">We verify age and UK residency before paying a prize.</p>
   </div></section>
 
@@ -95,7 +114,7 @@ h2{margin:0 0 10px}
       <div class="bar"><h4>Mind — £1,120</h4><div class="track"><div class="fill" style="width:20%"></div></div></div>
       <div class="bar"><h4>Macmillan Cancer Support — £980</h4><div class="track"><div class="fill" style="width:18%"></div></div></div>
     </div>
-    <p class="note">We publish donation totals monthly for all 10 supported UK charities.</p>
+    <p class="note">We publish totals monthly for all 10 supported UK charities.</p>
   </div></section>
 </main>
 
@@ -131,4 +150,5 @@ h2{margin:0 0 10px}
   ok&&ok.addEventListener('click',()=>set('accepted')); no&&no.addEventListener('click',()=>set('declined'));
 })();
 </script>
-</body></html>
+</body>
+</html>
