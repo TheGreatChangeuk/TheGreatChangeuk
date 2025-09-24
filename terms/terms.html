@@ -1,113 +1,170 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Terms & Conditions — The Great Change UK</title>
-<meta name="description" content="Terms & Conditions for The Great Change UK prize draw subscription service.">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1e63f0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
-*{box-sizing:border-box} html,body{margin:0} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1f5ff0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
-.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top);padding-top:constant(safe-area-inset-top)}
+/* Header */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top)}
+.header::before,.header::after{content:none!important;display:none!important}
+.header *{background:transparent!important;border-radius:0!important;border:none!important;box-shadow:none!important;backdrop-filter:none!important}
 .bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
 .brand-name{color:#fff;font-weight:800;font-size:18px}
-.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px;align-items:center}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
-.nav-toggle{display:none}
+.nav{display:none}
+@media(min-width:900px){.nav{display:flex;gap:18px}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6)}
+.nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+.nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
+@media(min-width:900px){.nav-toggle{display:none}} .header+*{margin-top:0!important}
+/* Page */
 .hero{background:#f3f6ff;border-bottom:1px solid var(--line);padding:26px 0}
-h1{margin:0 0 6px} .sub{color:var(--muted)}
-main{padding:20px 0} h2{margin:20px 0 10px} p,li{line-height:1.6} .note{color:var(--muted)}
-.footer{background:#0f172a;color:#cfd7e4;padding:24px 0} .footer a{color:#cfd7e4} .footer h4{color:#fff;margin:0 0 8px} .brand-name--footer{color:#fff;font-weight:800;font-size:18px}
+h1{margin:0 0 6px}.sub{color:var(--muted)}
+main{padding:18px 0} h2{margin:22px 0 10px} p,li{line-height:1.65}
+.toc{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fafcff}
+.small{font-size:.95rem;color:#475569}
+/* Footer */
+.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:24px}
+.footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}.brand-name--footer{color:#fff;font-weight:800}
+/* Mobile sheet + cookie */
+.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
+.mobile-sheet.open{transform:translateY(0)}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center}
+.cb{display:flex;gap:8px}.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}.cbtn.ok{background:#2563eb;color:#fff;border:none}
+@media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
 </style>
 </head>
 <body>
 <header class="header"><div class="wrap bar">
-  <a class="brand" href="/" style="color:#fff;text-decoration:none"><span class="brand-name">The Great Change UK</span></a>
-  <nav class="nav" aria-label="Primary">
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/impact.html">Winners & donations</a>
-    <a class="cta" href="/subscribe.html">Subscribe</a>
-  </nav>
+  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+  <nav class="nav" aria-label="Primary"><a href="/how-it-works.html">How it works</a><a href="/impact.html">Winners & donations</a><a class="cta" href="/subscribe.html">Subscribe</a></nav>
 </div></header>
 
-<section class="hero"><div class="wrap"><h1>Terms & Conditions</h1><p class="sub">Last updated: 1 Sept 2025</p></div></section>
+<section class="hero"><div class="wrap">
+  <h1>Terms & Conditions</h1>
+  <p class="sub">Last updated: 1 Sept 2025</p>
+</div></section>
+
+<section class="wrap"><div class="toc"><strong>Contents</strong>
+  <ol>
+    <li><a href="#who">Who we are</a></li>
+    <li><a href="#definitions">Definitions</a></li>
+    <li><a href="#eligibility">Eligibility & verification</a></li>
+    <li><a href="#subscriptions">Subscriptions, pricing & payment</a></li>
+    <li><a href="#draw">Draw schedule & selection</a></li>
+    <li><a href="#winners">Winners, verification & prize fulfilment</a></li>
+    <li><a href="#donations">Donations & charities</a></li>
+    <li><a href="#conduct">Prohibited conduct & misuse</a></li>
+    <li><a href="#cancellation">Cancellations & refunds</a></li>
+    <li><a href="#responsible">Responsible play</a></li>
+    <li><a href="#complaints">Complaints & disputes</a></li>
+    <li><a href="#liability">Liability</a></li>
+    <li><a href="#changes">Changes to these terms</a></li>
+    <li><a href="#law">Governing law</a></li>
+  </ol>
+</div></section>
 
 <main class="wrap">
-  <h2>1. Who we are</h2>
-  <p>“The Great Change UK”, a company registered in the UK (company number: <strong>[insert]</strong>; registered office: <strong>[insert]</strong>). Contact: <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+  <h2 id="who">1. Who we are</h2>
+  <p>“The Great Change UK” (“we”, “us”, “our”) is a company registered in England & Wales (company number <strong>[Company number]</strong>; registered office <strong>[Registered office]</strong>). Contact: <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+  <p class="small">Regulatory status: We operate a subscription-based weekly prize draw model. If licensing or regulatory registration becomes applicable to our exact product structure, we will update this page and any disclosures accordingly.</p>
 
-  <h2>2. What these terms cover</h2>
-  <p>These Terms & Conditions govern your subscription to our monthly service that grants one entry into our weekly prize draw and contributes to UK charities.</p>
-
-  <h2>3. Eligibility</h2>
+  <h2 id="definitions">2. Definitions</h2>
   <ul>
-    <li>UK residents only.</li>
-    <li>You must be 18+ at the time of subscribing.</li>
-    <li>We may request age and residency verification at any time. Failure to pass verification voids entries and prizes.</li>
+    <li><strong>Subscription</strong>: a monthly recurring payment that confers one entry to each weekly draw within the paid period.</li>
+    <li><strong>Draw</strong>: a random selection conducted on a scheduled date to determine a prize winner.</li>
+    <li><strong>Winner</strong>: the person whose entry is selected in a draw, subject to verification.</li>
+    <li><strong>Active</strong>: subscription payment successfully collected and not cancelled/suspended at draw time.</li>
   </ul>
 
-  <h2>4. Subscriptions, billing & management</h2>
+  <h2 id="eligibility">3. Eligibility & verification</h2>
   <ul>
-    <li>Price: <strong>£10 per month</strong>, billed by Stripe on a recurring basis until cancelled.</li>
-    <li>Payment methods: Apple Pay, Google Pay, Visa, Mastercard (via Stripe).</li>
-    <li>Your Stripe receipt includes a self-service link to update payment details or cancel anytime.</li>
-    <li>One active subscription equals one entry in each weekly draw during the paid-up period.</li>
-    <li>If payment fails and is not resolved by the draw time, the entry is not eligible.</li>
+    <li>You must be a UK resident aged 18+.</li>
+    <li>We may require proof of age and UK residency at any time. Failure to pass verification voids entries and prizes.</li>
+    <li>You agree not to allow others (including anyone under 18) to use your account or enter on your behalf.</li>
   </ul>
 
-  <h2>5. Choosing a charity & donations</h2>
-  <p>You may select one of our supported UK charities during checkout. We publish monthly donation totals on our Winners & donations page. We may adjust charity partners over time.</p>
-
-  <h2>6. Weekly draw rules</h2>
+  <h2 id="subscriptions">4. Subscriptions, pricing & payment</h2>
   <ul>
-    <li>Scheduled: every Friday at 20:00 UK time.</li>
-    <li>Eligible entries: all active, paid subscriptions at the draw time (one entry per subscription).</li>
-    <li>Selection: randomised process using an auditable method. In the event of technical issues, we may rerun the draw.</li>
-    <li>We publish the anonymised winner ID after verification.</li>
+    <li>Price: <strong>£10 per month</strong>, processed by Stripe (Apple Pay, Google Pay, Visa, Mastercard).</li>
+    <li>One active subscription equals one entry to each weekly draw in the applicable billing month.</li>
+    <li>Manage/cancel via the link in your Stripe receipt. Changes take effect at the next billing cycle.</li>
+    <li>If a payment fails and is not resolved by the draw cutoff, that week’s entry is not eligible.</li>
   </ul>
 
-  <h2>7. Winner notification, verification & prize payment</h2>
+  <h2 id="draw">5. Draw schedule & selection</h2>
   <ul>
-    <li>We contact the winner using the email associated with the subscription.</li>
-    <li>Verification: proof of age (18+) and UK residency is required. We may request additional documents where legally necessary (e.g., AML checks).</li>
-    <li>Once verified, prizes are paid by bank transfer (or other agreed method) within 10 working days.</li>
-    <li>If the winner cannot be contacted or verified within 28 days, we may select a reserve winner or carry the prize forward.</li>
+    <li>Draws occur weekly on Fridays at 20:00 (UK time). We may adjust the schedule with notice.</li>
+    <li>Eligible pool: all active, paid subscriptions as of the draw time.</li>
+    <li>Selection method: randomised process using an auditable method. If a technical fault occurs, we may rerun the draw.</li>
+    <li>We publish an anonymised winner ID after verification.</li>
   </ul>
 
-  <h2>8. Responsible play & self-exclusion</h2>
-  <p>Please play responsibly. See our <a href="/terms/responsible.html">Responsible Gambling</a> page for support resources. You may request account closure/self-exclusion by emailing us.</p>
+  <h2 id="winners">6. Winners, verification & prize fulfilment</h2>
+  <ul>
+    <li>We contact the winner using the email associated with the subscription checkout.</li>
+    <li>Verification: age (18+) and UK residency. We may request additional documents where legally required (e.g., AML checks).</li>
+    <li>Upon successful verification, prizes are paid by bank transfer (or a mutually agreed method) within 10 working days.</li>
+    <li>If we cannot contact or verify the winner within 28 days, we may select a reserve winner or carry the prize forward.</li>
+    <li>Publicity: we may publish an anonymised winner ID. Names/images are used only with consent.</li>
+  </ul>
 
-  <h2>9. Fraud, misuse & disqualification</h2>
-  <p>We may void entries, withhold or recover prizes, or close accounts where we reasonably suspect fraud, abuse, multiple accounts intended to circumvent limits, or violations of these terms.</p>
+  <h2 id="donations">7. Donations & charities</h2>
+  <p>Subscribers can select one of our supported UK charities during checkout. We publish monthly donation totals on our <a href="/impact.html">Winners & donations</a> page. Charity partners may change over time.</p>
 
-  <h2>10. Refunds</h2>
-  <p>Subscriptions are billed monthly in advance. We typically do not offer refunds for partially used periods except where required by law or where we have made an error.</p>
+  <h2 id="conduct">8. Prohibited conduct & misuse</h2>
+  <p>We may void entries, withhold or recover prizes, suspend or close accounts if we reasonably suspect: fraud, abuse, multiple accounts to bypass limits, automated/robotic entries, or breaches of these terms.</p>
 
-  <h2>11. Service changes & interruptions</h2>
-  <p>We may modify the service, suspend draws, or update these terms for operational, legal or regulatory reasons. If we cancel a draw after charging, we will either refund the period or apply an equivalent credit.</p>
+  <h2 id="cancellation">9. Cancellations & refunds</h2>
+  <p>Subscriptions are billed monthly in advance. Refunds are not typical unless required by law or due to our error. Cancellation takes effect at the next billing cycle; any remaining draws in the paid period remain eligible.</p>
 
-  <h2>12. Liability</h2>
-  <p>We are not liable for: indirect or consequential losses; losses caused by events outside our reasonable control; or failures of third-party networks or payment providers. Nothing limits liability for death or personal injury caused by negligence, fraud, or other liabilities that cannot be excluded by law.</p>
+  <h2 id="responsible">10. Responsible play</h2>
+  <p>18+ only. Please play responsibly. See <a href="/terms/responsible.html">Responsible Gambling</a> for support and self-exclusion/closure options.</p>
 
-  <h2>13. Complaints</h2>
-  <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>. We aim to respond within 10 working days. If you remain unsatisfied, we’ll provide details of any applicable escalation/ADR route.</p>
+  <h2 id="complaints">11. Complaints & disputes</h2>
+  <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>. We aim to respond within 10 working days. If you are not satisfied, we will provide details of any applicable escalation/ADR route.</p>
 
-  <h2>14. Privacy & cookies</h2>
-  <p>See our <a href="/terms/privacy.html">Privacy Policy</a> and <a href="/terms/cookies.html">Cookie Notice</a>.</p>
+  <h2 id="liability">12. Liability</h2>
+  <p>We are not liable for indirect or consequential losses, events beyond our reasonable control, or failures of third-party networks/payment providers. Nothing limits liability for death or personal injury caused by negligence, fraud, or any liability that cannot be excluded under law.</p>
 
-  <h2>15. Governing law</h2>
-  <p>These terms are governed by the laws of England & Wales. Courts of England & Wales have exclusive jurisdiction.</p>
+  <h2 id="changes">13. Changes to these terms</h2>
+  <p>We may update these terms for legal, regulatory or operational reasons. Material changes will be posted before they take effect.</p>
 
-  <p class="note">If any provision is found invalid, the remaining provisions remain in effect. These terms form the entire agreement regarding the service.</p>
+  <h2 id="law">14. Governing law</h2>
+  <p>These terms are governed by the laws of England & Wales. The courts of England & Wales have exclusive jurisdiction.</p>
 </main>
 
 <footer class="footer"><div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
-  <div><span class="brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="year"></span> The Great Change UK</p></div>
+  <div><span class="brand-name--footer">The Great Change UK</span><p>UK residents only, 18+. Please play responsibly.</p><p>© <span id="y"></span> The Great Change UK</p></div>
   <div><h4>Legal</h4><a href="/terms/privacy.html">Privacy Policy</a><br><a href="/terms/cookies.html">Cookie Notice</a><br><a href="/terms/responsible.html">Responsible Gambling</a></div>
   <div><h4>Contact</h4><a href="/contact.html">Contact</a> · <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a></div>
 </div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body>
-</html>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+(function(){const b=document.querySelector('.nav-toggle');if(!b)return;
+  function open(){b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';
+    const o=document.createElement('div');o.className='mobile-overlay';
+    const s=document.createElement('div');s.className='mobile-sheet';
+    s.innerHTML=`<a class="m-item" href="/how-it-works.html">How it works</a><a class="m-item" href="/impact.html">Winners & donations</a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(o,s);requestAnimationFrame(()=>s.classList.add('open'));
+    function close(){b.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{o.remove();s.remove();},200);window.removeEventListener('keydown',esc)}
+    function esc(e){if(e.key==='Escape') close()}
+    o.addEventListener('click', close); window.addEventListener('keydown', esc); b._close=close;}
+  b.addEventListener('click', e=>{e.preventDefault(); (b.getAttribute('aria-expanded')==='true')?b._close&&b._close():open();});
+})();
+</script>
+<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
+  <div>We use essential cookies only. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
+  <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
+</div>
+<script>(function(){const bar=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),KEY='cookieConsent';if(localStorage.getItem(KEY))bar.style.display='none';function set(v){try{localStorage.setItem(KEY,v)}catch(e){}bar.style.display='none'}ok&&ok.addEventListener('click',()=>set('accepted'));no&&no.addEventListener('click',()=>set('declined'));})();</script>
+</body></html>
