@@ -1,72 +1,95 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — The Great Change UK</title>
-<meta name="description" content="Privacy Policy for The Great Change UK under UK GDPR.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--navy:#0f172a}
+:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1f5ff0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
 *{box-sizing:border-box} html,body{margin:0} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
-.wrap{max-width:900px;margin:0 auto;padding:0 16px}
-.header{position:sticky;top:0;background:linear-gradient(180deg,#1f5ff0,#1b55da);color:#fff;padding:16px}
-.footer{background:var(--navy);color:#cfd7e4;padding:24px 0;margin-top:24px} .footer a{color:#cfd7e4}
-h1{margin:0 0 6px}.muted{color:var(--muted)} h2{margin:18px 0 8px} p,li{line-height:1.6}
-</style>
-</head>
+a{color:#2563eb;text-decoration:none} .wrap{max-width:900px;margin:0 auto;padding:0 16px}
+/* Header/footer shell */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top)}
+.header::before,.header::after{content:none!important;display:none!important}.header *{background:transparent!important;border-radius:0!important;border:none!important;box-shadow:none!important}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.brand-name{color:#fff;font-weight:800;font-size:18px}
+.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6)}
+.nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+.nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
+@media(min-width:900px){.nav-toggle{display:none}} .header+*{margin-top:0!important}
+.hero{background:#f3f6ff;border-bottom:1px solid var(--line);padding:26px 0}
+h1{margin:0} .muted{color:var(--muted)} h2{margin:18px 0 8px} p,li{line-height:1.65}
+.table{width:100%;border-collapse:collapse;margin:10px 0} th,td{border:1px solid var(--line);padding:8px;text-align:left}
+.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:24px}.footer a{color:#cfd7e4}
+</style></head>
 <body>
-<header class="header"><div class="wrap"><a href="/" style="color:#fff;font-weight:800;text-decoration:none">The Great Change UK</a></div></header>
+<header class="header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+  <nav class="nav"><a href="/how-it-works.html">How it works</a><a href="/impact.html">Winners & donations</a><a class="cta" href="/subscribe.html">Subscribe</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap"><h1>Privacy Policy</h1><p class="muted">Last updated: 1 Sept 2025</p></div></section>
+
 <main class="wrap">
-  <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 1 Sept 2025</p>
+  <h2>Controller & contact</h2>
+  <p>The Great Change UK (company no. <strong>[Company number]</strong>, registered office <strong>[Registered office]</strong>) is the data controller. Contact: <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
 
-  <h2>Who we are</h2>
-  <p>The Great Change UK is the controller for your personal data. Contact: <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
-
-  <h2>Data we collect</h2>
+  <h2>What data we collect</h2>
   <ul>
-    <li><strong>Account & billing</strong> (via Stripe): name, email, card token/last4, billing country, transaction history.</li>
-    <li><strong>Verification</strong>: age and UK residency checks (documents or third-party checks) before paying prizes.</li>
-    <li><strong>Communications</strong>: emails you send to us and our responses.</li>
-    <li><strong>Site data</strong>: essential cookies/logs for security and consent. We do not currently use analytics or marketing cookies.</li>
+    <li><strong>Account & billing</strong> (via Stripe): name, email, masked payment details (token/last4), billing country, transaction history.</li>
+    <li><strong>Winner verification</strong>: age and UK residency checks (e.g., ID/address confirmation) where required before prize payment.</li>
+    <li><strong>Communications</strong>: messages you send us and our replies.</li>
+    <li><strong>Technical</strong>: essential cookies/consent logs; security and error logs.</li>
   </ul>
 
-  <h2>Why we use your data (lawful bases)</h2>
-  <ul>
-    <li><strong>Contract</strong>: operate subscriptions, run weekly draws, contact winners, pay prizes.</li>
-    <li><strong>Legal obligation</strong>: age/residency verification, financial record keeping, fraud prevention.</li>
-    <li><strong>Legitimate interests</strong>: security, service improvement, reporting, responding to enquiries.</li>
-    <li><strong>Consent</strong>: only if we introduce non-essential cookies or direct marketing (not currently used).</li>
-  </ul>
+  <h2>Purposes & lawful bases</h2>
+  <table class="table">
+    <thead><tr><th>Purpose</th><th>Lawful basis</th></tr></thead>
+    <tbody>
+      <tr><td>Process subscriptions, run draws, contact winners, pay prizes</td><td>Contract (Art 6(1)(b))</td></tr>
+      <tr><td>Age/residency verification, record-keeping, AML where applicable</td><td>Legal obligation (Art 6(1)(c))</td></tr>
+      <tr><td>Security, fraud prevention, service improvement, reporting</td><td>Legitimate interests (Art 6(1)(f))</td></tr>
+      <tr><td>Non-essential cookies or direct marketing (if introduced)</td><td>Consent (Art 6(1)(a))</td></tr>
+    </tbody>
+  </table>
 
   <h2>Sharing</h2>
-  <p>We share data with processors including Stripe (payments), email and hosting providers, and verification vendors (where required). We do not sell your personal data.</p>
+  <p>We use processors to deliver the service, including Stripe (payments), hosting/email providers, and (if required) verification vendors. We do not sell personal data.</p>
 
   <h2>International transfers</h2>
-  <p>If processors transfer data outside the UK/EEA, we rely on appropriate safeguards (such as UK IDTA/SCCs).</p>
+  <p>Where data is transferred outside the UK/EEA, we rely on appropriate safeguards (e.g., EU SCCs/UK IDTA) and supplementary measures where necessary.</p>
 
   <h2>Retention</h2>
   <ul>
-    <li>Billing and transaction records: as required by tax/financial laws.</li>
-    <li>Winner verification records: for required legal/accounting periods.</li>
-    <li>Support communications: as needed for operations and complaints handling.</li>
+    <li>Billing/transactions: retained for statutory tax/financial periods.</li>
+    <li>Winner verification: retained for legally required periods.</li>
+    <li>Support messages: retained as operationally necessary.</li>
+    <li>Consent records: retained to demonstrate compliance.</li>
   </ul>
 
   <h2>Your rights</h2>
-  <p>You can request access, rectification, erasure, restriction, objection, and portability where applicable. You also have the right to complain to the ICO: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+  <p>You may request access, rectification, erasure, restriction, objection, or portability where applicable. To exercise rights, email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>. You have the right to complain to the ICO (<a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>).</p>
 
-  <h2>Marketing</h2>
-  <p>We do not currently send marketing emails. If this changes, we will use opt-in consent and provide easy unsubscribe.</p>
+  <h2>Children</h2>
+  <p>Our service is for individuals aged 18+ only. We do not knowingly collect data from children.</p>
 
-  <h2>Contact</h2>
-  <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+  <h2>Security</h2>
+  <p>We use appropriate technical/organisational measures including encryption in transit, access controls, and limited retention.</p>
+
+  <h2>Changes</h2>
+  <p>We will update this policy if we materially change what we collect or how we use it (including any introduction of analytics/marketing cookies).</p>
 </main>
+
 <footer class="footer"><div class="wrap">
-  <a href="/terms/terms.html">Terms & Conditions</a> ·
-  <a href="/terms/cookies.html">Cookie Notice</a> ·
-  <a href="/terms/responsible.html">Responsible Gambling</a>
+  <a href="/terms/terms.html">Terms & Conditions</a> · <a href="/terms/cookies.html">Cookie Notice</a> · <a href="/terms/responsible.html">Responsible Gambling</a>
   <p style="margin-top:8px">© <span id="y"></span> The Great Change UK</p>
 </div></footer>
+
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body>
-</html>
+<script>(function(){const b=document.querySelector('.nav-toggle');if(!b)return;function o(){b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';const v=document.createElement('div');v.className='mobile-overlay';const s=document.createElement('div');s.className='mobile-sheet';s.innerHTML=`<a class="m-item" href="/how-it-works.html">How it works</a><a class="m-item" href="/impact.html">Winners & donations</a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;document.body.append(v,s);requestAnimationFrame(()=>s.classList.add('open'));function c(){b.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{v.remove();s.remove();},200);window.removeEventListener('keydown',e)}function e(x){if(x.key==='Escape')c()}v.addEventListener('click',c);window.addEventListener('keydown',e);b._close=c}b.addEventListener('click',e=>{e.preventDefault();(b.getAttribute('aria-expanded')==='true')?b._close&&b._close():o()})})()</script>
+<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
+  <div>We use essential cookies only. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
+  <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
+</div>
+<script>(function(){const b=document.getElementById('cookie'),ok=document.getElementById('c-ok'),no=document.getElementById('c-no'),K='cookieConsent';if(localStorage.getItem(K))b.style.display='none';function set(v){try{localStorage.setItem(K,v)}catch(e){}b.style.display='none'}ok&&ok.addEventListener('click',()=>set('accepted'));no&&no.addEventListener('click',()=>set('declined'))})();</script>
+</body></html>
