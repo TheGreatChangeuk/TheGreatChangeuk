@@ -7,197 +7,108 @@
 <meta name="description" content="£10/month subscription. Weekly prize draws supporting 10 UK charities. UK only, 18+. Cancel anytime.">
 
 <style>
-/* =========================
-   DESIGN TOKENS
-   ========================= */
+/* ===== Design tokens ===== */
 :root{
-  /* brand */
-  --blue-1:#1f4fe6;   /* primary */
-  --blue-2:#123bb5;   /* primary dark */
-  --ink:#0b1220;
-  --muted:#5f6b7a;
-  --line:#e7ecf2;
-  --bg:#f8fafc;
+  --ink:#0b1220; --muted:#5f6b7a; --line:#e7ecf2;
+  --blue:#1f4fe6; --blue2:#123bb5; --bg:#f7f9fc;
   --ok:#0ea765;
-  --alert:#e11d48;
-
-  /* effects */
-  --shadow-1:0 10px 30px rgba(0,0,0,.10);
-  --shadow-2:0 3px 16px rgba(0,0,0,.08);
-
-  /* type sizes with clamp for fluid scale */
-  --h1:clamp(32px, 4.2vw, 48px);
-  --h2:clamp(22px, 2.2vw, 28px);
-  --h3:clamp(18px, 2vw, 22px);
+  --shadow1:0 8px 24px rgba(0,0,0,.08);
+  --shadow2:0 2px 8px rgba(0,0,0,.06);
 }
-
 *{box-sizing:border-box}
 html,body{margin:0}
-body{
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--ink);
-  background:#fff;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 a{color:#1f4fe6;text-decoration:none}
-a:hover{text-decoration:underline}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 
-/* =========================
-   GLOBAL HEADER
-   ========================= */
-.header{
-  position:sticky; top:0; z-index:1000;
-  background:linear-gradient(180deg,var(--blue-1),var(--blue-2));
-  color:#fff; box-shadow:var(--shadow-2);
-}
-.bar{min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 12px}
-.brand-name{color:#fff; font-weight:800; letter-spacing:.2px; white-space:nowrap; font-size:18px}
+/* ===== Header (consistent across site) ===== */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow2)}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.brand-name{color:#fff;font-weight:800;letter-spacing:.2px;white-space:nowrap}
 .nav{display:none}
 @media(min-width:900px){
-  .nav{display:flex; gap:18px; align-items:center}
-  .nav a{color:#eaf1ff}
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:#eef4ff}
   .nav a:hover{color:#fff}
-  .nav .cta{
-    background:#fff; color:#0b1220; font-weight:800;
-    padding:10px 14px; border-radius:12px; box-shadow:var(--shadow-2);
-  }
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow2)}
 }
-.nav-toggle{
-  display:flex; align-items:center; justify-content:center;
-  width:42px; height:42px; border-radius:10px; border:1.5px solid rgba(255,255,255,.6);
-  background:transparent; color:#fff; cursor:pointer;
-}
-.nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{
-  content:""; display:block; width:20px; height:2px; background:#fff; border-radius:2px
-}
-.nav-toggle .bars{position:relative}
-.nav-toggle .bars:before{position:absolute; top:-6px}
-.nav-toggle .bars:after{position:absolute; top:6px}
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:#0000;color:#fff}
+.nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+.nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
+@media(min-width:900px){.nav-toggle{display:none}}
 
-/* =========================
-   HERO
-   ========================= */
+/* ===== Hero ===== */
 .hero{
-  color:#fff; text-align:center; padding:48px 0 32px;
+  color:#fff;text-align:center;padding:56px 0 34px;
   background:
     radial-gradient(1100px 360px at 50% -220px, rgba(255,255,255,.25), transparent 60%),
-    linear-gradient(180deg,var(--blue-1),var(--blue-2));
+    linear-gradient(180deg,var(--blue),var(--blue2));
 }
-.badge{
-  display:inline-block; padding:8px 14px; border-radius:999px; font-weight:800;
-  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35);
-}
-.hero h1{font-size:var(--h1); margin:12px 0 8px; letter-spacing:.2px}
-.hero p{color:#e7efff; max-width:760px; margin:0 auto 2px}
-.hero-note{color:#e7efff; opacity:.95}
-
-/* Prize glass card */
-.hero .panel{
-  margin:18px auto 0; max-width:560px;
-  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35);
-  border-radius:16px; padding:18px; backdrop-filter:blur(6px)
-}
-.kicker{font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:#c7d2fe; font-weight:800}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35)}
+.hero h1{margin:14px 0 8px;font-size:clamp(32px,4.2vw,46px);letter-spacing:.2px}
+.hero p{color:#e7efff;max-width:760px;margin:0 auto}
+.panel{margin:18px auto 0;max-width:560px;background:#ffffff14;border:1px solid #ffffff3a;border-radius:16px;padding:18px;backdrop-filter:blur(6px)}
+.kicker{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#c7d2fe;font-weight:800}
 .pot{
-  display:inline-block; margin-top:6px;
-  font-weight:900; font-size:clamp(34px,4.8vw,48px);
-  background:#0b1220; color:#fff; padding:8px 16px; border-radius:12px
+  display:inline-block;margin-top:8px;
+  font-weight:900;font-size:clamp(34px,4.8vw,50px);
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;padding:10px 22px;border-radius:999px;box-shadow:var(--shadow2)
 }
-.btn{
-  display:inline-block; border-radius:12px; padding:12px 18px; font-weight:800; text-decoration:none;
-  box-shadow:var(--shadow-2); transition:transform .06s ease, box-shadow .2s ease;
-}
+.btn{display:inline-block;border-radius:12px;padding:12px 18px;font-weight:800;text-decoration:none;box-shadow:var(--shadow2)}
 .btn:active{transform:translateY(1px)}
-.btn-primary{background:#fff; color:#0b1220}
-.btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.7); box-shadow:none}
+.btn-primary{background:#fff;color:#0b1220}
+.btn-ghost{background:#0000;color:#fff;border:1px solid rgba(255,255,255,.7);box-shadow:none}
+.hero-note{color:#e7efff;opacity:.95;margin-top:10px}
 
-/* =========================
-   TRUST STRIP
-   ========================= */
-.trust{
-  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
-  color:#475569; background:#eef2ff; border-top:1px solid #dbeafe; border-bottom:1px solid #dbeafe; padding:10px;
-}
-.trust span{display:inline-block; border:1px dashed #cbd5e1; border-radius:999px; padding:6px 10px; background:#fff}
-
-/* =========================
-   CONTENT SECTIONS
-   ========================= */
+/* ===== Sections ===== */
 .section{padding:28px 0}
-h2{font-size:var(--h2); margin:0 0 10px}
-h3{font-size:var(--h3); margin:2px 0 6px}
-.card{
-  background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:var(--shadow-2)
-}
-.grid3{display:grid; gap:12px}
-@media(min-width:960px){.grid3{grid-template-columns:1fr 1fr 1fr}}
-.card p{margin:0; color:var(--muted); line-height:1.6}
+h2{margin:0 0 10px;font-size:clamp(22px,2.2vw,28px)}
+h3{margin:2px 0 6px;font-size:clamp(18px,2vw,22px)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow2)}
+.grid2{display:grid;gap:12px}
+.grid3{display:grid;gap:12px}
+@media(min-width:960px){.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr 1fr}}
+p.muted{color:var(--muted);margin:0}
 
-/* How it works timeline */
-.timeline{display:grid; gap:12px; margin-top:6px}
-.step{
-  display:grid; grid-template-columns:36px 1fr; gap:10px; align-items:flex-start;
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px
-}
-.dot{
-  width:36px; height:36px; border-radius:999px; background:#e5edff; display:flex; align-items:center; justify-content:center;
-  font-weight:900; color:#1e40af
-}
+/* Steps (no icons) */
+.step{border-left:4px solid var(--blue);padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
 
-/* Charities strip */
-.charities{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
-.logo-tag{border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:#fff; color:#0b1220}
+/* Trust strip */
+.trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#475569;background:#eef2ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe;padding:10px}
+.trust span{display:inline-block;border:1px dashed #cbd5e1;border-radius:999px;padding:6px 10px;background:#fff}
 
 /* Testimonial */
-.quote{
-  background:#0b1220; color:#e2e8f0; border-radius:16px; padding:18px; box-shadow:var(--shadow-1); border:1px solid #111827
-}
+.quote{background:#0b1220;color:#e2e8f0;border-radius:16px;padding:18px;box-shadow:var(--shadow1);border:1px solid #111827}
 .quote b{color:#fff}
 
 /* CTA band */
-.band{background:#f3f6ff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0; text-align:center}
-.band .btn{margin-top:8px}
+.band{background:#f3f6ff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;text-align:center}
 
-/* =========================
-   GLOBAL FOOTER
-   ========================= */
-.footer{background:#0f172a; color:#cfd7e4; padding:24px 0; margin-top:28px}
+/* ===== Footer (consistent) ===== */
+.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:28px}
 .footer a{color:#cfd7e4}
-.footer h4{color:#fff; margin:0 0 8px}
-.brand-name--footer{color:#fff; font-weight:800}
+.footer h4{color:#fff;margin:0 0 8px}
+.brand-name--footer{color:#fff;font-weight:800}
 
-/* =========================
-   MOBILE MENU (solid sheet)
-   ========================= */
-.mobile-overlay{position:fixed; inset:0; background:#0b1220cc; z-index:1200}
-.mobile-sheet{
-  position:fixed; left:0; right:0; bottom:0; z-index:1300; background:#fff;
-  border-radius:16px 16px 0 0; padding:18px; box-shadow:0 -12px 30px rgba(0,0,0,.25);
-  transform:translateY(100%); transition:transform .25s ease;
-}
+/* ===== Mobile menu (solid, not see-through) ===== */
+.mobile-overlay{position:fixed;inset:0;background:#0b1220cc;z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
 .mobile-sheet.open{transform:translateY(0)}
-.m-item{display:block; text-decoration:none; color:#0b1220; font-weight:800; padding:14px 12px; border:1px solid var(--line); border-radius:12px; margin-bottom:12px}
-.m-cta{display:block; width:100%; text-align:center; border-radius:12px; background:var(--blue-1); color:#fff; font-weight:800; padding:12px 14px}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;padding:12px 14px}
 
-/* =========================
-   COOKIE BANNER (Accept/Decline)
-   ========================= */
-.cookie{
-  position:fixed; left:0; right:0; bottom:0; z-index:2000;
-  background:#0f172a; color:#fff; padding:12px 14px; display:flex; gap:10px; justify-content:space-between; align-items:center;
-  box-shadow:0 -2px 10px rgba(0,0,0,.25)
-}
-.cb{display:flex; gap:8px}
-.cbtn{border:1px solid #d1d5db; background:#fff; color:#0f172a; border-radius:10px; padding:8px 12px; font-weight:700}
-.cbtn.ok{background:var(--blue-1); color:#fff; border:none}
-@media(max-width:600px){.cookie{flex-direction:column; text-align:center}.cb{justify-content:center}}
+/* ===== Cookie banner ===== */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+.cb{display:flex;gap:8px}
+.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
+.cbtn.ok{background:var(--blue);color:#fff;border:none}
+@media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
 </style>
 </head>
 <body data-page="home">
 
-<!-- ===== Header (identical sitewide) ===== -->
+<!-- ===== Header ===== -->
 <header class="header" role="banner">
   <div class="wrap bar">
     <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
@@ -223,17 +134,17 @@ h3{font-size:var(--h3); margin:2px 0 6px}
         <div class="kicker">This week’s prize pot</div>
         <div class="pot" aria-live="polite">£3,250</div>
         <p style="margin:10px 0 0">Draw: Friday 8pm · Winner published after verification</p>
-        <div style="margin-top:12px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
+        <div style="margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <a class="btn btn-primary" href="/subscribe.html">Subscribe now</a>
           <a class="btn btn-ghost" href="/how-it-works.html">How it works</a>
         </div>
       </div>
 
-      <p class="hero-note" style="margin-top:10px">Secure via Stripe · Apple Pay · Google Pay · Visa · Mastercard</p>
+      <p class="hero-note">Secure via Stripe · Apple Pay · Google Pay · Visa · Mastercard</p>
     </div>
   </section>
 
-  <!-- ===== Trust bar ===== -->
+  <!-- ===== Trust strip ===== -->
   <div class="trust" aria-label="Trust information">
     <span>Cancel anytime</span>
     <span>Transparent donations</span>
@@ -241,76 +152,58 @@ h3{font-size:var(--h3); margin:2px 0 6px}
     <span>Stripe secure payments</span>
   </div>
 
-  <!-- ===== Why join ===== -->
+  <!-- ===== Why join (clear value) ===== -->
   <section class="wrap section">
     <h2>Why join</h2>
     <div class="grid3">
       <div class="card">
         <h3>Weekly entries</h3>
-        <p>One active subscription = one entry in each weekly draw during your paid month.</p>
+        <p class="muted">One active subscription = one entry in each weekly draw during your paid month.</p>
       </div>
       <div class="card">
         <h3>Support 10 charities</h3>
-        <p>Choose your cause at checkout; we publish monthly donation totals.</p>
+        <p class="muted">Choose your cause at checkout; we publish monthly donation totals.</p>
       </div>
       <div class="card">
         <h3>Easy to manage</h3>
-        <p>Manage or cancel anytime via the link in your Stripe receipt.</p>
+        <p class="muted">Manage or cancel anytime via the link in your Stripe receipt.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== How it works (timeline) ===== -->
-  <section class="wrap section" aria-labelledby="how">
-    <h2 id="how">How it works</h2>
-    <div class="timeline">
-      <div class="step"><div class="dot">1</div><div><b>Subscribe for £10/month</b><br><span style="color:#64748b">Checkout with Stripe (Apple Pay, Google Pay, Visa, Mastercard).</span></div></div>
-      <div class="step"><div class="dot">2</div><div><b>Automatic weekly entries</b><br><span style="color:#64748b">You’re in every Friday draw during your paid month.</span></div></div>
-      <div class="step"><div class="dot">3</div><div><b>Winner announced</b><br><span style="color:#64748b">We publish an anonymised ID after verification and pay the prize.</span></div></div>
+  <!-- ===== How it works (no icons, just clarity) ===== -->
+  <section class="wrap section">
+    <h2>How it works</h2>
+    <div class="grid2">
+      <div class="step"><strong>1) Subscribe for £10/month.</strong> Checkout with Stripe (Apple Pay, Google Pay, cards).</div>
+      <div class="step"><strong>2) Weekly entries automatically.</strong> You’re in every Friday draw during your paid month.</div>
+      <div class="step"><strong>3) Verified winner.</strong> We publish an anonymised ID after verification and pay the prize.</div>
+      <div class="step"><strong>4) Give back.</strong> We publish monthly donation totals across our 10 supported UK charities.</div>
     </div>
   </section>
 
-  <!-- ===== Social proof + charities ===== -->
-  <section class="wrap section" style="display:grid; gap:12px">
+  <!-- ===== Social proof ===== -->
+  <section class="wrap section" style="display:grid;gap:12px">
     <div class="quote">
       <div class="kicker" style="color:#94a3b8">What players say</div>
-      <p style="margin:8px 0 0">“<b>Super smooth</b> sign-up and I love that part of my fee supports UK causes. Friday draws are a nice little buzz.”</p>
-      <p style="margin:6px 0 0; color:#94a3b8">— Subscriber from Manchester</p>
-    </div>
-
-    <div style="text-align:center">
-      <div class="kicker">Our partners</div>
-      <h2 style="margin:6px 0 10px">We support 10 UK charities</h2>
-      <div class="charities">
-        <span class="logo-tag">British Red Cross</span>
-        <span class="logo-tag">Mind</span>
-        <span class="logo-tag">Shelter</span>
-        <span class="logo-tag">NSPCC</span>
-        <span class="logo-tag">RNLI</span>
-        <span class="logo-tag">Macmillan</span>
-        <span class="logo-tag">Age UK</span>
-        <span class="logo-tag">Trussell Trust</span>
-        <span class="logo-tag">Cancer Research UK</span>
-        <span class="logo-tag">Great Ormond Street</span>
-      </div>
-      <p style="margin-top:10px; color:#64748b">See monthly totals on our <a href="/impact.html">Winners & donations</a> page.</p>
+      <p style="margin:8px 0 0">“<b>So simple</b> to join, and I like that part of my subscription goes to UK charities. Friday draws are a nice buzz.”</p>
+      <p style="margin:6px 0 0;color:#94a3b8">— Subscriber from Manchester</p>
     </div>
   </section>
 
-  <!-- ===== CTA band ===== -->
+  <!-- ===== Final CTA ===== -->
   <section class="band">
     <div class="wrap">
-      <div class="kicker">Ready?</div>
       <h2 style="margin:6px 0 6px">Join today for £10/month</h2>
-      <p style="margin:0; color:#64748b">UK residents only, 18+. Cancel anytime.</p>
+      <p class="muted" style="margin:0 0 10px">UK residents only, 18+. Cancel anytime.</p>
       <a class="btn btn-primary" href="/subscribe.html">Go to secure checkout</a>
     </div>
   </section>
 </main>
 
-<!-- ===== Footer (identical sitewide) ===== -->
+<!-- ===== Footer ===== -->
 <footer class="footer" role="contentinfo">
-  <div class="wrap" style="display:grid; grid-template-columns:1fr; gap:18px">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
     <div>
       <span class="brand-name--footer">The Great Change UK</span>
       <p>UK residents only, 18+. Please play responsibly.</p>
@@ -333,11 +226,11 @@ h3{font-size:var(--h3); margin:2px 0 6px}
 
 <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 
-<!-- ===== Mobile menu (solid, consistent, not see-through) ===== -->
+<!-- ===== Mobile menu (solid sheet) ===== -->
 <script>
 (function(){
   const btn=document.querySelector('.nav-toggle'); if(!btn) return;
-  const items=[
+  const links=[
     {label:'Home',href:'/'},
     {label:'How it works',href:'/how-it-works.html'},
     {label:'Winners & donations',href:'/impact.html'},
@@ -347,17 +240,13 @@ h3{font-size:var(--h3); margin:2px 0 6px}
     btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
     const ov=document.createElement('div'); ov.className='mobile-overlay';
     const sh=document.createElement('div'); sh.className='mobile-sheet';
-    sh.innerHTML = items.map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('')
-                + `<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    sh.innerHTML = links.map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('') + `<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
     document.body.append(ov,sh); requestAnimationFrame(()=>sh.classList.add('open'));
     function close(){btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sh.classList.remove('open'); setTimeout(()=>{ov.remove();sh.remove();},200); window.removeEventListener('keydown',esc);}
     function esc(e){ if(e.key==='Escape') close(); }
     ov.addEventListener('click', close); window.addEventListener('keydown', esc); btn._close=close;
   }
-  btn.addEventListener('click', e=>{
-    e.preventDefault();
-    (btn.getAttribute('aria-expanded')==='true') ? (btn._close&&btn._close()) : open();
-  });
+  btn.addEventListener('click', e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true') ? (btn._close&&btn._close()) : open();});
 })();
 </script>
 
@@ -368,10 +257,7 @@ h3{font-size:var(--h3); margin:2px 0 6px}
 </div>
 <script>
 (function(){
-  const bar=document.getElementById('cookie'),
-        ok=document.getElementById('c-ok'),
-        no=document.getElementById('c-no'),
-        KEY='cookieConsent';
+  const bar=document.getElementById('cookie'), ok=document.getElementById('c-ok'), no=document.getElementById('c-no'), KEY='cookieConsent';
   if(localStorage.getItem(KEY)) bar.style.display='none';
   function set(v){ try{localStorage.setItem(KEY,v)}catch(e){} bar.style.display='none'; }
   ok&&ok.addEventListener('click', ()=>set('accepted'));
