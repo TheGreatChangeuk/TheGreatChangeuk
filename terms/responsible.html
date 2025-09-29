@@ -1,65 +1,204 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Responsible Gambling — The Great Change UK</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1f5ff0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
-*{box-sizing:border-box} html,body{margin:0} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
-a{color:#2563eb;text-decoration:none} .wrap{max-width:900px;margin:0 auto;padding:0 16px}
-/* shell */
+:root{
+  --ink:#0b1220; --muted:#5f6b7a; --line:#e7ecf2;
+  --blue:#1f5ff0; --blue2:#1b55da; --navy:#0f172a;
+  --shadow:0 2px 8px rgba(0,0,0,.08)
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:#2563eb;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Header (global) */
 .header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top)}
-.header::before,.header::after{content:none!important;display:none!important}.header *{background:transparent!important;border-radius:0!important;border:none!important;box-shadow:none!important}
-.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.brand-name{color:#fff;font-weight:800;font-size:18px}
-.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+.header *{background:transparent;border:0;box-shadow:none}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.brand-name{color:#fff;font-weight:800;font-size:18px;letter-spacing:.2px;white-space:nowrap}
+.nav{display:none}
+@media(min-width:900px){
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:#eef4ff}
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6)}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
-@media(min-width:900px){.nav-toggle{display:none}} .header+*{margin-top:0!important}
-.hero{background:#f3f6ff;border-bottom:1px solid var(--line);padding:26px 0}
-h1{margin:0} .muted{color:var(--muted)}
-.box{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fafcff}
-.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:24px}.footer a{color:#cfd7e4}
-</style></head>
-<body>
-<header class="header"><div class="wrap bar">
-  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
-  <nav class="nav"><a href="/how-it-works.html">How it works</a><a href="/impact.html">Winners & donations</a><a class="cta" href="/subscribe.html">Subscribe</a></nav>
-</div></header>
+@media(min-width:900px){.nav-toggle{display:none}}
+.header+*{margin-top:0!important}
 
-<section class="hero"><div class="wrap"><h1>Responsible Gambling</h1><p class="muted">18+ · UK residents only. Please play responsibly.</p></div></section>
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;padding:30px 0;text-align:center}
+.hero h1{margin:12px 0 0}
+.hero p{color:#e5edff;margin:6px 0 0}
 
-<main class="wrap">
-  <h2>Play safely</h2>
-  <div class="box"><ul>
-    <li>Set a monthly budget you can afford; never chase losses.</li>
-    <li>Keep play fun — not an income source.</li>
-    <li>Take breaks and review spending regularly.</li>
-    <li>Contact us to close or self-exclude your account at any time.</li>
-  </ul></div>
+/* Content */
+.section{padding:22px 0}
+h2{color:#0b1220;margin-top:22px}
+p,li{line-height:1.6}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:860px){.grid{grid-template-columns:1fr 1fr}}
 
-  <h2>Self-exclusion & account closure</h2>
-  <p>Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a> with the subject “Self-Exclusion”. We will confirm by email and disable entries for the exclusion period you request (minimum 6 months if you prefer a formal exclusion; immediate closure available on request).</p>
+/* Footer (global) */
+.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:28px}
+.footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}
+.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
 
-  <h2>Support & advice</h2>
-  <ul>
-    <li><strong>BeGambleAware</strong> — 0808 8020 133 — <a href="https://www.begambleaware.org" target="_blank" rel="noopener">begambleaware.org</a></li>
-    <li><strong>GamCare</strong> — 0808 8020 133 — <a href="https://www.gamcare.org.uk" target="_blank" rel="noopener">gamcare.org.uk</a></li>
-  </ul>
+/* Mobile menu (bottom sheet) */
+.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
+.mobile-sheet.open{transform:translateY(0)}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
 
-  <h2>Age & residency checks</h2>
-  <p>We verify winners (18+ and UK residency) before paying prizes. If verification fails, entries and prizes may be void.</p>
+/* Cookie banner (essential only) */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center}
+.cb{display:flex;gap:8px}
+.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
+.cbtn.ok{background:#2563eb;color:#fff;border:none}
+@media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
+</style>
+</head>
+<body data-page="responsible">
 
-  <h2>Transparency</h2>
-  <p>We publish anonymised winner IDs weekly and donation totals monthly on our <a href="/impact.html">Winners & donations</a> page.</p>
-</main>
+<!-- Header -->
+<header class="header" role="banner">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+    <nav class="nav" aria-label="Primary">
+      <a href="/how-it-works.html" data-nav="how">How it works</a>
+      <a href="/impact.html" data-nav="impact">Winners & donations</a>
+      <a class="cta" href="/subscribe.html" data-nav="subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
 
-<footer class="footer"><div class="wrap">
-  <a href="/terms/terms.html">Terms & Conditions</a> · <a href="/terms/privacy.html">Privacy Policy</a> · <a href="/terms/cookies.html">Cookie Notice</a>
-  <p style="margin-top:8px">© <span id="y"></span> The Great Change UK</p>
-</div></footer>
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Responsible Gambling</h1>
+    <p>18+ · UK residents only. Please play responsibly.</p>
+  </div>
+</section>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-<script>(function(){const b=document.querySelector('.nav-toggle');if(!b)return;function o(){b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';const v=document.createElement('div');v.className='mobile-overlay';const s=document.createElement('div');s.className='mobile-sheet';s.innerHTML=`<a class="m-item" href="/how-it-works.html">How it works</a><a class="m-item" href="/impact.html">Winners & donations</a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;document.body.append(v,s);requestAnimationFrame(()=>s.classList.add('open'));function c(){b.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{v.remove();s.remove();},200);window.removeEventListener('keydown',e)}function e(x){if(x.key==='Escape')c()}v.addEventListener('click',c);window.addEventListener('keydown',e);b._close=c}b.addEventListener('click',e=>{e.preventDefault();(b.getAttribute('aria-expanded')==='true')?b._close&&b._close():o()})})()</script>
-</body></html>
+<!-- Content -->
+<section class="wrap section" style="max-width:1000px">
+  <div class="grid">
+    <div class="card">
+      <h2>Stay in control</h2>
+      <ul>
+        <li>Set a monthly budget you can afford.</li>
+        <li>Keep play fun — not a way to make money.</li>
+        <li>Don’t chase losses; take regular breaks.</li>
+        <li>Track your spend; consider limiting play time.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Self-exclusion & account closure</h2>
+      <p>We can help you pause or stop play.</p>
+      <ul>
+        <li><strong>Self-exclusion:</strong> Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a> with subject “Self-Exclusion”. We’ll confirm and disable entries for your chosen period (min. 6 months if preferred).</li>
+        <li><strong>Account closure:</strong> Ask us to close your account at any time.</li>
+      </ul>
+      <p>During self-exclusion, we take reasonable steps to prevent re-subscription.</p>
+    </div>
+
+    <div class="card">
+      <h2>Support & advice</h2>
+      <ul>
+        <li><strong>BeGambleAware</strong> — 0808 8020 133 — <a href="https://www.begambleaware.org" target="_blank" rel="noopener">begambleaware.org</a></li>
+        <li><strong>GamCare</strong> — 0808 8020 133 — <a href="https://www.gamcare.org.uk" target="_blank" rel="noopener">gamcare.org.uk</a></li>
+        <li><strong>National Gambling Helpline</strong> — 24/7 freephone 0808 8020 133</li>
+        <li>Consider device-level blocking tools and bank gambling blocks, where available.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Age verification</h2>
+      <p>We verify prize winners (18+ and UK residency) before paying prizes. If verification fails, entries and prizes may be void.</p>
+      <h2 style="margin-top:14px">Risk information</h2>
+      <p>Weekly draws are games of chance — outcomes are random and cannot be predicted. Only play if you can afford to lose.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Contact us</h2>
+    <p>If you’re concerned about your play or someone else’s, email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a> — we’ll respond with options and support resources.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
+    <div>
+      <span class="brand-name--footer">The Great Change UK</span>
+      <p>UK residents only, 18+. Please play responsibly.</p>
+      <p>© <span id="year"></span> The Great Change UK</p>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="/terms/terms.html">Terms & Conditions</a><br>
+      <a href="/terms/privacy.html">Privacy Policy</a><br>
+      <a href="/terms/cookies.html">Cookie Notice</a><br>
+      <a href="/terms/responsible.html">Responsible Gambling</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="/contact.html">Contact</a> ·
+      <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+
+<!-- Mobile menu (identical; hides current page) -->
+<script>
+(function(){
+  const btn=document.querySelector('.nav-toggle'); if(!btn) return;
+  const current=(document.body.dataset.page||'').trim();
+  const items=[
+    {key:'home',label:'Home',href:'/'},
+    {key:'how',label:'How it works',href:'/how-it-works.html'},
+    {key:'impact',label:'Winners & donations',href:'/impact.html'},
+    {key:'contact',label:'Contact',href:'/contact.html'}
+  ];
+  function open(){
+    btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+    const overlay=document.createElement('div'); overlay.className='mobile-overlay';
+    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
+    const list=items.filter(i=>i.key!==current).map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('');
+    sheet.innerHTML = `${list}<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(overlay, sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
+    function close(){btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{overlay.remove(); sheet.remove();},200); window.removeEventListener('keydown', esc);}
+    function esc(e){ if(e.key==='Escape') close(); }
+    overlay.addEventListener('click', close); window.addEventListener('keydown', esc); btn._close=close;
+  }
+  btn.addEventListener('click', e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true') ? btn._close&&btn._close() : open();});
+})();
+</script>
+
+<!-- Cookie banner -->
+<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
+  <div>We use essential cookies to make this site work. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
+  <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
+</div>
+<script>
+(function(){
+  const bar=document.getElementById('cookie'), ok=document.getElementById('c-ok'), no=document.getElementById('c-no'), KEY='cookieConsent';
+  if(localStorage.getItem(KEY)) bar.style.display='none';
+  function set(v){ try{localStorage.setItem(KEY,v)}catch(e){} bar.style.display='none'; }
+  ok&&ok.addEventListener('click', ()=>set('accepted'));
+  no&&no.addEventListener('click', ()=>set('declined'));
+})();
+</script>
+
+</body>
+</html>
