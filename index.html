@@ -4,11 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Great Change UK — Win weekly. Fund UK charities.</title>
-<meta name="description" content="Join for £10/month. Enter weekly cash draws and help fund 10 UK charities. UK only, 18+. Cancel anytime.">
+<meta name="description" content="Join for £10/month. Weekly cash draws that help fund 10 UK charities. UK only, 18+. Cancel anytime.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
+/* ===== Design tokens ===== */
 :root{
   --ink:#0b1220; --muted:#5f6b7a; --line:#e7ecf2;
   --blue:#1f4fe6; --blue2:#123bb5; --bg:#f7f9fc;
+  --ok:#0ea765; --warn:#ef4444;
   --shadow1:0 8px 24px rgba(0,0,0,.08); --shadow2:0 2px 8px rgba(0,0,0,.06)
 }
 *{box-sizing:border-box} html,body{margin:0}
@@ -16,7 +19,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-se
 a{color:#1f4fe6;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 
-/* Header */
+/* ===== Header (consistent across site) ===== */
 .header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow2)}
 .bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
 .brand-name{color:#fff;font-weight:800;letter-spacing:.2px;white-space:nowrap}
@@ -32,9 +35,9 @@ a{color:#1f4fe6;text-decoration:none}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
 @media(min-width:900px){.nav-toggle{display:none}}
 
-/* Hero */
+/* ===== Hero ===== */
 .hero{
-  color:#fff;text-align:center;padding:56px 0 34px;
+  color:#fff;text-align:center;padding:58px 0 36px;
   background:
     radial-gradient(1100px 360px at 50% -220px, rgba(255,255,255,.25), transparent 60%),
     linear-gradient(180deg,var(--blue),var(--blue2));
@@ -56,7 +59,13 @@ a{color:#1f4fe6;text-decoration:none}
 .btn-ghost{background:#0000;color:#fff;border:1px solid rgba(255,255,255,.7);box-shadow:none}
 .hero-note{color:#e7efff;opacity:.95;margin-top:10px}
 
-/* Sections */
+/* ===== Credibility band ===== */
+.impact-band{background:#eef2ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe}
+.impact-wrap{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;padding:10px 0}
+.stat{display:flex;align-items:baseline;gap:8px;background:#fff;border:1px dashed #cbd5e1;border-radius:12px;padding:8px 12px}
+.stat strong{font-size:18px}
+
+/* ===== Sections ===== */
 .section{padding:28px 0}
 h2{margin:0 0 10px;font-size:clamp(22px,2.2vw,28px)}
 h3{margin:2px 0 6px;font-size:clamp(18px,2vw,22px)}
@@ -66,40 +75,37 @@ h3{margin:2px 0 6px;font-size:clamp(18px,2vw,22px)}
 @media(min-width:960px){.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr 1fr}}
 p.muted{color:var(--muted);margin:0}
 
-/* Impact split */
+/* Two things split */
 .split{display:grid;gap:12px}
 @media(min-width:980px){.split{grid-template-columns:1fr 1fr}}
 .slice{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
 .slice b{font-size:20px}
 
-/* Trust strip */
-.trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#475569;background:#eef2ff;border-top:1px solid #dbeafe;border-bottom:1px solid #dbeafe;padding:10px}
-.trust span{display:inline-block;border:1px dashed #cbd5e1;border-radius:999px;padding:6px 10px;background:#fff}
-
-/* Stories / testimonial */
+/* Testimonial */
 .quote{background:#0b1220;color:#e2e8f0;border-radius:16px;padding:18px;box-shadow:var(--shadow1);border:1px solid #111827}
 .quote b{color:#fff}
 
-/* Charities */
-.charities{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.logo-tag{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:#fff;color:#0b1220}
+/* Quick FAQ */
+.faq h3{margin:10px 0 6px}
+.faq .q{font-weight:800}
+.faq .a{color:var(--muted)}
 
 /* CTA band */
 .band{background:#f3f6ff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;text-align:center}
 
-/* Footer */
+/* ===== Footer ===== */
 .footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:28px}
 .footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}
 .brand-name--footer{color:#fff;font-weight:800}
 
-/* Mobile menu */
+/* ===== Mobile menu (solid, not see-through) ===== */
 .mobile-overlay{position:fixed;inset:0;background:#0b1220cc;z-index:1200}
 .mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
 .mobile-sheet.open{transform:translateY(0)}
 .m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
 .m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;padding:12px 14px}
 
-/* Cookie banner */
+/* ===== Cookie banner ===== */
 .cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
 .cb{display:flex;gap:8px}
 .cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
@@ -109,11 +115,13 @@ p.muted{color:var(--muted);margin:0}
 </head>
 <body data-page="home">
 
+<!-- ===== Header ===== -->
 <header class="header" role="banner">
   <div class="wrap bar">
     <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars"></span></button>
     <nav class="nav" aria-label="Primary">
+      <a href="/how-it-works.html">How it works</a>
       <a href="/impact.html">Winners & donations</a>
       <a href="/contact.html">Contact</a>
       <a class="cta" href="/subscribe.html">Subscribe</a>
@@ -122,7 +130,7 @@ p.muted{color:var(--muted);margin:0}
 </header>
 
 <main>
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="wrap">
       <span class="badge">£10/month · UK only · 18+</span>
@@ -143,22 +151,24 @@ p.muted{color:var(--muted);margin:0}
     </div>
   </section>
 
-  <!-- Trust strip -->
-  <div class="trust" aria-label="Trust information">
-    <span>Transparent donations</span>
-    <span>Cancel anytime</span>
-    <span>UK only · 18+</span>
-    <span>Stripe secure payments</span>
-  </div>
+  <!-- ===== Credibility / mini-impact band ===== -->
+  <section class="impact-band">
+    <div class="wrap impact-wrap" aria-label="Impact overview">
+      <div class="stat"><strong>30%</strong> donated to UK charities</div>
+      <div class="stat"><strong>Weekly</strong> cash winner (Fri 8pm)</div>
+      <div class="stat"><strong>10</strong> charities supported</div>
+      <div class="stat"><strong>Cancel</strong> anytime</div>
+    </div>
+  </section>
 
-  <!-- Your £10 does two things -->
+  <!-- ===== Your £10 does two things ===== -->
   <section class="wrap section">
     <h2>Your £10 does two things</h2>
     <div class="split">
       <div class="slice">
         <div>
           <b>Funds UK charities</b>
-          <p class="muted" style="margin-top:4px">We donate <strong>30%</strong> of all subscriptions to our supported UK charities and publish monthly totals.</p>
+          <p class="muted" style="margin-top:4px">We donate <strong>30%</strong> of all subscriptions to our supported charities and publish monthly totals.</p>
         </div>
       </div>
       <div class="slice">
@@ -168,20 +178,20 @@ p.muted{color:var(--muted);margin:0}
         </div>
       </div>
     </div>
-    <p class="muted" style="margin-top:10px">Full details on our <a href="/impact.html">Winners & donations</a> page.</p>
+    <p class="muted" style="margin-top:10px">See proof and recent winners on <a href="/impact.html">Winners & donations</a>.</p>
   </section>
 
-  <!-- Quick reasons (no icons) -->
+  <!-- ===== Reasons to join (no icons, clear copy) ===== -->
   <section class="wrap section">
     <h2>Why people join</h2>
     <div class="grid3">
       <div class="card">
         <h3>Real impact</h3>
-        <p class="muted">10 UK charities supported. We publish receipts and totals for transparency.</p>
+        <p class="muted">10 UK charities supported. We publish monthly donation totals for transparency.</p>
       </div>
       <div class="card">
         <h3>Weekly excitement</h3>
-        <p class="muted">Friday draws at 8pm (UK). Winner announced by anonymised ID after verification.</p>
+        <p class="muted">Friday draws at 8pm (UK). Anonymised winner ID published after verification.</p>
       </div>
       <div class="card">
         <h3>Easy & flexible</h3>
@@ -190,7 +200,7 @@ p.muted{color:var(--muted);margin:0}
     </div>
   </section>
 
-  <!-- Stories / social proof -->
+  <!-- ===== Social proof ===== -->
   <section class="wrap section" style="display:grid;gap:12px">
     <div class="quote">
       <div class="kicker" style="color:#94a3b8">What our community says</div>
@@ -199,25 +209,18 @@ p.muted{color:var(--muted);margin:0}
     </div>
   </section>
 
-  <!-- Charities strip -->
-  <section class="wrap section" style="text-align:center">
-    <h2>We support 10 UK charities</h2>
-    <div class="charities">
-      <span class="logo-tag">British Red Cross</span>
-      <span class="logo-tag">Mind</span>
-      <span class="logo-tag">Shelter</span>
-      <span class="logo-tag">NSPCC</span>
-      <span class="logo-tag">RNLI</span>
-      <span class="logo-tag">Macmillan</span>
-      <span class="logo-tag">Age UK</span>
-      <span class="logo-tag">Trussell Trust</span>
-      <span class="logo-tag">Cancer Research UK</span>
-      <span class="logo-tag">Great Ormond Street</span>
-    </div>
-    <p class="muted" style="margin-top:10px">Monthly donation totals are published on our <a href="/impact.html">Winners & donations</a> page.</p>
+  <!-- ===== Quick FAQ (tiny, keeps page light) ===== -->
+  <section class="wrap section faq" aria-labelledby="faq">
+    <h2 id="faq">Quick questions</h2>
+    <h3 class="q">Who can join?</h3>
+    <p class="a">UK residents aged 18+.</p>
+    <h3 class="q">How many entries do I get?</h3>
+    <p class="a">One active subscription = one entry in each weekly draw during your paid month.</p>
+    <h3 class="q">How do I cancel?</h3>
+    <p class="a">Use the link in your Stripe receipt to manage or cancel anytime.</p>
   </section>
 
-  <!-- Final CTA -->
+  <!-- ===== Final CTA ===== -->
   <section class="band">
     <div class="wrap">
       <h2 style="margin:6px 0 6px">Join for £10/month — make a great change</h2>
@@ -227,6 +230,7 @@ p.muted{color:var(--muted);margin:0}
   </section>
 </main>
 
+<!-- ===== Footer ===== -->
 <footer class="footer" role="contentinfo">
   <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
     <div>
@@ -251,12 +255,13 @@ p.muted{color:var(--muted);margin:0}
 
 <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 
-<!-- Mobile menu -->
+<!-- ===== Mobile menu (solid sheet) ===== -->
 <script>
 (function(){
   const btn=document.querySelector('.nav-toggle'); if(!btn) return;
   const links=[
     {label:'Home',href:'/'},
+    {label:'How it works',href:'/how-it-works.html'},
     {label:'Winners & donations',href:'/impact.html'},
     {label:'Contact',href:'/contact.html'}
   ];
@@ -274,7 +279,7 @@ p.muted{color:var(--muted);margin:0}
 })();
 </script>
 
-<!-- Cookie banner -->
+<!-- ===== Cookie banner (Accept/Decline) ===== -->
 <div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
   <div>We use essential cookies to make this site work. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
   <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
