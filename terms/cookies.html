@@ -1,67 +1,155 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cookie Notice — The Great Change UK</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1f5ff0;--blue2:#1b55da;--navy:#0f172a;--shadow:0 2px 8px rgba(0,0,0,.08)}
-*{box-sizing:border-box} html,body{margin:0} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
-a{color:#2563eb;text-decoration:none} .wrap{max-width:900px;margin:0 auto;padding:0 16px}
-/* header/footer */
+:root{
+  --ink:#0b1220; --muted:#5f6b7a; --line:#e7ecf2;
+  --blue:#1f5ff0; --blue2:#1b55da; --navy:#0f172a;
+  --shadow:0 2px 8px rgba(0,0,0,.08)
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:#2563eb;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Header */
 .header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top)}
-.header::before,.header::after{content:none!important;display:none!important}.header *{background:transparent!important;border-radius:0!important;border:none!important;box-shadow:none!important}
-.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.brand-name{color:#fff;font-weight:800;font-size:18px}
-.nav{display:none}@media(min-width:900px){.nav{display:flex;gap:18px}.nav a{color:#eef4ff}.nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.brand-name{color:#fff;font-weight:800;font-size:18px}
+.nav{display:none}
+@media(min-width:900px){
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:#eef4ff}
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px}
+}
 .nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6)}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
-@media(min-width:900px){.nav-toggle{display:none}} .header+*{margin-top:0!important}
-.hero{background:#f3f6ff;border-bottom:1px solid var(--line);padding:26px 0}
-h1{margin:0 0 6px}.sub{color:var(--muted)} h2{margin:18px 0 8px} p,li{line-height:1.65}
-table{width:100%;border-collapse:collapse;margin:8px 0} th,td{border:1px solid var(--line);padding:8px;text-align:left}
-.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:24px}.footer a{color:#cfd7e4}
-</style></head>
-<body>
-<header class="header"><div class="wrap bar">
-  <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
-  <nav class="nav"><a href="/how-it-works.html">How it works</a><a href="/impact.html">Winners & donations</a><a class="cta" href="/subscribe.html">Subscribe</a></nav>
-</div></header>
+@media(min-width:900px){.nav-toggle{display:none}}
 
-<section class="hero"><div class="wrap"><h1>Cookie Notice</h1><p class="sub">Last updated: 1 Sept 2025</p></div></section>
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;padding:30px 0;text-align:center}
+.hero h1{margin:12px 0 0}
+.hero p{color:#e5edff;margin:6px 0 0}
 
-<main class="wrap">
-  <h2>What are cookies?</h2>
-  <p>Cookies are small files placed on your device to make a website work, remember your choices, and (with consent) help us understand usage. We currently use only <strong>essential</strong> cookies and do not set analytics or marketing cookies by default.</p>
+/* Content */
+.section{padding:22px 0}
+h2{color:#0b1220;margin-top:22px}
+p,li{line-height:1.6}
+.table{width:100%;border-collapse:collapse;margin:8px 0 16px}
+.table th,.table td{border:1px solid var(--line);padding:10px;text-align:left}
+.table th{background:#f8fafc}
 
-  <h2>Cookies we use</h2>
-  <table>
-    <thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Expiry</th></tr></thead>
+/* Footer */
+.footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:28px}
+.footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}
+.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
+
+/* Mobile menu */
+.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+.mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
+.mobile-sheet.open{transform:translateY(0)}
+.m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
+
+/* Cookie banner */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center}
+.cb{display:flex;gap:8px}
+.cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
+.cbtn.ok{background:#2563eb;color:#fff;border:none}
+@media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
+</style>
+</head>
+<body data-page="cookies">
+
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+    <nav class="nav">
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/impact.html">Winners & donations</a>
+      <a class="cta" href="/subscribe.html">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Cookie Notice</h1>
+    <p>Last updated: 29 September 2025</p>
+  </div>
+</section>
+
+<section class="wrap section" style="max-width:1000px">
+  <h2>1. Use of cookies</h2>
+  <p>We use cookies and similar technologies to ensure this website works properly and to remember your preferences. We do not use marketing cookies by default.</p>
+
+  <h2>2. Types of cookies we use</h2>
+  <table class="table">
+    <thead><tr><th>Type</th><th>Purpose</th><th>Duration</th></tr></thead>
     <tbody>
-      <tr><td>cookieConsent</td><td>Essential</td><td>Stores your Accept/Decline choice</td><td>12 months</td></tr>
-      <tr><td>(Stripe cookies)</td><td>Essential (third-party)</td><td>Fraud prevention & secure checkout</td><td>Session / per Stripe policy</td></tr>
+      <tr><td>Essential</td><td>Required for site functionality (e.g. remembering cookie choices, navigation)</td><td>Session or up to 12 months</td></tr>
+      <tr><td>Analytics (optional)</td><td>If enabled in the future, to understand how visitors use the site (e.g. Plausible or GA4)</td><td>Varies (e.g. 13 months)</td></tr>
     </tbody>
   </table>
 
-  <h2>Consent & your choices</h2>
-  <ul>
-    <li>Our banner lets you Accept/Decline non-essential cookies (if we add them later).</li>
-    <li>You can block/clear cookies in your browser settings; essential cookies may be required for the site to function.</li>
-    <li>You may change or withdraw consent at any time by clearing cookies and reloading the site.</li>
-  </ul>
+  <h2>3. Managing cookies</h2>
+  <p>You can accept or decline optional cookies via the cookie banner. You can also control cookies through your browser settings. Essential cookies cannot be disabled as they are required for the site to function.</p>
 
-  <h2>Third parties</h2>
-  <p>Stripe may set essential cookies during checkout. Their processing is governed by Stripe’s policies.</p>
+  <h2>4. Updates</h2>
+  <p>We may update this Cookie Notice if we change our use of cookies. Any updates will appear on this page with a new “last updated” date.</p>
 
-  <h2>Changes</h2>
-  <p>We will update this notice and obtain consent before introducing any analytics/marketing cookies.</p>
-</main>
+  <h2>5. Contact</h2>
+  <p>Email us at <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a> if you have questions about cookies or consent.</p>
+</section>
 
-<footer class="footer"><div class="wrap">
-  <a href="/terms/terms.html">Terms & Conditions</a> · <a href="/terms/privacy.html">Privacy Policy</a> · <a href="/terms/responsible.html">Responsible Gambling</a>
-  <p style="margin-top:8px">© <span id="y"></span> The Great Change UK</p>
-</div></footer>
+<footer class="footer">
+  <div class="wrap">
+    <span class="brand-name--footer">The Great Change UK</span>
+    <p>© <span id="year"></span> The Great Change UK</p>
+    <p><a href="/terms/privacy.html">Privacy Policy</a> · <a href="/terms/cookies.html">Cookies</a> · <a href="/terms/responsible.html">Responsible Gambling</a></p>
+  </div>
+</footer>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-<script>(function(){const b=document.querySelector('.nav-toggle');if(!b)return;function o(){b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';const v=document.createElement('div');v.className='mobile-overlay';const s=document.createElement('div');s.className='mobile-sheet';s.innerHTML=`<a class="m-item" href="/how-it-works.html">How it works</a><a class="m-item" href="/impact.html">Winners & donations</a><a class="m-cta" href="/subscribe.html">Subscribe</a>`;document.body.append(v,s);requestAnimationFrame(()=>s.classList.add('open'));function c(){b.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{v.remove();s.remove();},200);window.removeEventListener('keydown',e)}function e(x){if(x.key==='Escape')c()}v.addEventListener('click',c);window.addEventListener('keydown',e);b._close=c}b.addEventListener('click',e=>{e.preventDefault();(b.getAttribute('aria-expanded')==='true')?b._close&&b._close():o()})})()</script>
-</body></html>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+
+<!-- Mobile menu -->
+<script>
+(function(){
+  const btn=document.querySelector('.nav-toggle'); if(!btn) return;
+  const current=(document.body.dataset.page||'').trim();
+  const items=[{key:'home',label:'Home',href:'/'},{key:'how',label:'How it works',href:'/how-it-works.html'},{key:'impact',label:'Winners & donations',href:'/impact.html'},{key:'contact',label:'Contact',href:'/contact.html'}];
+  function open(){
+    btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
+    const o=document.createElement('div'); o.className='mobile-overlay';
+    const s=document.createElement('div'); s.className='mobile-sheet';
+    const list=items.filter(i=>i.key!==current).map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('');
+    s.innerHTML=`${list}<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(o,s); requestAnimationFrame(()=>s.classList.add('open'));
+    function close(){btn.setAttribute('aria-expanded','false');document.body.style.overflow='';s.classList.remove('open');setTimeout(()=>{o.remove();s.remove();},200);window.removeEventListener('keydown',esc);}
+    function esc(e){if(e.key==='Escape') close();}
+    o.addEventListener('click',close);window.addEventListener('keydown',esc);btn._close=close;
+  }
+  btn.addEventListener('click',e=>{e.preventDefault();(btn.getAttribute('aria-expanded')==='true')?btn._close&&btn._close():open();});
+})();
+</script>
+
+<!-- Cookie banner -->
+<div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
+  <div>We use essential cookies to make this site work. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
+  <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
+</div>
+<script>
+(function(){
+  const bar=document.getElementById('cookie'), ok=document.getElementById('c-ok'), no=document.getElementById('c-no'), KEY='cookieConsent';
+  if(localStorage.getItem(KEY)) bar.style.display='none';
+  function set(v){localStorage.setItem(KEY,v);bar.style.display='none'}
+  ok.addEventListener('click',()=>set('accepted'));no.addEventListener('click',()=>set('declined'));
+})();
+</script>
+
+</body>
+</html>
