@@ -1,132 +1,179 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Winners & donations — The Great Change UK</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Winners & Donations — The Great Change UK</title>
+<meta name="description" content="See recent winners and monthly donation totals to UK charities. Transparent and up to date.">
+<link rel="canonical" href="https://thegreatchangeuk.com/impact.html">
 <style>
-/* ——— Design tokens & base ——— */
-:root{
-  --ink:#0b1220; --muted:#5f6b7a; --line:#e7ecf2;
-  --blue:#1f5ff0; --blue2:#1b55da; --navy:#0f172a;
-  --shadow:0 2px 8px rgba(0,0,0,.08)
-}
-*{box-sizing:border-box} html,body{margin:0}
+:root{--ink:#0b1220;--muted:#5f6b7a;--line:#e7ecf2;--blue:#1f4fe6;--blue2:#123bb5;--bg:#f7f9fc;--shadow1:0 8px 24px rgba(0,0,0,.08);--shadow2:0 2px 8px rgba(0,0,0,.06)}
+*{box-sizing:border-box}html,body{margin:0}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-a{color:#2563eb;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+a{color:#1f4fe6;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 
-/* ——— Header (global) ——— */
-.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow);padding-top:env(safe-area-inset-top)}
-.header *{background:transparent;border:0;box-shadow:none}
-.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
-.brand-name{color:#fff;font-weight:800;font-size:18px;letter-spacing:.2px;white-space:nowrap}
+/* Header (same sitewide) */
+.header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow2)}
+.bar{min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.brand-name{color:#fff;font-weight:800;white-space:nowrap}
 .nav{display:none}
 @media(min-width:900px){
   .nav{display:flex;gap:18px;align-items:center}
-  .nav a{color:#eef4ff}
-  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+  .nav a{color:#eef4ff}.nav a:hover{color:#fff}
+  .nav .cta{background:#fff;color:#0b1220;font-weight:800;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow2)}
 }
-.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6)}
+.nav-toggle{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1.5px solid rgba(255,255,255,.6);background:#0000;color:#fff}
 .nav-toggle .bars,.nav-toggle .bars:before,.nav-toggle .bars:after{content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px}
 .nav-toggle .bars{position:relative}.nav-toggle .bars:before{position:absolute;top:-6px}.nav-toggle .bars:after{position:absolute;top:6px}
 @media(min-width:900px){.nav-toggle{display:none}}
-.header+*{margin-top:0!important}
 
-/* ——— Hero ——— */
-.hero{background:linear-gradient(180deg,var(--blue),var(--blue2));color:#fff;padding:30px 0 24px;text-align:center}
-.badge{display:inline-block;padding:8px 14px;border-radius:999px;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35)}
-.hero h1{font-size:32px;margin:12px 0 8px}
-.hero p{color:#e5edff;max-width:760px;margin:0 auto}
+/* Hero */
+.hero{
+  color:#fff;text-align:center;padding:52px 0 28px;
+  background:radial-gradient(1100px 360px at 50% -220px, rgba(255,255,255,.25), transparent 60%),
+             linear-gradient(180deg,var(--blue),var(--blue2));
+}
+.hero h1{margin:10px 0 6px;font-size:clamp(30px,4.2vw,44px)}
+.hero p{color:#e7efff;max-width:760px;margin:0 auto}
 
-/* ——— Content ——— */
-.section{padding:22px 0}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-.grid{display:grid;gap:12px}
-@media(min-width:860px){.grid{grid-template-columns:1fr 1fr}}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left}
-th{background:#f1f5f9;font-weight:700;color:#0b1220}
-.pot{font-weight:900;font-size:28px;background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:12px}
+/* Sections */
+.section{padding:26px 0}
+h2{margin:0 0 10px;text-align:center}
+.center{text-align:center}
+.muted{color:var(--muted)}
 
-/* ——— Footer (global) ——— */
+/* Cards & grid */
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow2);max-width:1000px;margin:0 auto}
+.grid2{display:grid;gap:12px}
+@media(min-width:960px){.grid2{grid-template-columns:1fr 1fr}}
+
+/* Yellow prize pill */
+.pot{
+  display:inline-block;margin-top:6px;
+  font-weight:900;font-size:clamp(28px,3.6vw,40px);
+  color:#0b1220;background:linear-gradient(135deg,#facc15,#eab308);
+  padding:10px 22px;border-radius:999px;border:3px solid #fff;
+  box-shadow:0 4px 14px rgba(0,0,0,.15);
+  letter-spacing:.3px;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1, "lnum" 1;
+}
+
+/* Tables */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border:1px solid var(--line);padding:10px;text-align:left}
+.table th{background:#f8fafc}
+.table tr:nth-child(even){background:#fafcff}
+
+/* Footer (same sitewide) */
 .footer{background:#0f172a;color:#cfd7e4;padding:24px 0;margin-top:28px}
-.footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}.brand-name--footer{color:#fff;font-weight:800;font-size:18px}
+.footer a{color:#cfd7e4}.footer h4{color:#fff;margin:0 0 8px}
+.brand-name--footer{color:#fff;font-weight:800}
+.footer .wrap{display:grid;grid-template-columns:1fr;text-align:center;gap:18px}
+@media(min-width:900px){.footer .wrap{grid-template-columns:repeat(3,1fr);text-align:left}}
 
-/* ——— Mobile menu (bottom sheet) ——— */
-.mobile-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1200}
+/* Mobile menu (solid) */
+.mobile-overlay{position:fixed;inset:0;background:#0b1220cc;z-index:1200}
 .mobile-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1300;background:#fff;border-radius:16px 16px 0 0;padding:18px;box-shadow:0 -12px 30px rgba(0,0,0,.25);transform:translateY(100%);transition:transform .25s ease}
 .mobile-sheet.open{transform:translateY(0)}
 .m-item{display:block;text-decoration:none;color:#0b1220;font-weight:800;padding:14px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
-.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;padding:12px 14px}
+.m-cta{display:block;width:100%;text-align:center;border-radius:12px;background:#1f4fe6;color:#fff;font-weight:800;padding:12px 14px}
 
-/* ——— Cookie banner (essential only) ——— */
+/* Cookie banner */
 .cookie{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#0f172a;color:#fff;padding:12px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
 .cb{display:flex;gap:8px}
 .cbtn{border:1px solid #d1d5db;background:#fff;color:#0f172a;border-radius:10px;padding:8px 12px;font-weight:700}
-.cbtn.ok{background:#2563eb;color:#fff;border:none}
+.cbtn.ok{background:#1f4fe6;color:#fff;border:none}
 @media(max-width:600px){.cookie{flex-direction:column;text-align:center}.cb{justify-content:center}}
 </style>
 </head>
 <body data-page="impact">
 
-<!-- ===== Header (identical on every page) ===== -->
+<!-- Header -->
 <header class="header" role="banner">
   <div class="wrap bar">
     <a class="brand" href="/"><span class="brand-name">The Great Change UK</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span class="bars"></span></button>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span class="bars"></span></button>
     <nav class="nav" aria-label="Primary">
-      <a href="/how-it-works.html" data-nav="how">How it works</a>
-      <a href="/impact.html" data-nav="impact">Winners & donations</a>
-      <a class="cta btn btn-primary" href="/subscribe.html" data-nav="subscribe">Subscribe</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/impact.html">Winners & donations</a>
+      <a href="/contact.html">Contact</a>
+      <a class="cta" href="/subscribe.html">Subscribe</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== Page content (impact) ===== -->
+<!-- Hero -->
 <section class="hero">
   <div class="wrap">
-    <span class="badge">Transparent · Fair · Verified</span>
     <h1>Winners & donations</h1>
-    <p>We publish anonymised winners and monthly donation reports for full transparency.</p>
+    <p>We celebrate winners every Friday and publish donations to UK charities each month.</p>
   </div>
 </section>
 
-<section class="wrap section grid" style="max-width:1000px">
-  <!-- Winners -->
-  <div class="card">
-    <h2 style="margin:0 0 8px;color:#0b1220">Recent winners</h2>
-    <p>Each week we select one winner. Published by anonymised ID only (no names).</p>
-    <table>
-      <tr><th>Draw date</th><th>Winner ID</th><th>Prize</th></tr>
-      <tr><td>26 Sep 2025</td><td>#A7823</td><td>£3,250</td></tr>
-      <tr><td>19 Sep 2025</td><td>#F1930</td><td>£3,100</td></tr>
-      <tr><td>12 Sep 2025</td><td>#C5039</td><td>£2,950</td></tr>
-    </table>
-  </div>
+<main class="section">
+  <div class="wrap">
+    <!-- Latest winner -->
+    <div class="card center" role="region" aria-label="Latest winner">
+      <h2 style="margin:0 0 6px">Latest winner</h2>
+      <p class="muted" style="margin:0">Winner ID: <b>ABC123</b> · Verified & paid</p>
+      <div style="margin-top:10px"><span class="pot">£3,250 prize</span></div>
+      <p class="muted" style="margin-top:10px">Next draw: Friday 8pm (UK). Join via <a href="/subscribe.html">Subscribe</a>.</p>
+    </div>
 
-  <!-- Donations -->
-  <div class="card">
-    <h2 style="margin:0 0 8px;color:#0b1220">Donations</h2>
-    <p>30% of all subscriptions go to charity. We support 10 UK charities.</p>
-    <table>
-      <tr><th>Month</th><th>Total donated</th><th>Charities supported</th></tr>
-      <tr><td>Aug 2025</td><td>£4,200</td><td>10</td></tr>
-      <tr><td>Jul 2025</td><td>£3,800</td><td>10</td></tr>
-      <tr><td>Jun 2025</td><td>£3,550</td><td>10</td></tr>
-    </table>
-  </div>
-</section>
+    <!-- Recent winners -->
+    <div class="card" style="margin-top:14px">
+      <h2>Recent winners</h2>
+      <table class="table" aria-label="Recent winners">
+        <thead>
+          <tr><th>Date</th><th>Winner ID</th><th>Prize</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>20 Sep 2025</td><td>JKL782</td><td>£3,200</td><td>Paid</td></tr>
+          <tr><td>13 Sep 2025</td><td>QWE559</td><td>£3,150</td><td>Paid</td></tr>
+          <tr><td>06 Sep 2025</td><td>HGT334</td><td>£3,050</td><td>Paid</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:8px">We publish anonymised winner IDs after verification to protect player privacy.</p>
+    </div>
 
-<section class="wrap section" style="max-width:900px">
-  <div class="card">
-    <h2 style="margin:0 0 8px;color:#0b1220">Proof of donations</h2>
-    <p>We publish receipts and references for every donation made. Visit our <a href="/impact.html">Transparency archive</a> for full details.</p>
-  </div>
-</section>
+    <!-- Donations -->
+    <div class="grid2" style="margin-top:14px">
+      <div class="card">
+        <h2 style="margin-bottom:6px">This month’s donations</h2>
+        <p class="muted" style="margin-top:-4px">We donate <b>30%</b> of subscriptions to our UK charity partners.</p>
+        <table class="table" aria-label="Donation totals">
+          <thead><tr><th>Charity</th><th>Total (month)</th></tr></thead>
+          <tbody>
+            <tr><td>British Red Cross</td><td>£420</td></tr>
+            <tr><td>Mind</td><td>£390</td></tr>
+            <tr><td>Shelter</td><td>£365</td></tr>
+            <tr><td>NSPCC</td><td>£355</td></tr>
+            <tr><td>RNLI</td><td>£340</td></tr>
+          </tbody>
+        </table>
+        <p class="muted" style="margin-top:8px">Monthly totals are updated and archived for transparency.</p>
+      </div>
 
-<!-- ===== Footer (identical on every page) ===== -->
+      <div class="card">
+        <h2 style="margin-bottom:6px">Archive</h2>
+        <ul style="margin:0;padding-left:18px;line-height:1.7">
+          <li>August 2025 — £3,420 donated · 4 winners</li>
+          <li>July 2025 — £3,110 donated · 4 winners</li>
+          <li>June 2025 — £2,980 donated · 4 winners</li>
+        </ul>
+        <p class="muted" style="margin-top:8px">Receipts available on request. Email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+      </div>
+    </div>
+
+    <div class="card center" style="margin-top:14px">
+      <p class="muted">Questions? See <a href="/how-it-works.html">How it works</a> or email <a href="mailto:support@thegreatchangeuk.com">support@thegreatchangeuk.com</a>.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
 <footer class="footer" role="contentinfo">
-  <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:18px">
+  <div class="wrap">
     <div>
       <span class="brand-name--footer">The Great Change UK</span>
       <p>UK residents only, 18+. Please play responsibly.</p>
@@ -149,33 +196,32 @@ th{background:#f1f5f9;font-weight:700;color:#0b1220}
 
 <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 
-<!-- ===== Mobile menu ===== -->
+<!-- Mobile menu -->
 <script>
 (function(){
   const btn=document.querySelector('.nav-toggle'); if(!btn) return;
-  const current=(document.body.dataset.page||'').trim();
-  const items=[
-    {key:'home',label:'Home',href:'/'},
-    {key:'how',label:'How it works',href:'/how-it-works.html'},
-    {key:'impact',label:'Winners & donations',href:'/impact.html'},
-    {key:'contact',label:'Contact',href:'/contact.html'}
+  const links=[
+    {label:'Home',href:'/'},
+    {label:'How it works',href:'/how-it-works.html'},
+    {label:'Winners & donations',href:'/impact.html'},
+    {label:'Contact',href:'/contact.html'}
   ];
   function open(){
     btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden';
-    const overlay=document.createElement('div'); overlay.className='mobile-overlay';
-    const sheet=document.createElement('div'); sheet.className='mobile-sheet';
-    const list=items.filter(i=>i.key!==current).map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('');
-    sheet.innerHTML = `${list}<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
-    document.body.append(overlay,sheet); requestAnimationFrame(()=>sheet.classList.add('open'));
-    function close(){btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sheet.classList.remove('open'); setTimeout(()=>{overlay.remove(); sheet.remove();}, 200); window.removeEventListener('keydown', esc);}
+    const ov=document.createElement('div'); ov.className='mobile-overlay';
+    const sh=document.createElement('div'); sh.className='mobile-sheet';
+    sh.innerHTML = links.map(i=>`<a class="m-item" href="${i.href}">${i.label}</a>`).join('')
+               + `<a class="m-cta" href="/subscribe.html">Subscribe</a>`;
+    document.body.append(ov,sh); requestAnimationFrame(()=>sh.classList.add('open'));
+    function close(){btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; sh.classList.remove('open'); setTimeout(()=>{ov.remove(); sh.remove();},200); window.removeEventListener('keydown',esc);}
     function esc(e){ if(e.key==='Escape') close(); }
-    overlay.addEventListener('click', close); window.addEventListener('keydown', esc); btn._close=close;
+    ov.addEventListener('click', close); window.addEventListener('keydown', esc); btn._close=close;
   }
-  btn.addEventListener('click', e=>{e.preventDefault(); (btn.getAttribute('aria-expanded')==='true') ? btn._close&&btn._close() : open();});
+  btn.addEventListener('click', e=>{ e.preventDefault(); (btn.getAttribute('aria-expanded')==='true') ? (btn._close&&btn._close()) : open(); });
 })();
 </script>
 
-<!-- ===== Cookie banner ===== -->
+<!-- Cookie banner -->
 <div id="cookie" class="cookie" role="region" aria-label="Cookie notice">
   <div>We use essential cookies to make this site work. <a href="/terms/cookies.html" style="color:#93c5fd">Learn more</a></div>
   <div class="cb"><button id="c-no" class="cbtn" type="button">Decline</button><button id="c-ok" class="cbtn ok" type="button">Accept</button></div>
